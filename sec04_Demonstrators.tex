@@ -1,0 +1,59 @@
+
+En esta sección revisamos demos relevantes.
+IDEA: detallar para cada demostrador el camino completo "qué hace -> competencias/habilidades -> información usada -> sensores"
+
+Tabla con timeline de demostradores y las tecnologías de percepción que usan.
+Basado en la imagen \ref{fig:tech-demos}.
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.99\textwidth]{"img/AD_Timeline"}
+    \caption{Timeline of relevant technology demonstrators in automated driving}
+    \label{fig:tech-demos}
+\end{figure}
+
+\begin{table}[H]
+    \caption{Sensing technologies used in relevant AD demos}
+    %\centering
+    \begin{tabularx}{\linewidth}{L r c c c c c c c c}
+%        \toprule
+          &  & \multicolumn{8}{c}{\textbf{Perception technologies}} \\ 
+         \multirow{1}{*}{\textbf{Demo / entity}}   & \multirow{1}{*}{\textbf{Year}} & \rotatebox{90}{\textbf{Magnetic}}	& \rotatebox{90}{\textbf{Inertial}} & \rotatebox{90}{\textbf{GPS}} & \rotatebox{90}{\textbf{Vision}} & \rotatebox{90}{\textbf{Lidar}} & \rotatebox{90}{\textbf{Radar}} & \rotatebox{90}{\textbf{Sonar}} & \rotatebox{90}{\textbf{V2V comms}}  \\
+        \midrule
+        Prometheus (EUREKA, European Initiative)      & 1987  & - & X & - &  X &  - &  - &  - & - \\
+        Cybercar concept INRIA (France)               & 1991  & - & X & X &  X &  X &  - &  - & - \\
+        PATH Demo PATH partnership (UC Berkeley)      & 1997  & X & X & - &  X &  ? &  ? &  - & X \\
+        DARPA Challenge (Stanley, Stanford AI dept.)  & 2005  & - & X & X &  1 &  5 &  2 &  - & - \\
+        DARPA Urban Challenge (Boss, Carnegie Mellon) & 2007  & - & X & X &  2 & 13 &  5 &  - & - \\
+        Google "modified Prius"                       & 2009  & - & X & X &  1 &  1 &  4 &  - & - \\
+        VIAC Challenge (VisLab, Parma Univ.)          & 2010  & - & X & X &  3 &  4 &  - &  - & - \\
+        Audi Pikes Peak                               & 2011  & - & X & X &  - &  - &  - &  - & - \\
+        Great Cooperative Driving Challenge           & 2011  & - & X & X &  X &  X &  X &  - & X \\
+%        Thunderhill Raceway Park Audi                 & 2012  & ? & ? & ? &  ? &  ? &  ? &  ? & - \\
+        PROUD Project   (VisLab, Parma Univ.)         & 2013  & - & X & X &  4 &  3 &  - &  - & - \\
+        Bertha Project (Mercedes-Benz)                & 2013  & - & X & X &  3 &  - &  8 &  - & - \\
+        Firefly car (Google / Waymo)                  & 2014  & - & X & X &  X &  X &  X &  - & - \\
+        Autopilot 1   (Tesla)                         & 2014  & - & X & X &  1 &  - &  1 & 12 & - \\
+        SF-NY coast-2-coast (Delphi)                  & 2015  & - & X & - &  3 &  6 & 10 &  - & - \\
+        Silicon Valley - Las Vegas (Audi)             & 2015  & - & X & X &  5 &  2 &  4 &  - & - \\   
+        Autopilot 2 (Tesla)                           & 2016  & - & X & X &  8 &  - &  1 & 12 & - \\  
+        Budweiser delivery (Uber - Otto)              & 2016  & - & X & X & >4 &  1 &  ? &  ? & - \\
+        Automated Taxi at Singapore (NuTonomy)        & 2017  & - & ? & ? &  ? &  ? &  ? &  ? & - \\    
+%        \bottomrule
+    \end{tabularx}
+\end{table}
+
+Useful references:
+\begin{itemize}
+    \item Prometheus: 
+    \item INRIA Cybercar:
+    \item PATH Demo: \url{http://www.path.berkeley.edu/sites/default/files/documents/intel63.pdf} (DUDA: se habla de "laser radars"... sera lidar)
+    \item DARPA05 Stanford "Stanley":  \url{https://www-cs.stanford.edu/people/dstavens/jfr06/thrun_etal_jfr06.pdf}  
+    \item DARPA07 CMU "Boss":  \url{http://www.tartanracing.org/press/boss-glance.pdf} \url{http://www.andrew.cmu.edu/user/mnclark/(14)Clark.pdf}
+    \item Google autonomous vehicles: 
+    \item VIAC vehicles:  \url{http://viac.vislab.it/?page_id=159}
+    \item Bertha project:
+    \item Tesla autopilot: wiki
+    \item Delphi coast2coast: \url{https://newatlas.com/delphi-drive-completed/36859/}
+\end{itemize}

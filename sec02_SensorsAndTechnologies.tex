@@ -1,0 +1,245 @@
+
+En esta sección se discutirán las principales tecnologías de sensores (opcional: revisión de tecnologías emergentes).
+
+Debemos cubrir el arco "sensores -> datos -> información", que lleva desde los sensores crudos hasta información relevante en AD. Esto nos permite enganchar con la sección Problems and applications.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{"img/data_vs_information"}
+    \caption{Perception as a bridge between raw data and useful information}
+    \label{fig:data-vs-information}
+\end{figure}
+
+
+\subsection{Relevant information domains}
+
+The task of a perception system is to bridge the gap between sensors providing 
+data, and decision algorithms requiring information.
+A classical differentiation between both terms is the following: data is 
+composed by raw, unorganized facts that need to be processed. 
+Information is the name given to data that has been processed, organized, 
+structured and presented in a proper context.
+
+The fields of study of ADAS and Automated Driving systems are large and 
+heterogeneous.
+This makes necessary to use many types of information, that can be organized 
+according to the following taxonomy / The following taxonomy gives an idea of 
+the heterogeneity and complexity of ADAS/AD problems domain:
+
+\begin{table}[H]
+    \caption{Information taxonomy in Automated Driving domain}
+    %\centering
+    %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
+    \begin{tabularx}{\linewidth}{lrL}
+        \toprule
+        \textbf{Category} & \textbf{\#}	& \textbf{Information type}	\\
+        \midrule
+        \multirow{2}{*}{Ego-vehicle}
+         & 1 & Kinematic/dynamic (includes position) \\
+         & 2 & Proprioceptive (components health/status) \\
+         \midrule
+         \multirow{3}{*}{Passengers/driver}
+         & 3 & Driver awareness/capacities \\
+         & 4 & * Driver intentions (mind model)  \\
+         & 5 & Passenger status (needs, risk factors) \\
+         \midrule
+         \multirow{4}{*}{Environment}
+         & 6 & Spatial configuration: location, size, shape, fine features 
+         \\
+         & 7 & Identification: class, type, identity \\
+         & 8 & Regulation and semantics: traffic signs, road marks, other 
+         elements \\
+         & 9 & Contextual factors: weather, driving situation(e.g. jam, 
+         highway, off-road) \\
+         \midrule
+         \multirow{4}{*}{External actors}
+         & 10 & Spatial features: location, size, shape, fine features  \\
+         & 11 & Kinematic/dynamic: position, motion \\
+         & 12 & Identification: class, type, identity \\ 
+         & 13 & Semantic features: vehicle lights, pedestrian clothes, gestures 
+         \\
+         & 14 & * Situational engagement: collaborative/aware 
+         (adult pedestrians, other vehicles) vs non-collaborative/unaware 
+         (animals, children) \\ 
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+Elements with an asterisk are derived information. This is, something that can 
+be inferred from sensed data but not directly observed. It is mostly related 
+with internal state of external entities, as the intentions of human beings and 
+animals.
+
+In this survey we are focused in perception of external elements, that is, the
+two last categories.
+
+\subsection{Principal sensor technologies for perception}
+
+There are a few categories of sensors that are included in almost every ADAS/AD
+system and are sufficient to cover any reasonable perception need. 
+These categories are: artificial vision, radar, laser (also called Lidar) and 
+ultrasonic.
+
+Most of them are ranging sensors: the measured magnitude is distance to 
+external objects, by means of the round-trip delay time of a electromagnetic 
+wave (radar), a pulse of structured light (Lidar) or sound (ultrasonic).
+Artificial vision, in its most basic form, registers a grid of intensities and 
+colors. This allows to extract aditional information about the world, including 
+traffic elements that are encoded visually to allow being interpreted by humans 
+(signals, lanes, traffic lights).
+
+Sensors provide raw data that sometimes can be used directly as useful
+information (e.g. GPS giving location/speed), or that must be processed/fused.
+
+Tabla: qué sensores son útiles para obtener cada tipo de información.
+
+\begin{table}[H]
+    \caption{Sensor technologies and proposed uses}
+    %\centering
+    %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
+    \begin{tabularx}{\linewidth}{cLL}
+        \toprule
+        \textbf{Type}	& \textbf{Sensor type}	&  \textbf{Applications}\\
+        \midrule
+        \multirow{4}{*}{Artificial vision}	
+        & Monocular single camera   & \gls{fcw} \cite{Dagan2004}, \gls{ldw}, \gls{acc} \cite{Stein2003}, road marks/signs detection, visual odometry for ego-motion \cite{Scaramuzza2008,Nguyen2013,Bak2012}, Road boundary detection for run-off road prevention based on the fusion of video and radar \cite{Janda2013} \\
+        & Monocular multicamera     & \cite{Ieng2003} lateral cameras for lane detection fused with GPS for enhanced location \\
+        & Stereo                    & - \\
+        & Non-visible spectrum      & Pedestrian detection \cite{Besbes2015} \\
+        & Time Gated CMOS           & see https://www.brightwayvision.com/technology/ \\
+        \midrule
+        \multirow{5}{*}{Ranging}
+        & Radar                 & Ground+obstacle detection with mm-wave radar \cite{Reina2015}, Road boundary detection for run-off road prevention based on the fusion of video and radar \cite{Janda2013} \\
+        & Lidar (single layer)  & - \\
+        & Lidar (multilayer)    & Rapid Inspection of Pavement Markings Using Mobile Laser Scanning Point Clouds \cite{Zhang2016} \\
+        & Ultrasounds           & Neighbor vehicle misbehavior \cite{Liu2015}, also for (taken from that work) ''vehicle tracking and classification [7,22–25], obstacle detection and mapmaking [26,27], vacant parking slot detection [28], smart traffic signaling [29], ultrasonic ranging and localization [30]'' \\
+        & Structured light    & -  \\
+        & Time-of-flight       & - \\
+        & Time Gated CMOS     & (also in Artificial Vision) \\
+%        \midrule
+%        \multirow{3}{*}{Egomotion}
+%        & GNSS      & Positioning, speed \\
+%        & IMU       & Orientation (inclination, heading), change of speed \\	
+%        & Odometer  & Speed \\
+        
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+In \cite{Lundquist2011} we can find a nice review of sensor/algorithms for road 
+related applications: lane detection, road geometry estimation, etc.
+The work \cite{Yebes2015} talks about infering 2.5D or 3D features from monocular 
+vision.
+Pot-hole detection using monocular vision
+Road condition with on-board sensors in \cite{CastilloAguilar2015} (tire slippage).
+
+Monocular vision is the most popular technique due to the low cost of sensors and 
+having a large research community with a high maturity degree.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{"img/imaging-technologies-for-automotive-2016-report-by-yole"}
+    \caption{Ranging technologies}
+    \label{fig:ranging-techs}
+\end{figure}
+
+%\begin{table}[H]
+%    \caption{Features of spatial sensor technologies 
+%([D]etection/[I]dentification, [G]ood/[M]edium/[B]ad)}
+%    \begin{tabularx}{\linewidth}{Lcccccccc}
+%        \toprule
+%        \textbf{Technology} & \textbf{veh} & \textbf{ped} & \textbf{signals} & 
+%\textbf{road marks} & \textbf{other} & \textbf{dense} & \textbf{resol} & 
+%\textbf{fog/rain/snow} \\
+%        \midrule
+%        Mono (visible) 		& D/I & D/I & D/I & D/I & D/I & G & G & M/B \\
+%        Mono (near IR) 		& - & - & - & - & - & - & - & - \\	
+%        Mono (far IR) 		& - & - & - & - & - & - & - & - \\	
+%        Stereo (visible) 	& - & - & - & - & - & - & - & - \\	
+%        Time-of-flight 		& - & - & - & - & - & - & - & - \\	
+%        Time Gated 			& - & - & - & - & - & - & - & - \\	
+%        Structured Light 	& - & - & - & - & - & - & - & - \\	
+%        Radar 				& - & - & - & - & - & - & - & - \\	
+%        Lidar 				& - & - & - & - & - & - & - & - \\	
+%        Ultrasounds 		& - & - & - & - & - & - & - & - \\		
+%        \bottomrule
+%    \end{tabularx}
+%\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{"img/plot_range-fov"}
+    \caption{Range-FoV for depth sensors (3D sensing tecnology)}
+    \label{fig:range-fov}
+\end{figure}
+
+\subsection{Radar}
+
+Automotive radars were initially designed around the 24 GHz band. This band was temporarily open in EU to allow development, test and initial launch to market of
+automotive radar devices, but needed to be changed because it interferes with some radio services (including radio astronomy stations).
+In 2004, EU finally allocated a permanent 5 GHz wide band around 79 GHz. Short 
+distance applications as blind spot detection, parking assistance, jam 
+assistance and pre-crash measures use the upper part (77-81 GHz), since it 
+offers a better resolution. Long distance applications as ACC use a radar 
+signal around 76-78 GHz. However, manufacturers are implementing multifrequency 
+chips that can switch between different functions dinamycally.
+This information is resumed in figure \ref{fig:radar-freqband}
+
+Radar technology is a good tool to achieve 360 degrees coverage. It provides 
+(https://blog.nxp.com/automotive/radar-camera-and-lidar-for-autonomous-cars)
+obstacle position (as distance-angle) and size.
+Radar is a very mature technology that offer robust results. One of its strengths is
+independence of light and weather conditions. Detections are equally good with snow, rain or fog.
+However, it can fail to provide a reliable output under some conditions. For example, ACC in a long curve can detect vehicles that are in a different lane or miss the target due to narrow field of view. In these cases, sensor fusion with another source (e.g. video signal) can largely improve results.
+
+Metal objects cause reflections that can produce a spurious detection. Something as small as a metal can in the road can in some cases generate this effect.
+
+%NOTAS IMANOL:
+%Atenuación a partir de 10GHz (lluvia, gases).
+%Radar freq. más alta 
+%  - más resolución espacial -> directamente relacionado con long. onda
+%  - más resolución velocidad -> igual
+%  
+%Potencia de emisión
+%  - No hay estudios concluyentes sobre efectos en salud en función de 
+%potencia                     
+
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.8\textwidth]{"img/infineon_radar_bands_chart"}
+%    \caption{Operating frequency bands of automotive radars. Taken from 
+%Lachner, R. (2009). Development Status of Next Generation Automotive Radar in 
+%EU. Tokyo: ITS Forum. Available at 
+%http://www.itsforum.gr.jp/Public/J3Schedule/P22/lachner090226.pdf}
+%    \label{fig:radar-freqband}
+%\end{figure}
+
+\subsection{LiDAR}
+LiDAR (Light Detection And Ranging) is an active ranging technology that calculates distance to objects by measuring round trip time of a laser light pulse.
+Devices apt for robotic and automotive applications use a low power near-infrared laser (900-1050 nm) that is invisible, eye-safe and able to measure up to 100 m under direct sunlight.
+LiDARs can be used for mapping environments. Tipically, a rotating mirror is used to change the direction of the laser pulse, reaching 360º horizontal coverage. Commercial solutions use an array of emitters to produce several vertical layers (between 4 and 128) that, combined with rotation, generate a point cloud that represents the the environment.
+
+In the last years, a FLASH based technology (also named as solid state LiDAR) has arrived to commercial products. It offers many advantages when it comes to operating under strong vibrations and dynamics, apart from being potentially smaller, cheaper and faster.
+However, the market does not offer products combining high resolution and a wide field of view, so mechanical devices are the only option for full 360-degree coverage and environment mapping.
+
+Manufacturers: Velodyne, Sick, Continental, LeddarTech and Quanergy
+
+
+%\begin{figure}[h]
+%    \centering
+%    
+%\includegraphics[width=0.85\textwidth]{"img/Freescale_factTable_sensorApplication"}
+%    \caption{Applications of 77 GHz radar to ADAS}
+%    \label{fig:freescale}
+%\end{figure}
+
+
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{"img/information_types_sensors"}
+    \caption{Sensor adequacy for relevant types of information}
+    \label{fig:information_vs_sensors}
+\end{figure}

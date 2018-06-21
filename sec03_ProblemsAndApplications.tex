@@ -1,0 +1,137 @@
+
+
+En esta sección hablaremos de qué problemas hay que resolver en conducción automatizada y cómo se categorizan (SAE Levels, behavioral competencies NHTSA / California PATH, \url{https://storage.googleapis.com/sdc-prod/v1/safety-report/waymo-safety-report-2017-10.pdf}).
+
+Desarrollar el "arco argumental": problema -> descomposición en habilidades/partes -> información necesaria.
+
+Problems of interest in ADAS at different automation levels.
+Source: \href{http://www.mobileye.com/wp-content/uploads/2013/09/AEB_test_procedures_aug12.pdf}{MobilEye slides}
+
+\subsection{SAE Automation Levels}
+
+\textbf{Level 0} comprises traditional assistance mechanisms that can be detected monitoring mechanical parts of the vehicle
+\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+    \item	\gls{abs}
+\end{itemize}
+
+\textbf{Level 1}
+\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+    \item	Cruise control
+    \item	\gls{aeb} Tightly related with \gls{fcw}. Three different cases
+\end{itemize}
+
+\textbf{Level 2}
+\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+    \item   \gls{acc}
+\end{itemize}
+
+\textbf{Level 3}
+\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+    \item Control sharing techniques (¿Sección propia?)
+\end{itemize}
+
+\textbf{Level 4}
+\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+    \item	...
+\end{itemize}
+
+\textbf{Level 5}
+\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+    \item	...
+\end{itemize}
+
+\subsection{Behavioral competencies}
+
+
+\begin{table}[H]
+    \caption{Behavioral competences}
+    %\centering
+    %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
+    \begin{tabularx}{\linewidth}{LlL}
+        \toprule
+        \textbf{Competence}	& \textbf{\#} & \textbf{Behaviour}	\\
+        \midrule
+        \multirow{4}{*}{Automatic Traffic Sign Detection and Recognition (TSDR)}
+         & 8    & Detect Speed Limit Changes, Speed Advisories, Traffic Signals 
+         and Stop/Yield Signs \\
+         & 8    & Detect Access Restrictions (One-Way, No Turn, Ramps, etc.) \\
+         & 8    & Detect Temporary Traffic Control Devices \\
+         & 6, 8 & Detect Passing and No Passing Zones  \\
+         \midrule
+         \multirow{4}{*}{Perception of the environment}
+         & 8 & Detect Lines \\
+         & 6, 8 & Detect Detours  \\
+         & 6 & Detect Faded or Missing Roadway Markings or Signage and/or Other 
+         Temporary Changes in Traffic Patterns \\
+         & 9 & Detect Unanticipated Weather or Lighting Conditions Outside of 
+         Vehicle’s Capability (e.g. rainstorm) \\
+         \midrule
+         \multirow{3}{*}{Perception of vehicles behaviour}
+         & 6, 11(, 8) & Detect Lane Changes, a Merging Vehicle \\
+         & 6, 11 & Detect Vehicles Parking in the Roadway and Locate Spaces to 
+         parky \\
+         & 6, 8 & Detect Encroaching Oncoming Vehicles \\
+         \midrule
+         \multirow{2}{*}{Vehicles as obstacles detection}
+         & 10, 12, ¿13? & Detect Non-Collision Safety Situations (e.g. vehicle 
+         doors ajar) \\
+         & 10, 11, 12, 13 & Detect Stopped Vehicles, Emergency Vehicles, Lead 
+         Vehicle, Motorcyclists, School Buses \\
+         \midrule
+         \multirow{4}{*}{Other obstacles detection}
+         & 6(, 1)  & Detect Static Obstacles in the Path of the Vehicle \\
+         & 6, 8, 9, 10, 11, 12 & Detect Pedestrians and Bicyclists at 
+         Intersections, Crosswalks and in Road (Not Walking Through 
+         Intersection or Crosswalk) \\
+         & 10, 11, 12 & Detect Animals \\
+         & 10, 12, 13 & Detect instructions from Work Zones and People 
+         Directing Traffic in Unplanned or Planned Events, Police/First 
+         Responder Controlling Traffic, Construction Zone Workers Controlling, 
+         Citizens Directing Traffic After a Crash (Overriding or Acting as 
+         Traffic Control Device) \\
+         \midrule
+         \multirow{1}{*}{Others}
+         & 2 & Detect Conditions Involving Vehicle, System, or Component-Level 
+         Failures or Faults (e.g. power failure, sensing failure,sensing 
+         obstruction, computing failure, fault handling or response)  \\
+
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\textbf{Automatic Traffic Sign Detection and Recognition (TSDR):} %[Definition? ]. 
+There are two main tasks for getting information from on road traffic signs: Traffic sign detection (TSD) which consists on finding the location, orientation and size of traffic signs in natural scene images, and Traffic Sign Recognition (TDR), classifying the detected traffic signs into their specific sub-classes in order to extract the inforation that they are providing to drivers.
+It also has two different applications: Real time detection and recognition, used in ADAS or autonomous driving, and an automatic road traffic sign mapping system, used for generating a database of all the trafic signs of an area. This last application doesn't need to work on real-time. 
+The two main sensors used for these tasks are monocular cameras in different configurations (a single one, multiple focals or multiple cameras), and LiDAR sensors.
+Below are shown the most relevant solutions acording to the type of sensor, and the technlogy used.
+
+\begin{flushleft} \textbf{Camera based solutions:}
+Cameras are the most common sensor for TSDR. They can be used for TSR, TSD or both at the same time.
+As an example of TSR, \cite{frejlichowski2015application} proposes a method based on the Polar-Fourier Greyscale Descriptor, which applies the information about silhouette and intensity of an object. \cite{gao2015learning} uses a learning method based on an histogram intersection kernel to quantizize features, and look-up table approach to encode them.
+For TSD, \cite{zhang2017real} proposes a method based on a fast Convolutional Neural Network (CNN) inspired in the YOLOv2 network. With this algorithm it is possible to detect the position of the traffic sign and classify it into Mandatory (blue ones) Danger (Trinagle) and Prohibitory (red circle). \cite{villalon2017traffic} detects stop and yield signs with a statistical template built using color information in different color spaces (YCbCR and ErEgEb). TSD techniques can also be applied to traffic light detection, as in \cite{hosseinyalamdary2017bayesian}, where a Bayesian inference framework to detect and map traffic lights is described. A different approach is proposed by \cite{gu2011traffic} that uses a dual focal camera system composed of a wide angle camera assisted with a telephoto camera which is moved by a mirrors system in order to get higher quality images of the traffic signs.
+Camera sensors can also perform both tasks, detection and recognition as is shown in the following works. \cite{miyata2017automatic} uses local binary pattern methodd for detecting speed signals and a neural network for the recognition of the numbers of the sped limit sign. \cite{yang2016towards} presents a fast detection method based on traffic sign proposal extraction and classification built upon a color probability model and a color HOG combined with a convolutional neural network to further classify the detected signs into their subclasses.
+\cite{wali2015automatic} performs detection and recognition tasks using a RGB colour segmentation and shape matching followed by support vector machine (SVM) classifier. \cite{timofte2014multi} works with an eight roof-mounted cameras configuration that takes images every meter and are processed offline combining 2D and 3D techniques to create an available database, with more than 13,000 traffic signs annotations.
+\end{flushleft}
+
+\begin{flushleft} \textbf{LiDAR based solutions:}
+LiDAR sensors are also used, mainly for TSD, as they provide 3D information, used to localize the position of the sign and its shape, and information about the reflectiveness of the surface, which helps detecting traffic signs as they usually are high reflective. \cite{gargoum2017automated} performs detection in three steps: first the pointcloud is filtered by intensity of the laser reflected, then a clustering is apllied to detect possible candidates and after that, a further filter based on the lateral position, elevation and geometry is applied to extract the sign. \cite{weng2016road} goes one step further and is able to also make a primary classification attending to the sign shape (rectangular triangular and circular).
+\end{flushleft}
+
+\begin{flushleft} \textbf{Sensors Fusion solutions:}
+A system that combines both sensors, LiDAR and Cameras can improve the sign detection and recognition as it has the advantages and the information of both sources. \cite{zhou2014lidar} trains a SVM with 10 variables: 9 of different color spaces provided by the camera (RGB, HSV, CIEL*a*b*) and the intensity provided by the LiDAR. After 3D geometric feature verification of the detected signs, the classification is made using HOG features and a linear SVM. \cite{guan2018robust} method, first detects traffic signs from mobile LiDAR point clouds with regard to a prior knowledge of road width, pole height, reflectance, geometrical structure, and traffic-sign size, then traffic signs are normallized to finally perform classification based on a supervised Gaussian–Bernoulli deep Boltzmann machine model.
+\end{flushleft}
+
+\newpage
+\begin{flushleft}
+\textbf{Summary of sensors and their use for TSDR:}
+\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+\item \textbf{LiDAR:} Filtering for intensity (traffic signal has high Reflectance), 3D position and shape. Clustering for sign candidates
+\item \textbf{Camera}
+\subitem \textbf{Monocular B/W:} Feature extraction.
+\subitem \textbf{Monocular Color:} Color information. Classification with different methods:  SVM, CNN, ..., or both, detection and classification.
+\subitem \textbf{Multiple cameras:} Mapping signals in roads, 3d position.
+\subitem \textbf{Multiple focals:} Short focal for detection and long focal for higher quality sign image.
+\item \textbf{Fusion LiDAR and Camera:} Using LiDAR intensity and 3d position and shape information for detecting, and camera colour and shape information for recognising
+\end{itemize}
+\end{flushleft}
+

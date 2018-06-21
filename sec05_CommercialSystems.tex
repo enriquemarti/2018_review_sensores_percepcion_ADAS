@@ -1,0 +1,53 @@
+
+Enumeración de fabricantes / alianzas (unos 15-20) trabajando en ADAS/AD en la actualidad.
+
+\subsection{Commercial sensing systems}
+Relación de sistemas comerciales.
+
+[JPR] Columna "Applications" es más el tipo de vehiculos que las usa a dia de 
+hoy, no?? 
+Tengo un documento (no yet ready) con algunos ejemplos de los AD más potentes 
+(18 fabricantes) me puedo apuntar lo de darle una vuelta y dicutimos las 
+tecnologias que (más o menos, o con la información que podamos) usa cada 
+marca... te parece?
+
+\begin{table}[H]
+    \caption{Comercial sensor systems for ADAS}
+    %\centering
+    %% \tablesize{} %% You can specify the fontsize here, e.g.  
+    %%%%\tablesize{\footnotesize}. If commented out \small will be used.
+    \begin{tabularx}{\linewidth}{cLL}
+        \toprule
+        \textbf{Manufacturer/model}	& \textbf{Sensor technology}	& 
+        \textbf{Applications} \\
+        \midrule
+        \multirow{1}{*}{MobilEye}	
+        & Vision (monocular, visible) & \gls{fcw} \cite{Dagan2004}, \gls{ldw}, 
+        \gls{acc} \cite{Stein2003}, road marks/signs detection \\
+        \midrule
+        \multirow{2}{*}{Nexyad} 
+        & Vision (monocular, visible) & Drivable surface detection (RoadNex), 
+        Obstacle/pedestrian detection (ObstaNex), Drowsiness detection 
+        (DrowsiNex)  \\
+        & Vision (monocular multicamera, visible) & Obstacle/pedestrian 
+        detection (BiCam) \\
+        \midrule
+        Freescale & Radar (77 GHz) & \gls{acc}, Obstacle detection: general, 
+        blind spot, ... (see Figure \ref{fig:freescale}) \\
+        \midrule
+        \multirow{4}{*}{Continental}
+        & Multi Function Camera with Lidar  & \gls{aeb} (Emergency brake 
+        assist), \gls{fcw}, \gls{ldw}, \gls{tsa}, \gls{ihc} \\
+        & Surround View Camera   & Surround View, Automated Parking, Trailer 
+        Reversing, Object/Pedestrian detection, \gls{bsd} \\
+        & Advanced Radar Sensor 441/510 & \gls{acc}, \gls{aeb}, Traffic 
+        Continuous Integration, Traffic Jam Assist \\
+        & - & Comms V2X, lidar, cameras, radars \\
+        \midrule
+        \multirow{1}{*}{NXP Semiconductors}
+        & Sólo componentes, sin funcionalidad & Radar, plataformas computación, 
+        visión \\	
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
