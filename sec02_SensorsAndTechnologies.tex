@@ -77,7 +77,7 @@ two last categories.
 
 There are a few categories of sensors that are included in almost every ADAS/AD
 system and are sufficient to cover any reasonable perception need. 
-These categories are: artificial vision, radar, laser (also called Lidar) and 
+These categories are: artificial vision, radar, Lidar and 
 ultrasonic.
 
 Most of them are ranging sensors: the measured magnitude is distance to 
@@ -136,12 +136,13 @@ Road condition with on-board sensors in \cite{CastilloAguilar2015} (tire slippag
 Monocular vision is the most popular technique due to the low cost of sensors and 
 having a large research community with a high maturity degree.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{"img/imaging-technologies-for-automotive-2016-report-by-yole"}
-    \caption{Ranging technologies}
-    \label{fig:ranging-techs}
-\end{figure}
+%\begin{figure}[h]
+%    \centering
+%    
+%\includegraphics[width=0.95\textwidth]{"img/imaging-technologies-for-automotive-2016-report-by-yole"}
+%    \caption{Ranging technologies}
+%    \label{fig:ranging-techs}
+%\end{figure}
 
 %\begin{table}[H]
 %    \caption{Features of spatial sensor technologies 
@@ -173,7 +174,113 @@ having a large research community with a high maturity degree.
     \label{fig:range-fov}
 \end{figure}
 
+\subsection{Artificial Vision}
+Artificial vision is a popular technology that has been used for decades in 
+disciplines as mobile robotics, surveillance, industrial inspection. It acquires
+information about objects in the real world by analyzing their images as 
+captured by photo and video cameras. Cameras are devices that gather light using
+a sensor composed by a grid of thousands or millions of individual detection 
+elements. The amount of light captured by each element is translated more or 
+less directly into the intensity of a pixel in the resulting image. 
+
+This technology offers interesting features, as the low cost of sensors --only 
+some types-- and providing range of information types including spatial
+(shape, size, distances), dynamic (motion of objects by analyzing their 
+displacement between consecutive frames) and semantic (shape analysis).
+
+Artificial vision technology face several challenges, especially in 
+applications like automated driving:
+
+\begin{itemize}
+    \item Varying light conditions: driving is not limited to daylight 
+    conditions. It can also happen at night, indoors, or even worse,
+    during dusk or dawn with the sun close to the horizon. Dark spots,
+    shadows and other effects difficult the implementation of reliable 
+    artificial visible algorithms.
+    
+    \item High dynamic range in the scene (some areas are very dark 
+    and some others are strongly illuminated): while varying light conditions
+    can be mitigated through dynamimc exposure mechanisms, HDR conditions
+    are more difficult to deal with. Most sensor technologies have a 
+    limited capacity of capturing both extremes simultaneously, so that 
+    information is lost in one or the two sides. In automotive applications, 
+    this can mean detecting lane lines at the cost of not seeing preceding
+    vehicles or vicecersa.
+    
+    
+    \item Objects moving at great speed: cameras need higher exposures time as
+    illumination is weaker. Fast moving elements appear blurred, which can 
+    affect later processes as border or feature detection. Also, if the sensor
+    does not capture light in its full surface simultaneously (rolling shutter)
+\end{itemize}
+
+In \cite{Pueo2016} some of these problems are analyzed from the perspective of
+recording scenes in sports.
+In order to deal with these difficulties, different technologies and solutions 
+have been proposed. 
+
+\begin{itemize}
+    \item Rolling vs. Global shutter sensors. In rolling
+    shutter cameras, either sensor technology (rows activated sequentially) or
+    mechanical elements (a physical shutter moving to expose and oclude the 
+    sensor), the elements of the sensor capture light at differents time 
+    intervals. This have negative effects as: fast moving objects appearing
+    distorted, or flickering lights (fluorescents, LEDs) creating images with 
+    some parts illuminated and others dark. Rolling shutter effects
+    can be corrected by compensating scene motion vector, as proposed in 
+    \cite{Chia-KaiLiang2008}\cite{Chun2008}.
+    Global shutter cameras, on the other hand, have the ability to capture 
+    light in all the elements of the sensor simultaneously.
+    
+    \item High Dynamic Range imaging (HDR): common sensors in photographic and 
+    industrial cameras offer a dynamic range of 60-75 dB (10 to 12.5 EVs),
+    that is not sufficient in mixed illumination environments as entering or 
+    exiting tunnels. Sony launched its IMX390 automotive sensor with an
+    extended 120 dB range (equivalent to 20 EVs) and 2k resolution. 
+    An automotive grade sensor combining HDR capabilities and 
+    Near Infra-Red light detection is analyzed in \cite{Maddalena2005}. 
+    In \cite{Strobel2013} a sensor with 130 dB range (global shutter) and up
+    to 170 dB (rolling shutter) is presented for industrial safety application. 
+    
+    \item Refresh rate:
+    
+    \item Captured spectrum: apart from visible light cameras, either in color
+    or grayscale, automotive applications have used infrared sensors. We can 
+    distinguish to families: far infrared cameras (wavelength 900-1400 nm), 
+    also known as thermal cameras, detect the emissions of hot objects, 
+    including living beings. Thermal cameras are effective for pedestrian and
+    animal detection \cite{OMalley2008}\cite{Besbes2015} in the dark and 
+    through dust and smoke. FLIR manufactured a system that was integrated
+    in BMW's NightVision system since 2009 cameras.
+\end{itemize} 
+
+Event-based vision is a bioinspired technology developed by Zurich University
+and the ETH Zurich. It approaches the problem of processing and tracking fast 
+moving images in a completely different way: instead of capturing fixed frames
+at discrete times, the elements of the sensor are triggered asynchronously and
+indepently when a change on the intensity is detected. Each activation is
+called an event, and can be seen as something similar to the output of a 
+feature detection algorithm for artificial vision applications.
+Events can be grouped in time windows for getting a frame-like image, but this
+window can be dynamically adapted for attending different time scales.
+Sensor time resolution goes down to microseconds, and \cite{Mueggler2014} shows 
+integration windows of 1 ms (~1000 fps) in regular indoor lightning conditions
+to be sufficient for high speed tracking, thanks also to the 120 dB dynamic 
+range of the sensor.
+An additional advantage is that the output can be used in raw form for 
+applications as visual odometry \cite{Censi2014} and SLAM \cite{Vidal2017}
+relieving the CPU of time consuming operations on raw images.
+More recently, a steering wheel control for automated driving systems 
+based on deep learning has been shown in \cite{Maqueda2018}.
+ 
+ 
+ 
+ Talk about 3D technologies??? estéreo, ToF, structured light, 
+ 
+
 \subsection{Radar}
+
+%Radar technology use high frequency electromagnetic waves
 
 Automotive radars were initially designed around the 24 GHz band. This band was temporarily open in EU to allow development, test and initial launch to market of
 automotive radar devices, but needed to be changed because it interferes with some radio services (including radio astronomy stations).
