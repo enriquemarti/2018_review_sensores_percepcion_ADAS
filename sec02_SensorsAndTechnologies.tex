@@ -280,36 +280,53 @@ based on deep learning has been shown in \cite{Maqueda2018}.
 
 \subsection{Radar}
 
-%Radar technology use high frequency electromagnetic waves
+Radar technology use high frequency electromagnetic waves to measure the
+distance to objects in the environment.
+There are two principal technologies: pulsed radar emits a short burst and 
+measures distance using the round trip time. Most modern automotive 
+radars use Frequency-Modulated Continuous Wave (FMCW) where a signal with
+a well known and stable frequency is modulated with another continuous signal
+that varies its frequency up and down (tipically using a triangular shape).
+Distance is determined using the frequency shift between the emitted and 
+reflected signals. Both technologies allow to measure target speed based
+on Doppler effect.
 
-Automotive radars were initially designed around the 24 GHz band. This band was temporarily open in EU to allow development, test and initial launch to market of
-automotive radar devices, but needed to be changed because it interferes with some radio services (including radio astronomy stations).
-In 2004, EU finally allocated a permanent 5 GHz wide band around 79 GHz. Short 
+Radar technology is a good tool to achieve 360 degrees coverage. It provides 
+obstacle position (as distance-angle) and size.
+Radar is a very mature technology that offer robust results. 
+
+One of the strongest arguments for including radar sensing in automated 
+vehicles is its independence of light and weather conditions. 
+It works in the dark, and detections are almost equally good with snow, 
+rain, fog or dust \cite{Reina2015}.
+However, radar processing can be tricky due to the reflectivity of the
+different materials: metals amplify radar signal, easening detection of 
+vehicles but increasing the apparent size of small objects as discarded cans
+in the road, while other materials (e.g. wood) are virtually transparent.
+
+Starting in 2004, EU allocated a permanent 5 GHz wide band around 79 GHz. Short 
 distance applications as blind spot detection, parking assistance, jam 
 assistance and pre-crash measures use the upper part (77-81 GHz), since it 
 offers a better resolution. Long distance applications as ACC use a radar 
 signal around 76-78 GHz. However, manufacturers are implementing multifrequency 
 chips that can switch between different functions dinamycally.
-This information is resumed in figure \ref{fig:radar-freqband}
+%This information is resumed in figure \ref{fig:radar-freqband}
 
-Radar technology is a good tool to achieve 360 degrees coverage. It provides 
-(https://blog.nxp.com/automotive/radar-camera-and-lidar-for-autonomous-cars)
-obstacle position (as distance-angle) and size.
-Radar is a very mature technology that offer robust results. One of its strengths is
-independence of light and weather conditions. Detections are equally good with snow, rain or fog.
-However, it can fail to provide a reliable output under some conditions. For example, ACC in a long curve can detect vehicles that are in a different lane or miss the target due to narrow field of view. In these cases, sensor fusion with another source (e.g. video signal) can largely improve results.
-
-Metal objects cause reflections that can produce a spurious detection. Something as small as a metal can in the road can in some cases generate this effect.
-
-%NOTAS IMANOL:
-%Atenuación a partir de 10GHz (lluvia, gases).
-%Radar freq. más alta 
-%  - más resolución espacial -> directamente relacionado con long. onda
-%  - más resolución velocidad -> igual
-%  
-%Potencia de emisión
-%  - No hay estudios concluyentes sobre efectos en salud en función de 
-%potencia                     
+As Automated Driving technology advances, radars are expected to go from its
+current use of detecting and measuring speed to targets to provide richer
+semantic information. 
+Recent research turns around using higher frequency bands to increase
+resolution. This results in better shape recognition and separation of close
+targets that current technology reports as a single object.
+These features open the door to radar imaging and creation of detailed 3D maps. 
+An example can be found in \cite{Reina2015}, where a 90GHz rotating radar in
+the roof of a car is used to map the environment, including not only other
+vehicles and static objects but also the ground.
+In \cite{Kohler2013} explores the feasibility of radars operating between 
+100 and 300 GHz. They present a prototype working at 150 GHz and conclude 
+that atmosferic absorption and reflectivity of materials usually found in 
+driving scenarios make this technology feasible, with the benefit of a high
+resolution that may enable radar imaging.
 
 
 %\begin{figure}[h]
@@ -350,3 +367,12 @@ Manufacturers: Velodyne, Sick, Continental, LeddarTech and Quanergy
     \caption{Sensor adequacy for relevant types of information}
     \label{fig:information_vs_sensors}
 \end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{"img/sensors_atmospheric_conditions"}
+    \caption{Sensor robustness under atmospheric and environmental factors}
+    \label{fig:radar-freqband}
+\end{figure}
+
+
