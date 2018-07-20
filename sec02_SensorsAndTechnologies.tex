@@ -291,10 +291,6 @@ Distance is determined using the frequency shift between the emitted and
 reflected signals. Both technologies allow to measure target speed based
 on Doppler effect.
 
-Radar technology is a good tool to achieve 360 degrees coverage. It provides 
-obstacle position (as distance-angle) and size.
-Radar is a very mature technology that offer robust results. 
-
 One of the strongest arguments for including radar sensing in automated 
 vehicles is its independence of light and weather conditions. 
 It works in the dark, and detections are almost equally good with snow, 
@@ -304,8 +300,9 @@ different materials: metals amplify radar signal, easening detection of
 vehicles but increasing the apparent size of small objects as discarded cans
 in the road, while other materials (e.g. wood) are virtually transparent.
 
-Starting in 2004, EU allocated a permanent 5 GHz wide band around 79 GHz. Short 
-distance applications as blind spot detection, parking assistance, jam 
+Starting in 2004, EU allocated a permanent 5 GHz wide band around 79 GHz 
+\cite{EULawandPublications2004}. 
+Short distance applications as blind spot detection, parking assistance, jam 
 assistance and pre-crash measures use the upper part (77-81 GHz), since it 
 offers a better resolution. Long distance applications as ACC use a radar 
 signal around 76-78 GHz. However, manufacturers are implementing multifrequency 
@@ -341,13 +338,87 @@ resolution that may enable radar imaging.
 
 \subsection{LiDAR}
 LiDAR (Light Detection And Ranging) is an active ranging technology that calculates distance to objects by measuring round trip time of a laser light pulse.
-Devices apt for robotic and automotive applications use a low power near-infrared laser (900-1050 nm) that is invisible, eye-safe and able to measure up to 100 m under direct sunlight.
+Devices apt for robotic and automotive applications use a low power 
+near-infrared laser (900-1050 nm) that is invisible, eye-safe and able to 
+measure up to 200 m under direct sunlight. The long range is achieved thanks to
+laser beams having a low divergence, so that the reflected power does not decay
+too much with distance.
 LiDARs can be used for mapping environments. Tipically, a rotating mirror is used to change the direction of the laser pulse, reaching 360º horizontal coverage. Commercial solutions use an array of emitters to produce several vertical layers (between 4 and 128) that, combined with rotation, generate a point cloud that represents the the environment.
 
-In the last years, a FLASH based technology (also named as solid state LiDAR) has arrived to commercial products. It offers many advantages when it comes to operating under strong vibrations and dynamics, apart from being potentially smaller, cheaper and faster.
-However, the market does not offer products combining high resolution and a wide field of view, so mechanical devices are the only option for full 360-degree coverage and environment mapping.
+Lidar sensors feature an extraordinary accuracy measuring distances, averaging
+a few millimeters in most cases and degrading to 0.1-0.5 meters in the worst 
+cases. This makes Lidar the favorite choice for creating accurate digital maps.
 
-Manufacturers: Velodyne, Sick, Continental, LeddarTech and Quanergy
+However, they have several drawbacks to take into account:
+
+\begin{itemize}
+    \item Sparse mesaures (not dense): according to \cite{Gatziolis2008} typical
+    lidar beam divergence is between 0.1 and 1 mrad. 
+    The commercial device Velodyne HDL64 covers a vertical FoV of 26.8 degrees 
+    using 64 layers (consecutive layers are separated 0.42 degrees), and has a
+    2.0 mrad divergence \cite{Glennie2010} (0.11 degrees). Horizontal resolution
+    varies between 0.1 to 0.4 degrees. In most cases, then, there is a high 
+    fraction of the total volume not iluminated by laser beams. Small targets or
+    structures based on threads and bars can remain undetected.
+    
+    \item Low vertical resolution: in low cost models, which usually feature 
+    less than 16 layers, vertical resolution (separation between consecutive
+    layers) falls down to 2 degrees. At 100 m distance, this is translated into 
+    a vertical distance of 1.7 m. High end models reduce this gap to 0.2-0.4 
+    degrees, but at a much higher cost.
+    
+    \item Poor detection of dark and specular objects. Black cars
+    can appear as invisible to the lidar, since they combine a color that
+    absorbs most radiation with a non-Lambertian material that does not scatter
+    radiation back to receiver.
+    
+    \item High cost. High-end models have a cost between 25 and 75 k\$.
+    Just a year ago, Velodyne models started at 9000 US\$ for the basic 16
+    layer device, although they have cut prices down to a 50\% to face the
+    recently appeared competitors. Now, some companies are selling
+    equivalent models for less than 4000 US\$. Solid state lidars promise
+    prices an order of magnitude smaller.
+    
+    \item Affected by dense rain, fog and dust. Infrared laser
+    beams are affected by rain and fog because water droplets scatter the light 
+    \cite{Wang2008}, reducing the operative range of the device and producing 
+    false measures in the front of the cloud. The effect of dust has been
+    explored in \cite{Phillips2017}. Lidar performance in these scenarios is 
+    worse than radar, but still better than cameras and human eye.
+\end{itemize}
+
+In the last years, a FLASH based technology also named as solid state LiDAR
+started to arrived to commercial products. It offers advantages when it comes
+to operating under strong vibrations and dynamics, apart from being potentially
+smaller, cheaper and faster. 
+However, the market does not offer products combining high resolution and a 
+wide field of view, so mechanical devices are the only option for full 
+360-degree coverage and environment mapping.
+
+There are two potential technologies for solid state LiDARs: oscillating
+micro-mirrors and optical phased array (as Quanergy line of products).
+The first technology combines one or many laser emitters that are directed
+with micro-mirrors that can rotate around two axes, so that the beam 
+can be directed within a cone. Manufacturer LeddarTech commercializes devices
+based on this technology \cite{LeddarTech2016}.
+Optical phased arrays \cite{McManamon1996} is a technology similar to that used 
+for radars. An array of optical emitters generate coherent signals with a well
+controlled phase difference. This generates a far-field radiation pattern 
+pointing in a direction that depends on the phase. This allows to control the 
+direction of the beam with high accuracy and speed. Quanergy \cite{Eldada2017} 
+is one of the few manufacturers commercializing devices based on this technology
+with a focus on the automotive sector, its S3 model features a 120 degrees FoV
+with a range of 150 m. They report a spot size of 5 cm at 100 m, that is 
+comparable to a beam divergence of 0.5 mrad --4 times smaller than Velodyne 
+HDL64 model.
+
+OPA technology has additional advantages over mechanical lidars: the scan 
+pattern can be random in the entire FoV, which is great for characterizing fast 
+moving objects. It is possible to observe only a region of interest within the 
+FoV. Also, it is possible to augment the point density within each frame for 
+better resolution. The three features can be combined to do fast low resolution 
+inspection of the full FoV, and then tracking with high resolution the objects
+of interest for enhanced shape recognition even at far distances.
 
 
 %\begin{figure}[h]
