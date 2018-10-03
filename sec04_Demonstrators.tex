@@ -2,19 +2,37 @@
 En esta sección revisamos demos relevantes.
 IDEA: detallar para cada demostrador el camino completo "qué hace -> competencias/habilidades -> información usada -> sensores"
 
-Tabla con timeline de demostradores y las tecnologías de percepción que usan.
-Basado en la imagen \ref{fig:tech-demos}.
+This section reviews some of the most relevant technological demonstrations,
+contests, challenges and commercial platforms related with automated driving, 
+starting from pioneering works in late 1980s until present day. The review is
+based on a timeline focused on the sensors equipped by each platform.
 
+Table \ref{tab:tech-demos} condenses the raw data displayed in Figure 
+\ref{fig:tech-demos} timeline. The timeline serves two different purposes. 
+First, it allows to discern different stages ("ages") in Automated Driving 
+technology. Second, it allows to identify trends and approaches to perception 
+for self-driving vehicles.
+
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.99\textwidth]{"img/AD_Timeline"}
+%    \caption{Timeline of relevant technology demonstrators in automated 
+%driving}
+%    \label{fig:tech-demos}
+%\end{figure}
 
 \begin{figure}[h]
-    \centering
-    \includegraphics[width=0.99\textwidth]{"img/AD_Timeline"}
-    \caption{Timeline of relevant technology demonstrators in automated driving}
-    \label{fig:tech-demos}
+\centering
+%\includegraphics[width=\textwidth]{"img/AD_Timeline_2"}
+\includegraphics[width=0.95\textheight,angle=90,keepaspectratio]{"img/AD_Timeline_2"}
+\caption{Timeline of sensor setup for relevant technology demonstrators in AD}
+\label{fig:tech-demos}
 \end{figure}
 
 \begin{table}[H]
     \caption{Sensing technologies used in relevant AD demos}
+    \label{tab:tech-demos}
     %\centering
     \begin{tabularx}{\linewidth}{L r c c c c c c c c}
 %        \toprule
@@ -22,8 +40,12 @@ Basado en la imagen \ref{fig:tech-demos}.
          \multirow{1}{*}{\textbf{Demo / entity}}   & \multirow{1}{*}{\textbf{Year}} & \rotatebox{90}{\textbf{Magnetic}}	& \rotatebox{90}{\textbf{Inertial}} & \rotatebox{90}{\textbf{GPS}} & \rotatebox{90}{\textbf{Vision}} & \rotatebox{90}{\textbf{Lidar}} & \rotatebox{90}{\textbf{Radar}} & \rotatebox{90}{\textbf{Sonar}} & \rotatebox{90}{\textbf{V2V comms}}  \\
         \midrule
         Prometheus (EUREKA, European Initiative)      & 1987  & - & X & - &  X &  - &  - &  - & - \\
-        Cybercar concept INRIA (France)               & 1991  & - & X & X &  X &  X &  - &  - & - \\
-        PATH Demo PATH partnership (UC Berkeley)      & 1997  & X & X & - &  X &  ? &  ? &  - & X \\
+        Cybercar concept INRIA (France)               & 1991  & - & X & X &  X 
+        &  X &  - &  - & - \\
+        VaMP (Bundeswehr Univ. Munich)                & 1994  & - & X & - &  4 
+        &  - &  - &  - & - \\
+        PATH Demo PATH partnership (UC Berkeley)      & 1997  & X & X & - &  X 
+        &  X &  X &  - & X \\
         DARPA Challenge (Stanley, Stanford AI dept.)  & 2005  & - & X & X &  1 &  5 &  2 &  - & - \\
         DARPA Urban Challenge (Boss, Carnegie Mellon) & 2007  & - & X & X &  2 & 13 &  5 &  - & - \\
         Google "modified Prius"                       & 2009  & - & X & X &  1 &  1 &  4 &  - & - \\
@@ -44,16 +66,100 @@ Basado en la imagen \ref{fig:tech-demos}.
     \end{tabularx}
 \end{table}
 
-Useful references:
-\begin{itemize}
-    \item Prometheus: 
-    \item INRIA Cybercar:
-    \item PATH Demo: \url{http://www.path.berkeley.edu/sites/default/files/documents/intel63.pdf} (DUDA: se habla de "laser radars"... sera lidar)
-    \item DARPA05 Stanford "Stanley":  \url{https://www-cs.stanford.edu/people/dstavens/jfr06/thrun_etal_jfr06.pdf}  
-    \item DARPA07 CMU "Boss":  \url{http://www.tartanracing.org/press/boss-glance.pdf} \url{http://www.andrew.cmu.edu/user/mnclark/(14)Clark.pdf}
-    \item Google autonomous vehicles: 
-    \item VIAC vehicles:  \url{http://viac.vislab.it/?page_id=159}
-    \item Bertha project:
-    \item Tesla autopilot: wiki
-    \item Delphi coast2coast: \url{https://newatlas.com/delphi-drive-completed/36859/}
-\end{itemize}
+Pioneer work by Ernst Dickmanns with VaMoRs a Mercedes van featuring 
+visual-based guidance \cite{Dickmanns1987}.
+
+Eureka Prometheus project extended for 8 years (1987-1995), and has been the 
+largest R\&D project. One of the vehicles involved was VaMP \cite{Gregor2002}, 
+a Mercedes 500 SEL reengineered by the Bundeswehr University of Munich that
+relied only in vision for guiding the vehicle. In 1994 it completed a trip over 
+1000 km long in highways under normal traffic conditions, performing lane 
+changes and adapting its speed according to road characteristics and surrouding 
+vehicles.
+This demonstration was one of the final events of the PROMETHEUS project.
+The system relied in two movables platforms with two cameras each, that 
+implemented a saccadic vision system. The platforms rotated 
+to allow cameras focus in the details considered important.
+This system marks a milestone because of the huge amount of computational power 
+needed to process the visual information. It was accomplished by integrating
+sixty transputers that did the work.
+
+Cybercar INRIA: pedir referencias a Joshue.
+
+University of Parma's ARGO \cite{Broggi1998}. A Lancia Thema equipped with a
+vision-based system that allowed road following and obstacle avoidance.
+
+Later on in 1997, the National Automated highway System Consortium presented a 
+demonstration of Automated Driving functionalities\cite{Thorpe1997}. 
+The demo showed road following functionality based on vision sensors, 
+distance maintenance based on LiDAR, vehicle following based on Radar
+and other funcionalities including cooperative maneuvers and mixed automated 
+and manual driving. 
+The demo was intended to be a proof of technical feasibility of such 
+technologies, creating the foundations for further developments.
+
+However, it was not until 2004 that DARPA started its series of Grand Challenges
+to foster the development of robotics technology. 
+The first edition consisted in travelleing a 240 km long route comprising dirt 
+roads and off-road sections. It ended without a declared winner, since no 
+contestant manage to cover even a 10\% of the route.
+The next year five of the 23 contestants finished the 212 km race. 
+The winner was Stanley, the vehicle from Stanford University racing team, which 
+was awarded the 2 million dollar prize.
+Stanley carried 5 LiDAR units used to create a 3D map of the environment with 
+special attention to road geometry, a frontal camera, GPS sensors, an IMU, 
+wheel odometry and two automotive radars \cite{Thrun2006}. This unprecedenting
+amount of sensors were the input of a complex processing pipeline that involved 
+perception and estimation techniques, artificial intelligence, 3D mapping, risk 
+assessment and path planning, requiring 6 computers to do the processing.
+
+The next DARPA Grand Challenge, known as Urban Challenge, took place in 2007.
+Participants had to complete a course of 96 km in urban area, while sharing the
+road with other participants and cars driven by professional drivers. Robots
+were required to obey traffic regulations, avoid obstacles and negotiate 
+intersections properly. Carnegie Mellon University won the contest with 
+its vehicle Boss (http://www.tartanracing.org/press/boss-glance.pdf), a 
+modified Chevy Tahoe that included two video cameras, 
+5 radars and 13 LiDAR --including a roof mounted unit of the novel Velodyne
+64HDL. Data was processed in a cluster of 10 server blades and featured
+a complex behavioral model \cite{Urmson2007} for covering all the expected
+situations, which included executing U-turns or ....
+
+
+
+%Useful references:
+%\begin{itemize}
+%    \item Prometheus: 
+%    \item INRIA Cybercar:
+%    \item PATH Demo: 
+%\url{http://www.path.berkeley.edu/sites/default/files/documents/intel63.pdf} 
+%(DUDA: se habla de "laser radars"... sera lidar)
+%    \item DARPA05 Stanford "Stanley":  
+%\url{https://www-cs.stanford.edu/people/dstavens/jfr06/thrun_etal_jfr06.pdf}  
+%    \item DARPA07 CMU "Boss":  
+%\url{http://www.tartanracing.org/press/boss-glance.pdf} 
+%\url{http://www.andrew.cmu.edu/user/mnclark/(14)Clark.pdf}
+%    \item Google autonomous vehicles: 
+%    \item VIAC vehicles:  \url{http://viac.vislab.it/?page_id=159}
+%    \item Bertha project:
+%    \item Tesla autopilot: wiki
+%    \item Delphi coast2coast: 
+%    \url{https://newatlas.com/delphi-drive-completed/36859/}
+%    \item 
+%\end{itemize}
+%
+%Contests:
+%\begin{itemize}
+%    \item DARPA challenges (2004, 2005, 2007)
+%    \item SAE AutoDrive challenge (2019)
+%    \item Great Cooperative Driving Challenge (2011, 2016)
+%    \item SEAT Autonomous Driving Challenge (2018)
+%    \item Audi Autonomous Driving Cup (2015, 2016, 2017, 2018)
+%    \item Udacity Challenges:
+%        \begin{itemize}
+%            \item Didi's Open-Source Autonomous Vehicle (2017)
+%            \item Bosch's Path Planning Challenge (2018)
+%            \item Lyft's Perception Challenge (2018)
+%        \end{itemize}
+%    \item CVPR Video Segmentation Challenge (2018)
+%\end{itemize}

@@ -10,6 +10,19 @@ Debemos cubrir el arco "sensores -> datos -> información", que lleva desde los 
     \label{fig:data-vs-information}
 \end{figure}
 
+The JDL Information Fusion Model \cite{Llinas2000} is a well-known and 
+widely used framework for discussions on sensor and information fusion systems.
+It has been explored in the context of automotive domain
+\cite{Polychronopoulos2006} and has been used as base for defining
+automotive-specific sensor fusion frameworks \cite{Tatschke2006}. 
+Perception layer is usually define to cover JDL levels 0 (raw data
+pre-processing) and 1 (object refinement), while higher abstraction processes
+belonging to levels 2 (situation refinement) and 3 (threat refinement) are
+usually placed in the decision modules.
+Level 4 (process refinement) is not contemplated, while Level 5 (user reinement)
+is mostly related with HMIs and shared control or arbitration schemes, but
+left out of the scope of this work.
+
 
 \subsection{Relevant information domains}
 
@@ -68,7 +81,7 @@ the heterogeneity and complexity of ADAS/AD problems domain:
 Elements with an asterisk are derived information. This is, something that can 
 be inferred from sensed data but not directly observed. It is mostly related 
 with internal state of external entities, as the intentions of human beings and 
-animals.
+animals. These items also happen to belong to higher levels in the JDL model.
 
 In this survey we are focused in perception of external elements, that is, the
 two last categories.
