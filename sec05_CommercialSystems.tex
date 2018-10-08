@@ -2,52 +2,224 @@
 Enumeración de fabricantes / alianzas (unos 15-20) trabajando en ADAS/AD en la actualidad.
 
 \subsection{Commercial sensing systems}
-Relación de sistemas comerciales.
 
-[JPR] Columna "Applications" es más el tipo de vehiculos que las usa a dia de 
-hoy, no?? 
-Tengo un documento (no yet ready) con algunos ejemplos de los AD más potentes 
-(18 fabricantes) me puedo apuntar lo de darle una vuelta y dicutimos las 
-tecnologias que (más o menos, o con la información que podamos) usa cada 
-marca... te parece?
+In the last decade has been increased the implementations and applications of 
+ADAS. The most requested ADAS in the 2009 \cite{Frost&Sullivan2010}
+were the Anti-lock braking system and the Parking Assistance by Warning. 
+Recently, the Collision warning systems and Lane Departure warning systems are 
+most common in vehicles today. The different driving situations (i.e. 
+complexity of urban scenarios), legal aspects and even the driver acceptance 
+will allow the implementation of the control capacities in semi, high and 
+automated vehicles. So far, most of the ADAS applications are related with 
+warning and assistance systems REF. Based on the clasiffications of the ADAS 
+presented in \cite{Perez2016}, a description of applications and ADAS 
+available 
+in the market, considering the main Tiers 1 and suppliers.    
 
-\begin{table}[H]
-    \caption{Comercial sensor systems for ADAS}
-    %\centering
-    %% \tablesize{} %% You can specify the fontsize here, e.g.  
-    %%%%\tablesize{\footnotesize}. If commented out \small will be used.
-    \begin{tabularx}{\linewidth}{cLL}
-        \toprule
-        \textbf{Manufacturer/model}	& \textbf{Sensor technology}	& 
-        \textbf{Applications} \\
-        \midrule
-        \multirow{1}{*}{MobilEye}	
-        & Vision (monocular, visible) & \gls{fcw} \cite{Dagan2004}, \gls{ldw}, 
-        \gls{acc} \cite{Stein2003}, road marks/signs detection \\
-        \midrule
-        \multirow{2}{*}{Nexyad} 
-        & Vision (monocular, visible) & Drivable surface detection (RoadNex), 
-        Obstacle/pedestrian detection (ObstaNex), Drowsiness detection 
-        (DrowsiNex)  \\
-        & Vision (monocular multicamera, visible) & Obstacle/pedestrian 
-        detection (BiCam) \\
-        \midrule
-        Freescale & Radar (77 GHz) & \gls{acc}, Obstacle detection: general, 
-        blind spot, ... (see Figure \ref{fig:freescale}) \\
-        \midrule
-        \multirow{4}{*}{Continental}
-        & Multi Function Camera with Lidar  & \gls{aeb} (Emergency brake 
-        assist), \gls{fcw}, \gls{ldw}, \gls{tsa}, \gls{ihc} \\
-        & Surround View Camera   & Surround View, Automated Parking, Trailer 
-        Reversing, Object/Pedestrian detection, \gls{bsd} \\
-        & Advanced Radar Sensor 441/510 & \gls{acc}, \gls{aeb}, Traffic 
-        Continuous Integration, Traffic Jam Assist \\
-        & - & Comms V2X, lidar, cameras, radars \\
-        \midrule
-        \multirow{1}{*}{NXP Semiconductors}
-        & Sólo componentes, sin funcionalidad & Radar, plataformas computación, 
-        visión \\	
-        \bottomrule
-    \end{tabularx}
-\end{table}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.00\textwidth]{"img/Resumen de algunas aplicaciones 
+    y ADAS en el mercado_v3_trim"}
+    \caption{ADAS and AD applications in the market}
+    \label{fig:adas-apps}
+\end{figure}
+
+[3] 
+https://www.continental-automotive.com/en-gl/Landing-Pages/Industrial-Sensors/Products/ARS-404-21
+
+[4] 
+https://www.bosch-engineering.de/en/de/einsatzgebiete/schienenfahrzeuge/kollisionswarnung/kollisionswarnung\_1.html
+
+[5] https://www.mobileye.com/our-technology/
+
+[6] 
+https://brigade-electronics.com/products/radar-obstacle-detection/?gclid=EAIaIQobChMI2NTc\_ZKI3AIV6rXtCh1akgc6EAAYASAAEgK5xfD\_BwE
+
+[7] 
+https://www.bosch-mobility-solutions.com/en/highlights/automated-mobility/driver-assistance-systems-for-urban-areas/
+
+[8] https://www.nissan-global.com/EN/TECHNOLOGY/OVERVIEW/emergency\_brake.html
+
+[9] 
+https://www.zf.com/corporate/en\_de/products/product\_range/cars/cars\_automatic\_emergency\_braking\_function.shtml
+
+[10] https://www.mobileye.com/our-technology/
+
+[11] 
+https://support.volvocars.com/en-CA/cars/Pages/owners-manual.aspx?mc=y286\&my=2016\&sw=15w17\&article=d3d274ecedf1c586c0a801e8004927e7
+
+%[12] 
+%https://www.continental-automotive.com/en-gl/Passenger-Cars/Chassis-Safety/Advanced-Driver-Assistance-Systems/Lidars/Multi-Function-Camera-with-Lidar
+%
+%[13] 
+%https://www.bosch-mobility-solutions.com/en/highlights/automated-mobility/driver-assistance-systems-for-urban-areas/
+%
+%[14] https://www.mobileye.com/our-technology/
+%
+%[15] 
+%http://www.valeoservice.com/html/thailand/en/actualitesdetail.php?wid=1747291148465B548C405
+%
+%[16] 
+%https://www.bosch-mobility-solutions.com/en/products-and-services/passenger-cars-and-light-commercial-vehicles/driver-assistance-systems/lane-keeping-support/
+%
+%[17] 
+%https://www.google.es/search?q=ACURA\&oq=ACURA\&aqs=chrome..69i57j69i60l2j0l3.724j0j7\&sourceid=chrome\&ie=UTF-8
+%
+%[18] 
+%https://www.continental-automotive.com/en-gl/Passenger-Cars/Chassis-Safety/Software-Functions/Cruising/Lane-Keeping-Assist
+%
+%[19] 
+%https://www.bosch-mobility-solutions.com/en/products-and-services/passenger-cars-and-light-commercial-vehicles/driver-assistance-systems/lane-change-assist/
+
+[20] https://www.valeo.com/en/lane-change-assistance-system/
+
+%[21] 
+%https://www.bosch-mobility-solutions.com/en/products-and-services/passenger-cars-and-light-commercial-vehicles/driver-assistance-systems/lane-departure-warning/
+%
+%[22] 
+%https://www.continental-automotive.com/en-gl/Passenger-Cars/Chassis-Safety/Advanced-Driver-Assistance-Systems/Driving-Functions/Lane-Departure-Warning
+%
+%[23] 
+%http://www.daf.com/en/products/euro-6-range/comfort-and-safety-systems/lane-departure-warning-system
+%
+%[24] https://www.nissan-global.com/EN/TECHNOLOGY/OVERVIEW/bsw.html
+%
+%[25] 
+%https://www.continental-automotive.com/en-gl/Passenger-Cars/Chassis-Safety/Advanced-Driver-Assistance-Systems/Driving-Functions/Blind-Spot-Detection
+%
+%[26] https://www.infinitiusa.com/about/technology/blind-spot-intervention.html
+%
+%[27] 
+%https://www.bmw.es/es/footer/footer-section/glosario-bmw/speed-limit-info-indicacion-prohibido-adelantar.html
+%
+%[28] 
+%https://www.audi-technology-portal.de/en/electrics-electronics/driver-assistant-systems/speed-limit-display
+%
+%[29] 
+%https://www.bosch-mobility-solutions.com/en/products-and-services/passenger-cars-and-light-commercial-vehicles/automated-driving/traffic-jam-assist/
+
+[30] 
+https://www.audi-mediacenter.com/en/techday-piloted-driving-the-traffic-jam-pilot-in-the-new-audi-a8-9276/automated-driving-at-a-new-level-the-audi-ai-traffic-jam-pilot-9283
+
+%[31] 
+%http://nissannews.com/en-US/nissan/usa/releases/nissan-s-driver-attention-alert-helps-detect-erratic-driving-caused-by-drowsiness-and-inattention
+
+%Relación de sistemas comerciales.
+%
+%[JPR] Columna "Applications" es más el tipo de vehiculos que las usa a dia de 
+%hoy, no?? 
+%Tengo un documento (no yet ready) con algunos ejemplos de los AD más potentes 
+%(18 fabricantes) me puedo apuntar lo de darle una vuelta y dicutimos las 
+%tecnologias que (más o menos, o con la información que podamos) usa cada 
+%marca... te parece?
+
+%\begin{table}[H]
+%    \caption{Comercial sensor systems for ADAS}
+%    %\centering
+%    %% \tablesize{} %% You can specify the fontsize here, e.g.  
+%    %%%%\tablesize{\footnotesize}. If commented out \small will be used.
+%    \begin{tabularx}{\linewidth}{cLL}
+%        \toprule
+%        \textbf{Manufacturer/model}	& \textbf{Sensor technology}	& 
+%        \textbf{Applications} \\
+%        \midrule
+%        \multirow{1}{*}{MobilEye}	
+%        & Vision (monocular, visible) & \gls{fcw} \cite{Dagan2004}, \gls{ldw}, 
+%        \gls{acc} \cite{Stein2003}, road marks/signs detection \\
+%        \midrule
+%        \multirow{2}{*}{Nexyad} 
+%        & Vision (monocular, visible) & Drivable surface detection (RoadNex), 
+%        Obstacle/pedestrian detection (ObstaNex), Drowsiness detection 
+%        (DrowsiNex)  \\
+%        & Vision (monocular multicamera, visible) & Obstacle/pedestrian 
+%        detection (BiCam) \\
+%        \midrule
+%        Freescale & Radar (77 GHz) & \gls{acc}, Obstacle detection: general, 
+%        blind spot, ... (see Figure \ref{fig:freescale}) \\
+%        \midrule
+%        \multirow{4}{*}{Continental}
+%        & Multi Function Camera with Lidar  & \gls{aeb} (Emergency brake 
+%        assist), \gls{fcw}, \gls{ldw}, \gls{tsa}, \gls{ihc} \\
+%        & Surround View Camera   & Surround View, Automated Parking, Trailer 
+%        Reversing, Object/Pedestrian detection, \gls{bsd} \\
+%        & Advanced Radar Sensor 441/510 & \gls{acc}, \gls{aeb}, Traffic 
+%        Continuous Integration, Traffic Jam Assist \\
+%        & - & Comms V2X, lidar, cameras, radars \\
+%        \midrule
+%        \multirow{1}{*}{NXP Semiconductors}
+%        & Sólo componentes, sin funcionalidad & Radar, plataformas 
+%computación, 
+%        visión \\	
+%        \bottomrule
+%    \end{tabularx}
+%\end{table}
+
+
+
+\subsection{OEMs into Automated Driving}
+
+Los fabricantes de vehículos se han lanzado a la carrera por la conquista del 
+primer vehículo altamente automatizado (Niveles 4 y 5). Aunque se puede saber 
+muy poco de las líneas de investigación que llevan a cabo, es cada vez más 
+evidente que están apostando por estas tecnologías. Muchos están trabajando en 
+colaboración con otras empresas, centros tecnológicos y “Startups”. En esta 
+sección explicaremos los avances de los fabricantes y empresas que más han 
+apostado por la conducción completamente automatizada.
+
+\begin{figure*}[p]
+    \centering
+    \includegraphics[width=1.00\textwidth]{"img/OEM_jp_trim"}
+    \caption{OEM projects and alliances in Automated Driving}
+    \label{fig:oem-ad}
+\end{figure*}
+
+%\begin{table}
+%    \caption{OEMs with Automated Driving projects}
+%    \label{tab:oems}
+%    \begin{tabular}{ | l | l | l | l | l | l | l | }
+%    \textbf{OEMs} & \textbf{Test side} & \textbf{Technologies} & \textbf{Since}
+%     & \textbf{Collaborations} & \textbf{Forecast} & \textbf{Test fleet} 
+%    \\
+%    \hline
+%    Ford & Detroit, Arizona \& California (U.S.A.) & AI, LiDAR, and mapping  & 
+%    \~2016 & Argo, Velodyne, SAIPS, civilmaps. & Level 4 (2021) & Fusion 
+%Hybrid 
+%    sedans \~100 by 2018 
+%    \\
+%    GM & Detroit San Francisco \& Scottsdale, Arizona (U.S.A.) & Lidar, very 
+%    accurance map, radar, camera & \~2016 & Google’s Waymo and Jaguar-Land 
+%    Rover & before 2020 (Fortune) & Fifty vehicles have been built by GM 
+%(2017) 
+%    \\
+%    Renault-Nissan & Japan, EE.UU. \& China & Maintains speed, Steering 
+%    control, Front radar, Lidars & \~2017 & Transdev, Microsoft and TechCrunch 
+%    (from Oath)  & Fully autonomous car within the next 10 years. Level 3 -> 
+%    2020 & --- 
+%    \\
+%    Daimler & Germany & Vision, data fusion, radar. & 2015 (Truck \& F015) & 
+%    Bosch & 2020 & Commercial cars (level 2) 
+%    \\
+%    Volkswagen Group (Audi) & Germany & Lidar, data fusion, adaptive cruise 
+%    control, self-parking \& TJA  & 2015 & Audi -> Delphi (2015);  Aurora 
+%    (2017) & 2025 (level 4) & Commercial cars (level 3 -> Traffic Jams) 
+%    \\ 
+%    BMW & Germany, China & Vision, lidar, DGPS & 2011 & Intel,  and With Baidu 
+%    \& Nokia’s HERE   & Level 5 autonomous car on the road by 2022. & 
+%    Commercial cars (level 2) 
+%    \\
+%    Waymo & California (U.S.A.) & Lidar, vision system, radar, data fusion, RT 
+%    Path plan.. & 2010 & Fiat-Chrysler,  Velodyne. & --- & 100 autonomous 
+%    Pacifica minivans  
+%    \\
+%    Volvo & Sweden. \& Uber: San Francisco, Pittsburgh  & Vision, lidar, GPS, 
+%    V2I & 2011 & Uber (U.S), Autoliv (Sweden)  & \~2020 & Commercial cars 
+%    (level 2) 
+%    \\
+%    Tesla & U.S.A. & Camera, radar, AI & \~2015 & Apple, Mobileye and Nvidia & 
+%    \~Full automated 2020  & Commercial cars (level 2) \\
+%    Hyundai & South Korea & AI, LiDAR, Camera & 2014 & KIA, Aurora & AD Level 
+%    3-> Highways by 2020 and to city streets by 2030 & --- 
+%    \\
+%    \end{tabular}
+%\end{table}
 

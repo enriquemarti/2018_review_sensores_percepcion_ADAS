@@ -104,50 +104,68 @@ traffic elements that are encoded visually to allow being interpreted by humans
 Sensors provide raw data that sometimes can be used directly as useful
 information (e.g. GPS giving location/speed), or that must be processed/fused.
 
-Tabla: qué sensores son útiles para obtener cada tipo de información.
-
-\begin{table}[H]
-    \caption{Sensor technologies and proposed uses}
-    %\centering
-    %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
-    \begin{tabularx}{\linewidth}{cLL}
-        \toprule
-        \textbf{Type}	& \textbf{Sensor type}	&  \textbf{Applications}\\
-        \midrule
-        \multirow{4}{*}{Artificial vision}	
-        & Monocular single camera   & \gls{fcw} \cite{Dagan2004}, \gls{ldw}, \gls{acc} \cite{Stein2003}, road marks/signs detection, visual odometry for ego-motion \cite{Scaramuzza2008,Nguyen2013,Bak2012}, Road boundary detection for run-off road prevention based on the fusion of video and radar \cite{Janda2013} \\
-        & Monocular multicamera     & \cite{Ieng2003} lateral cameras for lane detection fused with GPS for enhanced location \\
-        & Stereo                    & - \\
-        & Non-visible spectrum      & Pedestrian detection \cite{Besbes2015} \\
-        & Time Gated CMOS           & see https://www.brightwayvision.com/technology/ \\
-        \midrule
-        \multirow{5}{*}{Ranging}
-        & Radar                 & Ground+obstacle detection with mm-wave radar \cite{Reina2015}, Road boundary detection for run-off road prevention based on the fusion of video and radar \cite{Janda2013} \\
-        & Lidar (single layer)  & - \\
-        & Lidar (multilayer)    & Rapid Inspection of Pavement Markings Using Mobile Laser Scanning Point Clouds \cite{Zhang2016} \\
-        & Ultrasounds           & Neighbor vehicle misbehavior \cite{Liu2015}, also for (taken from that work) ''vehicle tracking and classification [7,22–25], obstacle detection and mapmaking [26,27], vacant parking slot detection [28], smart traffic signaling [29], ultrasonic ranging and localization [30]'' \\
-        & Structured light    & -  \\
-        & Time-of-flight       & - \\
-        & Time Gated CMOS     & (also in Artificial Vision) \\
+%Tabla: qué sensores son útiles para obtener cada tipo de información.
+%
+%\begin{table}[H]
+%    \caption{Sensor technologies and proposed uses}
+%    %\centering
+%    %% \tablesize{} %% You can specify the fontsize here, e.g.  
+%%%%%\tablesize{\footnotesize}. If commented out \small will be used.
+%    \begin{tabularx}{\linewidth}{cLL}
+%        \toprule
+%        \textbf{Type}	& \textbf{Sensor type}	&  \textbf{Applications}\\
 %        \midrule
-%        \multirow{3}{*}{Egomotion}
-%        & GNSS      & Positioning, speed \\
-%        & IMU       & Orientation (inclination, heading), change of speed \\	
-%        & Odometer  & Speed \\
-        
-        \bottomrule
-    \end{tabularx}
-\end{table}
-
-In \cite{Lundquist2011} we can find a nice review of sensor/algorithms for road 
-related applications: lane detection, road geometry estimation, etc.
-The work \cite{Yebes2015} talks about infering 2.5D or 3D features from monocular 
-vision.
-Pot-hole detection using monocular vision
-Road condition with on-board sensors in \cite{CastilloAguilar2015} (tire slippage).
-
-Monocular vision is the most popular technique due to the low cost of sensors and 
-having a large research community with a high maturity degree.
+%        \multirow{4}{*}{Artificial vision}	
+%        & Monocular single camera   & \gls{fcw} \cite{Dagan2004}, \gls{ldw}, 
+%\gls{acc} \cite{Stein2003}, road marks/signs detection, visual odometry for 
+%ego-motion \cite{Scaramuzza2008,Nguyen2013,Bak2012}, Road boundary detection 
+%for run-off road prevention based on the fusion of video and radar 
+%\cite{Janda2013} \\
+%        & Monocular multicamera     & \cite{Ieng2003} lateral cameras for lane 
+%detection fused with GPS for enhanced location \\
+%        & Stereo                    & - \\
+%        & Non-visible spectrum      & Pedestrian detection \cite{Besbes2015} \\
+%        & Time Gated CMOS           & see 
+%https://www.brightwayvision.com/technology/ \\
+%        \midrule
+%        \multirow{5}{*}{Ranging}
+%        & Radar                 & Ground+obstacle detection with mm-wave radar 
+%\cite{Reina2015}, Road boundary detection for run-off road prevention based on 
+%the fusion of video and radar \cite{Janda2013} \\
+%        & Lidar (single layer)  & - \\
+%        & Lidar (multilayer)    & Rapid Inspection of Pavement Markings Using 
+%Mobile Laser Scanning Point Clouds \cite{Zhang2016} \\
+%        & Ultrasounds           & Neighbor vehicle misbehavior \cite{Liu2015}, 
+%also for (taken from that work) ''vehicle tracking and classification 
+%[7,22–25], obstacle detection and mapmaking [26,27], vacant parking slot 
+%detection [28], smart traffic signaling [29], ultrasonic ranging and 
+%localization [30]'' \\
+%        & Structured light    & -  \\
+%        & Time-of-flight       & - \\
+%        & Time Gated CMOS     & (also in Artificial Vision) \\
+%%        \midrule
+%%        \multirow{3}{*}{Egomotion}
+%%        & GNSS      & Positioning, speed \\
+%%        & IMU       & Orientation (inclination, heading), change of speed \\	
+%%        & Odometer  & Speed \\
+%        
+%        \bottomrule
+%    \end{tabularx}
+%\end{table}
+%
+%In \cite{Lundquist2011} we can find a nice review of sensor/algorithms for 
+%road 
+%related applications: lane detection, road geometry estimation, etc.
+%The work \cite{Yebes2015} talks about infering 2.5D or 3D features from 
+%monocular 
+%vision.
+%Pot-hole detection using monocular vision
+%Road condition with on-board sensors in \cite{CastilloAguilar2015} (tire 
+%slippage).
+%
+%Monocular vision is the most popular technique due to the low cost of sensors 
+%and 
+%having a large research community with a high maturity degree.
 
 %\begin{figure}[h]
 %    \centering
@@ -254,21 +272,105 @@ have been proposed.
     Near Infra-Red light detection is analyzed in \cite{Maddalena2005}. 
     In \cite{Strobel2013} a sensor with 130 dB range (global shutter) and up
     to 170 dB (rolling shutter) is presented for industrial safety application. 
-    
-    \item Refresh rate:
-    
+        
     \item Captured spectrum: apart from visible light cameras, either in color
-    or grayscale, automotive applications have used infrared sensors. We can 
-    distinguish to families: far infrared cameras (wavelength 900-1400 nm), 
+    or grayscale, automotive applications have used infrared sensors.
+    Far infrared cameras (wavelength 900-1400 nm), 
     also known as thermal cameras, detect the emissions of hot objects, 
     including living beings. Thermal cameras are effective for pedestrian and
     animal detection \cite{OMalley2008}\cite{Besbes2015} in the dark and 
     through dust and smoke. FLIR manufactured a system that was integrated
-    in BMW's NightVision system since 2009 cameras.
+    in BMW's NightVision system since 2009 cameras. Near Infrared (750-900 nm)
+    complements visible spectrum with a better contrast in high dynamic range
+    scenes, improves night visibility. In \cite{Pinchon2018} authors compare
+    visible light, near infrared and far infrared cameras in different 
+    luminic and atmospheric conditions.
+    
+    
 \end{itemize} 
 
-Event-based vision is a bioinspired technology developed by Zurich University
-and the ETH Zurich. It approaches the problem of processing and tracking fast 
+\subsubsection{3D technology}
+Although traditional camera technology is esentially 2D, there are some
+types of vision sensors that can perceive depth information. This section
+describes the three principal types that are already available as commercial
+devices, although not always targeting the automotive market.
+
+
+\begin{itemize}
+    \item \emph{Stereo vision:} a biology-inspired setup composed by two 
+    monocular cameras pointing in the same direction and separated by some
+    distance (known as baseline). An object close to the sensor is perceived as
+    located in different positions within each camera frame, while far objects
+    have the same location on the two images. Depth is, thus, not a direct
+    product of sensing but computed from raw measures. Extracting 
+    correspondences between pairs of frames is not trivial and a 
+    computationally demanding task.
+    
+    Tipically built with visible-light sensors, they are limited by the same
+    factors. Stereo vision has issues with low-textured patterns (e.g. solid
+    colors) because it difficults establishing correspondences between frames.
+    Also, a careful calibration is needed to make sure that disparities are
+    correctly translated to depths.
+    
+    Good algorithms can return a dense depth map, as opposed to sparse 
+    sensors as LiDARs. Maximum and minimum perceived depth are limited by
+    camera field of view and resolution: disparities smaller than one pixel
+    of far objects could be not detected, calculating large disparities of very 
+    close objects are computationally expensive.
+    
+    At present time it is possible to find several of-the-shelf sensors for 
+    stereo vision, either in the automotive field (¿REFS?) or as generic
+    application products.
+    
+    \item \emph{Structured light:} a monocular camera coupled with a device that
+    illuminates the scene with a known pattern of infrared light. 
+    The distortion of the luminic pattern when projected over an irregular 
+    surface is captured by the camera and translated to a depth map.
+    
+    Structured light devices overcome some limitations of stereoscopic systems
+    as depending on texture patterns and having a high computational cost. 
+    However, they require the same high-accuracy calibration \cite{Garbat2013}
+    and have some additional limitations. 
+    Being an active sensor (projects light), their 
+    operative range is limited by the power of the emitter and the intensity of
+    ambient light. Reflections can affect its performance. Typical devices are 
+    effective below the 20 meters mark, making them unfeasible for most 
+    automotive applications.
+    
+    Microsoft Kinect, originally conceived as a gadget for its Xbox gaming 
+    console and now a discontinued product, is very popular for robotic 
+    applications. Microsoft RealSense is a product a product that combines 
+    stereoscopic vision with structured light, and is specifically targeted for 
+    outdoor applications requiring a short-mid range as drone navigation 
+    \cite{}.
+    
+    \item \emph{Time-of-flight:} cite{Hansard2013} is a technology somehow 
+    related to LiDAR. 
+    A set of infrared LEDs emmit light modulated according a known scheme.
+    The sensor captures light and measures, for each pixel, the phase shift
+    with respect to emmited light. This is translated to round-trip-time 
+    which is equivalent to a distance.
+    The difference with LiDARs is that here the light source is a "bulb" that 
+    fills the entire scene, while in the former a laser emits directed pulse.
+    This makes time-of-flight devices less efective for large distances and
+    with intense ambient light.
+    
+    The advantages of time-of-flight sensors include: dense depth map, high 
+    accuracy and high refresh rate (easily up to 50 Hz) 
+    
+    Commercial products specify ranges up to 40 meters, with typical operative
+    distances under 20 meters.
+\end{itemize}
+
+As an alternative, it is possible to extract 3D information by using camera 
+motion for good performant SLAM algorithms \cite{Engel2014}\cite{Engel2018}, 
+but at the date there are not commercial sensors integrating that capacity.
+
+\subsubsection{Emerging vision technologies}
+
+The most promising technology is known as event-based vision. It is a 
+bioinspired technology developed by Zurich University and the ETH Zurich. 
+It approaches the problem of processing and tracking fast 
 moving images in a completely different way: instead of capturing fixed frames
 at discrete times, the elements of the sensor are triggered asynchronously and
 indepently when a change on the intensity is detected. Each activation is
@@ -286,9 +388,6 @@ relieving the CPU of time consuming operations on raw images.
 More recently, a steering wheel control for automated driving systems 
 based on deep learning has been shown in \cite{Maqueda2018}.
  
- 
- 
- Talk about 3D technologies??? estéreo, ToF, structured light, 
  
 
 \subsection{Radar}
@@ -349,6 +448,11 @@ resolution that may enable radar imaging.
 %    \label{fig:radar-freqband}
 %\end{figure}
 
+\subsubsection{Emerging radar technologies}
+
+
+
+
 \subsection{LiDAR}
 LiDAR (Light Detection And Ranging) is an active ranging technology that calculates distance to objects by measuring round trip time of a laser light pulse.
 Devices apt for robotic and automotive applications use a low power 
@@ -400,6 +504,8 @@ However, they have several drawbacks to take into account:
     worse than radar, but still better than cameras and human eye.
 \end{itemize}
 
+\subsubsection{Emerging LiDAR technologies}
+
 In the last years, a FLASH based technology also named as solid state LiDAR
 started to arrived to commercial products. It offers advantages when it comes
 to operating under strong vibrations and dynamics, apart from being potentially
@@ -432,6 +538,8 @@ FoV. Also, it is possible to augment the point density within each frame for
 better resolution. The three features can be combined to do fast low resolution 
 inspection of the full FoV, and then tracking with high resolution the objects
 of interest for enhanced shape recognition even at far distances.
+This is similar to Waymo's claims about the LiDARs they have developed for their
+self-driving vehicles, as described in section \ref{sec:04-relevantdemos}.
 
 
 %\begin{figure}[h]
@@ -442,8 +550,15 @@ of interest for enhanced shape recognition even at far distances.
 %    \label{fig:freescale}
 %\end{figure}
 
+\subsection{Using sensors for perception}
 
+The characteristics of a sensing technology determines its suitability for 
+acquiring certain types of information, and restricts its range of operative 
+conditions.
 
+Figure \ref{fig:information_vs_sensors} relates the principal sensing 
+technologies currently used in the automotive market and Automated Driving
+initiatives.
 
 \begin{figure}[h]
     \centering
