@@ -7,38 +7,39 @@ Desarrollar el "arco argumental": problema -> descomposición en habilidades/par
 Problems of interest in ADAS at different automation levels.
 Source: \href{http://www.mobileye.com/wp-content/uploads/2013/09/AEB_test_procedures_aug12.pdf}{MobilEye slides}
 
-\subsection{SAE Automation Levels}
-
-\textbf{Level 0} comprises traditional assistance mechanisms that can be detected monitoring mechanical parts of the vehicle
-\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-    \item	\gls{abs}
-\end{itemize}
-
-\textbf{Level 1}
-\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-    \item	Cruise control
-    \item	\gls{aeb} Tightly related with \gls{fcw}. Three different cases
-\end{itemize}
-
-\textbf{Level 2}
-\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-    \item   \gls{acc}
-\end{itemize}
-
-\textbf{Level 3}
-\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-    \item Control sharing techniques (¿Sección propia?)
-\end{itemize}
-
-\textbf{Level 4}
-\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-    \item	...
-\end{itemize}
-
-\textbf{Level 5}
-\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-    \item	...
-\end{itemize}
+%\subsection{SAE Automation Levels}
+%
+%\textbf{Level 0} comprises traditional assistance mechanisms that can be 
+%detected monitoring mechanical parts of the vehicle
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item	\gls{abs}
+%\end{itemize}
+%
+%\textbf{Level 1}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item	Cruise control
+%    \item	\gls{aeb} Tightly related with \gls{fcw}. Three different cases
+%\end{itemize}
+%
+%\textbf{Level 2}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item   \gls{acc}
+%\end{itemize}
+%
+%\textbf{Level 3}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item Control sharing techniques (¿Sección propia?)
+%\end{itemize}
+%
+%\textbf{Level 4}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item	...
+%\end{itemize}
+%
+%\textbf{Level 5}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item	...
+%\end{itemize}
 
 \subsection{Behavioral competencies}
 
@@ -67,19 +68,11 @@ Source: \href{http://www.mobileye.com/wp-content/uploads/2013/09/AEB_test_proced
          & 9 & Perception in unanticipated weather or lighting conditions outside of 
          vehicle’s capability (e.g. rainstorm) \\
          \midrule
-         \multirow{2}{*}{Vehicles as obstacles detection}
+         \multirow{2}{5cm}{Vehicles, pedestrians and other obstacles detection}
          & 10, 12, ¿13? & Detect Non-Collision Safety Situations (e.g. vehicle 
          doors ajar) \\
          & 10, 11, 12, 13 & Detect Stopped Vehicles, Emergency Vehicles, Lead 
          Vehicle, Motorcyclists, School Buses \\
-         \midrule
-         \multirow{3}{*}{Perception of vehicles behaviour}
-         & 6, 11(, 8) & Detect Lane Changes, a Merging Vehicle \\
-         & 6, 11 & Detect Vehicles Parking in the Roadway and Locate Spaces to 
-         parky \\
-         & 6, 8 & Detect Encroaching Oncoming Vehicles \\
-         \midrule
-         \multirow{4}{*}{Other obstacles detection}
          & 6(, 1)  & Detect Static Obstacles in the Path of the Vehicle \\
          & 6, 8, 9, 10, 11, 12 & Detect Pedestrians and Bicyclists at 
          Intersections, Crosswalks and in Road (Not Walking Through 
@@ -90,11 +83,6 @@ Source: \href{http://www.mobileye.com/wp-content/uploads/2013/09/AEB_test_proced
          Responder Controlling Traffic, Construction Zone Workers Controlling, 
          Citizens Directing Traffic After a Crash (Overriding or Acting as 
          Traffic Control Device) \\
-         \midrule
-         \multirow{1}{*}{Others}
-         & 2 & Detect Conditions Involving Vehicle, System, or Component-Level 
-         Failures or Faults (e.g. power failure, sensing failure,sensing 
-         obstruction, computing failure, fault handling or response)  \\
 
         \bottomrule
     \end{tabularx}
@@ -163,13 +151,22 @@ Meanwhile, 3D LiDAR gives a more dense pointcloud with more information, improvi
 \textbf{Radar based solutions:}
 The main advantage of Radar sensors is their ability to work in all weather conditions (darkness, rain, fog, snow, etc). But due to the poor image contrast of these types of sensors, the only usefull information for that competence that can be extracted is the position of the obstacles (in order to know oclusions of the road) and the road itself. Road, as it is plain, acts as a mirror for a radar sensor, returning very little power of the emited, the sides of the roads return a slightly higher amount of power, and obstacles return a high amount of power. So road limits can be estimated using radar images, getting a maximum error of half a lane at zero distance from the host vehicle and remains within a full lane width even at 50 meters distance from the host vehicle. This radar information the is fused with camera images in order to improve both detections \cite{kaliyaperumal2001algorithm, ma2000simultaneous, Janda2013}
 
-\subsubsection{Vehicles as obstacles detection}
+\subsubsection{Vehicles, pedestrians and other obstacles detection}
+In this section it is reviewed the use of different sensors for detecting other vehicles in the road, pedestrians, and other kind of obstacles that may appear such as motorcycles, bycicles, animals, etc. The advantages and disadvantages of the use of each kind of sensor are discused. For this competence, it is important not only to perform a good detection and classification, but also to detect correctly the possition of those obstacles with respect to the ego-vehicle, so as their speed  and movement intencion if possible. This information will be the input of systems like the path planner and the collision avoidance system.
 
 
+\textbf{Camera based solutions:}
+The use of cameras for obstacle detection can be performed with different configurations as in the previus competences. Estereo cameras, a single monocular camera, multiple cameras and InfraRed cameras are used in different works.
 
-\subsubsection{Perception of vehicles behaviour}
+\textbf{LiDAR based solutions:}
+Whith this sensor, a detection and classification of different surrounding vehicles and pedestrians can be performed, obtaining also the 3D position of these obstacles. As it is an active sensor, it performance is not affected by the illumination of the scene, so it can work also at night. 
+
+\textbf{Radar based solutions:}
+Radars can be used to detect and track vehicles of the road. They provide information about the position and the relative speed of those obstacles. They have the advantage of a good performance in adverse weather conditions (night, rain, fog, etc), and a large range of detection (up to 150 m). This sensor is able to detect vehicles in multiple lanes like in [].
+
+\textbf{Microphone based solutions:}
+Microphones sensors can be used to detect aproaching vehicles from the rear side like in [], where an array of multiple microphones placed in the surroundings of the vehicle can estimate even the direction of these aproaching vehicles.
 
 
-
-\subsubsection{Other obstacles detection}
-
+\textbf{Multiple sensors fusion solutions:}
+Fusion sensors is a very common approach in many works. There exists many different combinations, like radar and vision[], LiDAR and vision, acoustic and vision, radar and LiDAR, and other multiple modalities. The most common ones are described in the following lines.
