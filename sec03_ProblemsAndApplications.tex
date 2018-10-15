@@ -157,16 +157,20 @@ In this section it is reviewed the use of different sensors for detecting other 
 
 \textbf{Camera based solutions:}
 The use of cameras for obstacle detection can be performed with different configurations as in the previus competences. Estereo cameras, a single monocular camera, multiple cameras and InfraRed cameras are used in different works.
+A camera can be placed on different locations: Onthe front of the vehicle [.....], On the side-view mirror \cite{alonso2008lane, song2007lateral, blanc2007larasidecam} , in the passengers window \cite{chang2008real} or looking forward \cite{liu2007rear}, it is possible to detect and track vehicles trying to overtake the ego-vehicle, helping to take the decision of lane-change \cite{alonso2008lane, song2007lateral, blanc2007larasidecam}. Omnidirectional cameras \cite{gandhi2006vehicle}.
+
 
 \textbf{LiDAR based solutions:}
 Whith this sensor, a detection and classification of different surrounding vehicles and pedestrians can be performed, obtaining also the 3D position of these obstacles. As it is an active sensor, it performance is not affected by the illumination of the scene, so it can work also at night. 
 
 \textbf{Radar based solutions:}
-Radars can be used to detect and track vehicles of the road. They provide information about the position and the relative speed of those obstacles. They have the advantage of a good performance in adverse weather conditions (night, rain, fog, etc), and a large range of detection (up to 150 m). This sensor is able to detect vehicles in multiple lanes like in [].
+Radars can be used to detect and track vehicles of the road. They provide information about the position and the relative speed of those obstacles. This information is very usefull for collision avoidance systems and path planning algorithms. They have the advantage of a good performance in adverse weather conditions (night, rain, fog, etc), and a large range of detection (up to 150 m)\cite{blanc2004obstacle}. Due to the low resolution of the final output of radars, these sensors are fused with other ones, usually cameras\cite{garcia2012data} or, in some works, LiDARS\cite{gohring2011radar}.
 
 \textbf{Microphone based solutions:}
 Microphones sensors can be used to detect aproaching vehicles from the rear side like in [], where an array of multiple microphones placed in the surroundings of the vehicle can estimate even the direction of these aproaching vehicles.
 
 
 \textbf{Multiple sensors fusion solutions:}
-Fusion sensors is a very common approach in many works. There exists many different combinations, like radar and vision[], LiDAR and vision, acoustic and vision, radar and LiDAR, and other multiple modalities. The most common ones are described in the following lines.
+As in the other compentences, fusion sensors information is a very common approach in many works. The use of an specific sensor has strengths and weaks, for example, cameras provide more information in order to do a better classification of the obstacle, LiDAR provides a very precise position of the obstacle in a large range of view and radar gives information of the obstacle's speed, making easier tracking them.
+There exists many different combinations, like radar and vision[], LiDAR and vision, acoustic and vision, radar and LiDAR, and other multiple modalities. The most common ones are described in the following lines.
+Radar and LiDAR fusion, like in \cite{gohring2011radar} increases the precision of the speed obtained only with LiDAR and also obtained a good position and speed estimation when radar is unavalible (especially in curvy roads).
