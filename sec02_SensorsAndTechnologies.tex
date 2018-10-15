@@ -3,25 +3,20 @@ En esta sección se discutirán las principales tecnologías de sensores (opcion
 
 Debemos cubrir el arco "sensores -> datos -> información", que lleva desde los sensores crudos hasta información relevante en AD. Esto nos permite enganchar con la sección Problems and applications.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.95\textwidth]{"img/data_vs_information"}
-    \caption{Perception as a bridge between raw data and useful information}
-    \label{fig:data-vs-information}
-\end{figure}
 
-The JDL Information Fusion Model \cite{Llinas2000} is a well-known and 
-widely used framework for discussions on sensor and information fusion systems.
-It has been explored in the context of automotive domain
-\cite{Polychronopoulos2006} and has been used as base for defining
-automotive-specific sensor fusion frameworks \cite{Tatschke2006}. 
-Perception layer is usually define to cover JDL levels 0 (raw data
-pre-processing) and 1 (object refinement), while higher abstraction processes
-belonging to levels 2 (situation refinement) and 3 (threat refinement) are
-usually placed in the decision modules.
-Level 4 (process refinement) is not contemplated, while Level 5 (user reinement)
-is mostly related with HMIs and shared control or arbitration schemes, but
-left out of the scope of this work.
+%The JDL Information Fusion Model \cite{Llinas2000} is a well-known and 
+%widely used framework for discussions on sensor and information fusion systems.
+%It has been explored in the context of automotive domain
+%\cite{Polychronopoulos2006} and has been used as base for defining
+%automotive-specific sensor fusion frameworks \cite{Tatschke2006}. 
+%Perception layer is usually define to cover JDL levels 0 (raw data
+%pre-processing) and 1 (object refinement), while higher abstraction processes
+%belonging to levels 2 (situation refinement) and 3 (threat refinement) are
+%usually placed in the decision modules.
+%Level 4 (process refinement) is not contemplated, while Level 5 (user 
+%reinement)
+%is mostly related with HMIs and shared control or arbitration schemes, but
+%left out of the scope of this work.
 
 
 \subsection{Relevant information domains}
@@ -103,100 +98,6 @@ traffic elements that are encoded visually to allow being interpreted by humans
 
 Sensors provide raw data that sometimes can be used directly as useful
 information (e.g. GPS giving location/speed), or that must be processed/fused.
-
-%Tabla: qué sensores son útiles para obtener cada tipo de información.
-%
-%\begin{table}[H]
-%    \caption{Sensor technologies and proposed uses}
-%    %\centering
-%    %% \tablesize{} %% You can specify the fontsize here, e.g.  
-%%%%%\tablesize{\footnotesize}. If commented out \small will be used.
-%    \begin{tabularx}{\linewidth}{cLL}
-%        \toprule
-%        \textbf{Type}	& \textbf{Sensor type}	&  \textbf{Applications}\\
-%        \midrule
-%        \multirow{4}{*}{Artificial vision}	
-%        & Monocular single camera   & \gls{fcw} \cite{Dagan2004}, \gls{ldw}, 
-%\gls{acc} \cite{Stein2003}, road marks/signs detection, visual odometry for 
-%ego-motion \cite{Scaramuzza2008,Nguyen2013,Bak2012}, Road boundary detection 
-%for run-off road prevention based on the fusion of video and radar 
-%\cite{Janda2013} \\
-%        & Monocular multicamera     & \cite{Ieng2003} lateral cameras for lane 
-%detection fused with GPS for enhanced location \\
-%        & Stereo                    & - \\
-%        & Non-visible spectrum      & Pedestrian detection \cite{Besbes2015} \\
-%        & Time Gated CMOS           & see 
-%https://www.brightwayvision.com/technology/ \\
-%        \midrule
-%        \multirow{5}{*}{Ranging}
-%        & Radar                 & Ground+obstacle detection with mm-wave radar 
-%\cite{Reina2015}, Road boundary detection for run-off road prevention based on 
-%the fusion of video and radar \cite{Janda2013} \\
-%        & Lidar (single layer)  & - \\
-%        & Lidar (multilayer)    & Rapid Inspection of Pavement Markings Using 
-%Mobile Laser Scanning Point Clouds \cite{Zhang2016} \\
-%        & Ultrasounds           & Neighbor vehicle misbehavior \cite{Liu2015}, 
-%also for (taken from that work) ''vehicle tracking and classification 
-%[7,22–25], obstacle detection and mapmaking [26,27], vacant parking slot 
-%detection [28], smart traffic signaling [29], ultrasonic ranging and 
-%localization [30]'' \\
-%        & Structured light    & -  \\
-%        & Time-of-flight       & - \\
-%        & Time Gated CMOS     & (also in Artificial Vision) \\
-%%        \midrule
-%%        \multirow{3}{*}{Egomotion}
-%%        & GNSS      & Positioning, speed \\
-%%        & IMU       & Orientation (inclination, heading), change of speed \\	
-%%        & Odometer  & Speed \\
-%        
-%        \bottomrule
-%    \end{tabularx}
-%\end{table}
-%
-%In \cite{Lundquist2011} we can find a nice review of sensor/algorithms for 
-%road 
-%related applications: lane detection, road geometry estimation, etc.
-%The work \cite{Yebes2015} talks about infering 2.5D or 3D features from 
-%monocular 
-%vision.
-%Pot-hole detection using monocular vision
-%Road condition with on-board sensors in \cite{CastilloAguilar2015} (tire 
-%slippage).
-%
-%Monocular vision is the most popular technique due to the low cost of sensors 
-%and 
-%having a large research community with a high maturity degree.
-
-%\begin{figure}[h]
-%    \centering
-%    
-%\includegraphics[width=0.95\textwidth]{"img/imaging-technologies-for-automotive-2016-report-by-yole"}
-%    \caption{Ranging technologies}
-%    \label{fig:ranging-techs}
-%\end{figure}
-
-%\begin{table}[H]
-%    \caption{Features of spatial sensor technologies 
-%([D]etection/[I]dentification, [G]ood/[M]edium/[B]ad)}
-%    \begin{tabularx}{\linewidth}{Lcccccccc}
-%        \toprule
-%        \textbf{Technology} & \textbf{veh} & \textbf{ped} & \textbf{signals} & 
-%\textbf{road marks} & \textbf{other} & \textbf{dense} & \textbf{resol} & 
-%\textbf{fog/rain/snow} \\
-%        \midrule
-%        Mono (visible) 		& D/I & D/I & D/I & D/I & D/I & G & G & M/B \\
-%        Mono (near IR) 		& - & - & - & - & - & - & - & - \\	
-%        Mono (far IR) 		& - & - & - & - & - & - & - & - \\	
-%        Stereo (visible) 	& - & - & - & - & - & - & - & - \\	
-%        Time-of-flight 		& - & - & - & - & - & - & - & - \\	
-%        Time Gated 			& - & - & - & - & - & - & - & - \\	
-%        Structured Light 	& - & - & - & - & - & - & - & - \\	
-%        Radar 				& - & - & - & - & - & - & - & - \\	
-%        Lidar 				& - & - & - & - & - & - & - & - \\	
-%        Ultrasounds 		& - & - & - & - & - & - & - & - \\		
-%        \bottomrule
-%    \end{tabularx}
-%\end{table}
 
 \begin{figure}[h]
     \centering
@@ -285,6 +186,12 @@ have been proposed.
     scenes, improves night visibility. In \cite{Pinchon2018} authors compare
     visible light, near infrared and far infrared cameras in different 
     luminic and atmospheric conditions.
+    
+    Light polarization represents an additional source of information which
+    is know to be used by animals able to perceive it (some ants, 
+    mantis-shrimp). There is an active line of research \cite{Garcia2018}
+    around sensors able  to capture this feature, since it can be useful in
+    conditions adverse for traditional sensors. 
     
     
 \end{itemize} 
@@ -438,18 +345,20 @@ driving scenarios make this technology feasible, with the benefit of a high
 resolution that may enable radar imaging.
 
 
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width=0.8\textwidth]{"img/infineon_radar_bands_chart"}
-%    \caption{Operating frequency bands of automotive radars. Taken from 
-%Lachner, R. (2009). Development Status of Next Generation Automotive Radar in 
-%EU. Tokyo: ITS Forum. Available at 
-%http://www.itsforum.gr.jp/Public/J3Schedule/P22/lachner090226.pdf}
-%    \label{fig:radar-freqband}
-%\end{figure}
-
 \subsubsection{Emerging radar technologies}
 
+High resolution radar. Difference in frequencies, range.
+
+Ground-penetrating radar is a technology used from a long
+time ago in diverse areas ranging from archeology to industrial applications.
+MIT Lincoln Laboratory created a device \cite{Cornick2016} that can be placed 
+below a vehicle to get a reading describing the geological properties of the
+first few meters under the ground. This reading is not affected by snow, 
+water, dust or any other element over the surface of the road. The idea is to
+create maps that can be used later to localize vehicles, with an accuracy of
+a few centimeters. \cite{XXXX}
+Recently, Wavesense company (https://wavesense.io/) announced tests in snowy
+places and is close to commercialize this technology.
 
 
 
@@ -506,16 +415,28 @@ However, they have several drawbacks to take into account:
 
 \subsubsection{Emerging LiDAR technologies}
 
-In the last years, a FLASH based technology also named as solid state LiDAR
-started to arrived to commercial products. It offers advantages when it comes
+Direct speed measurement is a really nice feature for any sensor. Up to date,
+only radars where able to capure speed, for instance using FMCW signals.
+The same concept has been researched along last decades \cite{Nordin2004}
+applied to LiDARs that emmit light continuously to measure objects speed based 
+on Doppler effect. In the last years some research prototypes suitable for
+the automotive market start appearing \cite{Poulton2016}, until recently
+a company named Blackmore announced a commercial version. 
+Observation of speed can improve later perception stages. A direct use is to
+improve tracking of moving objects, but it makes possible to detect cyclists 
+and discern when pedestrians are walking thanks to the different speeds of
+body and limbs.
+
+Regarding LiDARs, however, the most popular emerging technology in the last 
+years has been Solid State LiDAR. It offers advantages when it comes
 to operating under strong vibrations and dynamics, apart from being potentially
 smaller, cheaper and faster. 
 However, the market does not offer products combining high resolution and a 
 wide field of view, so mechanical devices are the only option for full 
 360-degree coverage and environment mapping.
 
-There are two potential technologies for solid state LiDARs: oscillating
-micro-mirrors and optical phased array (as Quanergy line of products).
+Solid state LiDAR is an umbrella term that includes several technologies, two 
+of which are oscillating micro-mirrors and Optical Phased Array (OPA).
 The first technology combines one or many laser emitters that are directed
 with micro-mirrors that can rotate around two axes, so that the beam 
 can be directed within a cone. Manufacturer LeddarTech commercializes devices
@@ -540,15 +461,6 @@ inspection of the full FoV, and then tracking with high resolution the objects
 of interest for enhanced shape recognition even at far distances.
 This is similar to Waymo's claims about the LiDARs they have developed for their
 self-driving vehicles, as described in section \ref{sec:04-relevantdemos}.
-
-
-%\begin{figure}[h]
-%    \centering
-%    
-%\includegraphics[width=0.85\textwidth]{"img/Freescale_factTable_sensorApplication"}
-%    \caption{Applications of 77 GHz radar to ADAS}
-%    \label{fig:freescale}
-%\end{figure}
 
 \subsection{Using sensors for perception}
 
