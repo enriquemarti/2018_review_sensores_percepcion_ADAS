@@ -310,15 +310,6 @@ Distance is determined using the frequency shift between the emitted and
 reflected signals. Both technologies allow to measure target speed based
 on Doppler effect.
 
-One of the strongest arguments for including radar sensing in automated 
-vehicles is its independence of light and weather conditions. 
-It works in the dark, and detections are almost equally good with snow, 
-rain, fog or dust \cite{Reina2015}.
-However, radar processing can be tricky due to the reflectivity of the
-different materials: metals amplify radar signal, easening detection of 
-vehicles but increasing the apparent size of small objects as discarded cans
-in the road, while other materials (e.g. wood) are virtually transparent.
-
 Starting in 2004, EU allocated a permanent 5 GHz wide band around 79 GHz 
 \cite{EULawandPublications2004}. 
 Short distance applications as blind spot detection, parking assistance, jam 
@@ -328,8 +319,23 @@ signal around 76-78 GHz. However, manufacturers are implementing multifrequency
 chips that can switch between different functions dinamycally.
 %This information is resumed in figure \ref{fig:radar-freqband}
 
+One of the strongest arguments for including radar sensing in automated 
+vehicles is its independence of light and weather conditions. 
+It works in the dark, and detections are almost equally good with snow, 
+rain, fog or dust \cite{Reina2015}. Long range radars can see up to 250 m
+in very adverse conditions, where no other sensor works.
+
+However, radar processing can be tricky due to the reflectivity of the
+different materials: metals amplify radar signal, easening detection of 
+vehicles but increasing the apparent size of small objects as discarded cans
+in the road, while other materials (e.g. wood) are virtually transparent.
+This and other factors make radars kind of "shortsighted", which is equivalent 
+to say they have a low resolution. Horizontal and vertical positioning error 
+grows with distance, so that at 100 m is difficult to say if an obstacle is
+actually on the vehicle lane, or if it is a bridge over the road.
+
 As Automated Driving technology advances, radars are expected to go from its
-current use of detecting and measuring speed to targets to provide richer
+current use of detecting targets and measuring its speed to providing richer
 semantic information. 
 Recent research turns around using higher frequency bands to increase
 resolution. This results in better shape recognition and separation of close
@@ -347,9 +353,23 @@ resolution that may enable radar imaging.
 
 \subsubsection{Emerging radar technologies}
 
-High resolution radar. Difference in frequencies, range.
+One of the most active research area is related with high resolution radar
+imaging for automobiles. Apart from research in early stages previously 
+referred, a number of technological companies and startups are working in 
+commercial products. 
+For example, Arbe Robotics (http://www.arberobotics.com/) is working in a 
+model with 300 m range, a field of view of 100 degrees horizontal, 30 degrees
+vertical, and a resolution of 1 degree azimuth and 2 degrees elevation. 
+This model is expected to generate a full 4D (3D position plus speed) image of
+the scene at 25-50 Hz, thanks to the embedded machine learning and SLAM
+algorithms.
 
-Ground-penetrating radar is a technology used from a long
+One of the key technologies that could lead to this achievement are metamaterial
+based antennas \cite{Brookner2016,Sleasman2017} for efficient synthetic aperture
+radars. Some manufacturers as Metawave (https://www.metawave.co/) are starting 
+to offer products oriented to automotive sector based on the technology.
+
+In a different line, ground-penetrating radar is a technology used from a long
 time ago in diverse areas ranging from archeology to industrial applications.
 MIT Lincoln Laboratory created a device \cite{Cornick2016} that can be placed 
 below a vehicle to get a reading describing the geological properties of the
