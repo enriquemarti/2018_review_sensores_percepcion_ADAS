@@ -7,6 +7,39 @@ Desarrollar el "arco argumental": problema -> descomposición en habilidades/par
 Problems of interest in ADAS at different automation levels.
 Source: \href{http://www.mobileye.com/wp-content/uploads/2013/09/AEB_test_procedures_aug12.pdf}{MobilEye slides}
 
+%\subsection{SAE Automation Levels}
+%
+%\textbf{Level 0} comprises traditional assistance mechanisms that can be 
+%detected monitoring mechanical parts of the vehicle
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item	\gls{abs}
+%\end{itemize}
+%
+%\textbf{Level 1}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item	Cruise control
+%    \item	\gls{aeb} Tightly related with \gls{fcw}. Three different cases
+%\end{itemize}
+%
+%\textbf{Level 2}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item   \gls{acc}
+%\end{itemize}
+%
+%\textbf{Level 3}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item Control sharing techniques (¿Sección propia?)
+%\end{itemize}
+%
+%\textbf{Level 4}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item	...
+%\end{itemize}
+%
+%\textbf{Level 5}
+%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+%    \item	...
+%\end{itemize}
 
 \subsection{Behavioral competencies}
 
@@ -119,25 +152,35 @@ Meanwhile, 3D LiDAR gives a more dense pointcloud with more information, improvi
 The main advantage of Radar sensors is their ability to work in all weather conditions (darkness, rain, fog, snow, etc). But due to the poor image contrast of these types of sensors, the only usefull information for that competence that can be extracted is the position of the obstacles (in order to know oclusions of the road) and the road itself. Road, as it is plain, acts as a mirror for a radar sensor, returning very little power of the emited, the sides of the roads return a slightly higher amount of power, and obstacles return a high amount of power. So road limits can be estimated using radar images, getting a maximum error of half a lane at zero distance from the host vehicle and remains within a full lane width even at 50 meters distance from the host vehicle. This radar information the is fused with camera images in order to improve both detections \cite{kaliyaperumal2001algorithm, ma2000simultaneous, Janda2013}
 
 \subsubsection{Vehicles, pedestrians and other obstacles detection}
-In this section it is reviewed the use of different sensors for detecting other vehicles in the road, pedestrians, and other kind of obstacles that may appear such as motorcycles, bycicles, animals, etc. The advantages and disadvantages of the use of each kind of sensor are discused. For this competence, it is important not only to perform a good detection and classification, but also to detect correctly the possition of those obstacles with respect to the ego-vehicle, so as their speed  and movement intencion if possible. This information will be the input of systems like the path planner and the collision avoidance system.
+In this section it is reviewed the use of different sensors for detecting other vehicles in the road, pedestrians, and other kind of obstacles that may appear such as motorcycles, bycicles, animals, etc. The advantages and disadvantages of the use of each kind of sensor are discused. For this competence, it is important not only to perform a good detection and classification, but also to detect correctly the possition of those obstacles with respect to the ego-vehicle, so as their speed  and movement intencion if possible. This information will be the input of systems like the path planner or the collision avoidance system (reviewed in \cite{mukhtar2015vehicle}).
 
 
 \textbf{Camera based solutions:}
 The use of cameras for obstacle detection can be performed with different configurations as in the previus competences. Estereo cameras, a single monocular camera, multiple cameras and InfraRed cameras are used in different works.
-A camera can be placed on different locations: Onthe front of the vehicle [.....], On the side-view mirror \cite{alonso2008lane, song2007lateral, blanc2007larasidecam} , in the passengers window \cite{chang2008real} or looking forward \cite{liu2007rear}, it is possible to detect and track vehicles trying to overtake the ego-vehicle, helping to take the decision of lane-change \cite{alonso2008lane, song2007lateral, blanc2007larasidecam}. Omnidirectional cameras \cite{gandhi2006vehicle}.
+A camera can be placed on different locations. On the front of the vehicle is the most common placement since the most critical obstacles will be in front of the vehicle, however, there exist different works that explore other positions in order to increase the field ov view. On the side-view mirror \cite{alonso2008lane, song2007lateral, blanc2007larasidecam} , in the passengers window \cite{chang2008real} or looking backwards \cite{liu2007rear}, it is possible to detect and track vehicles trying to overtake the ego-vehicle, helping to take the decision of lane-change \cite{alonso2008lane, song2007lateral, blanc2007larasidecam}. On the top of the vehicle, omnidirectional cameras can be used to detect obstacles and estimate the motion of the vehicle\cite{gandhi2006vehicle}.
+In adition to monocular cameras, stereo cameras are widely used for obstacle detection as they provide 3D information of the position of the obstacles. A large review of the different algorithms used for thiskind of cameras can be found in \cite{bernini2014real}
+Infrared cameras have the advantage of being independent of the scene ilumination, being able to detect obstacles at night \cite{olmeda2013pedestrian}. As the main obstacles to detect (moving vehicles and pedestrians) are hot (emit in the infrared espectrum), they can be detected with this type of cameras, but it have to be complemented with a different obstacle detection source (like in \cite{krotosky2007color}) since cold obstacles like parked vehicles or trees wont be percibed.
+In \cite{sivaraman2013looking} many the different camera solutions and the algorithms used for detection are explained largely.
 
 
 \textbf{LiDAR based solutions:}
-Whith this sensor, a detection and classification of different surrounding vehicles and pedestrians can be performed, obtaining also the 3D position of these obstacles. As it is an active sensor, it performance is not affected by the illumination of the scene, so it can work also at night. 
+Whith this sensor, a detection and classification of different surrounding vehicles and pedestrians can be performed, obtaining a precise 3D position of these obstacles and the shape. As it is an active sensor, it performance is not affected by the illumination of the scene, so it can work also at night. In \cite{li2016vehicle} different approachs for LiDAR obstacle detection are shown
 
 \textbf{Radar based solutions:}
 Radars can be used to detect and track vehicles of the road. They provide information about the position and the relative speed of those obstacles. This information is very usefull for collision avoidance systems and path planning algorithms. They have the advantage of a good performance in adverse weather conditions (night, rain, fog, etc), and a large range of detection (up to 150 m)\cite{blanc2004obstacle}. Due to the low resolution of the final output of radars, these sensors are fused with other ones, usually cameras\cite{garcia2012data} or, in some works, LiDARS\cite{gohring2011radar}.
 
 \textbf{Microphone based solutions:}
-Microphones sensors can be used to detect aproaching vehicles from the rear side like in [], where an array of multiple microphones placed in the surroundings of the vehicle can estimate even the direction of these aproaching vehicles.
+Microphones sensors can be used to detect aproaching vehicles from the rear side, an array of multiple microphones placed in the surroundings of the vehicle can estimate even the direction of these aproaching vehicles \cite{mizumachi2014robust}.
 
 
 \textbf{Multiple sensors fusion solutions:}
 As in the other compentences, fusion sensors information is a very common approach in many works. The use of an specific sensor has strengths and weaks, for example, cameras provide more information in order to do a better classification of the obstacle, LiDAR provides a very precise position of the obstacle in a large range of view and radar gives information of the obstacle's speed, making easier tracking them.
-There exists many different combinations, like radar and vision[], LiDAR and vision, acoustic and vision, radar and LiDAR, and other multiple modalities. The most common ones are described in the following lines.
+There exists many different combinations, like radar and vision, LiDAR and vision, acoustic and vision, radar and LiDAR, and other multiple modalities. The most common ones are described in the following lines.
 Radar and LiDAR fusion, like in \cite{gohring2011radar} increases the precision of the speed obtained only with LiDAR and also obtained a good position and speed estimation when radar is unavalible (especially in curvy roads).
+Radar and vision fusion techniques usuallly use radar information to locate areas of interest on the images, and those images to detect vehicles and improve their position estimatioin \cite{alessandretti2007vehicle}.
+LiDAR and vision, some works like \cite{premebida2007lidar} uses LiDAR information for detection and tracking, and both camera and LiDAR for classification.
+
+
+
+
+
