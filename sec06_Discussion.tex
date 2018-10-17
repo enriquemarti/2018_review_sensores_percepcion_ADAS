@@ -1,22 +1,19 @@
 
+To conclude the survey this section makes a discussion of the future challenges that new autonomous vehicles will need to cope with, technical and implantation ones. Then a description of the next comercial initiatives and OEMs in automation driving is shown followed by the final conclusions.
+
 
 
 \subsection{Future challenges}
 
-
+As shown in sections \ref{sec:02-sensors} and \ref{sec:03-problemsapplications} there exist many works that solve the most important perception competences in different ways, using different types of sensors and with a large variety of algorithms. However, there still exist different challenges that need to be solved in order to achieve a functional secure autonomous vehicle. 
 
 \subsubsection{Technical challenges}
 
 
 \emph{Plain 360 degree coverage is not enough}
 
-Sensor setups in Automated Driving are usually focused on the areas
-relevant for the usual driving task: long range ahead from the vehicle, also 
-long but no so much behind, and short-mid range in the laterals. This covers 
-all the behavioral compentences enumerated in section 
-\ref{sec:03-problemsapplications}.
+Sensor setups in Automated Driving are usually focused on the areas relevant for the usual driving task: long range ahead from the vehicle, also long but no so much behind, and short-mid range in the laterals. This covers all the behavioral compentences enumerated in section \ref{sec:03-problemsapplications}, but there are some specific challenges like critical distances (too short and too large), oclusions, bad weather conditions and very fast events that are not usually covered and don't have a proper solution yet.
 
-While 
 
 \begin{itemize}
     \item \emph{Very short distance} (including close to or below the 
@@ -30,7 +27,7 @@ While
         
         This is a problem that can be tackled by adding redundant sensors in 
         specific positions. Some commercial 360-degree-view parking systems 
-        (REFERENCE) already seem to have a good visibility of vehicle close 
+        \cite{gandhi2006vehicle} already seem to have a good visibility of vehicle close 
         surroudings. Waymo claims to have a special LiDAR monitoring this area
         and even below the vehicle. 
         
@@ -82,8 +79,6 @@ While
         previuosly presented in radar emerging technologies (section 
         \ref{sec:02-sensors}). The challenge remains open.
     
-    \item \emph{Adaptation to very fast events} ???
-    
     \item {Environmental and weather conditions}    
         Section \ref{sec:02-sensors} summarizes the suitability of common 
         technologies under different conditions, some of which surpass human 
@@ -94,11 +89,14 @@ While
         rain are examples of problems that can be solved at sensing level
         without requiring further efforts on processing algorithms.
     
+    \item \emph{Adaptation to very fast events} ???
+    
 \end{itemize}
 
 
 \subsubsection{Implantation challenges}
 
+The final purpose of research in autonomous driving is to create an autonomous vehicle that will be in the market (either for private custumers or for commercial use in a fleet). This means that the final product have to fulfill certain scalability, costs, and durability characteristics so its production is feasible. The final cost has to be as low as possible, and the durability of the vehicle need to be similar to the current vehicle's. The sensors are one of the most expensive parts and one of the most fragile, so their correct implantation is a key factor in the development of autonomous driving vehicles.
 
 \emph{Production scalability and costs}
 
@@ -134,8 +132,8 @@ automotive applications because the mean-time-to-failure (MTF)
 components is far too low for industry requirements. Automakers want an MTF
 of at least 13,000 hours.
 
-Solid state lidars based on vibrating micro-mirror do not work well in
-vehicles due to vibration \emph{CITATION REQUIRED}.
+Solid state lidars based on vibrating micro-mirror (MEMS) can reduce costs and increase laser resolution but 
+still have movile parts (micro-mirror), which makes them susceptible to vehicle vibrations and more fragile.
 
 External factors can affect sensors. A stone chip can crack a glass while 
 driving at high speeds ways, and this is something that can affect the 
@@ -147,7 +145,6 @@ Another kind of external factors are intentional attacks. A radar can be jammed,
 and a camera or a LiDAR can be blinded by the appropriate source of light.
 Future sensors will have to be robust against external interferences.
 
-
 \subsection{Commercial initiatives}
 
 At the end of the pervious decade (2009), 
@@ -158,8 +155,7 @@ higher than SAE Level 0.
 
 In the last decade the automotive market have grown the offer and complexity
 of ADAS \cite{Perez2016}. The most advanced cars today equip an ensemble of 
-ADAS that place
-them somewhere between SAE Levels 2 and 3 in the scale of Automated
+ADAS that place them somewhere between SAE Levels 2 and 3 in the scale of Automated
 Driving. Some examples are Tesla AutoPilot and Audi JamAssist, able to
 drive the vehicle under user supervision in specific scenarios.
 
@@ -167,7 +163,8 @@ The fact that manufacturers are starting to talk about SAE Levels
 is a sign that ADAS are completely integrated into the market and, thus, are
 not a subject of research per se anymore.  
 
-\emph{RETOS FUTUROS??}
+
+%\emph{RETOS FUTUROS??}
 
 %\begin{figure}[h]
 %    \centering
@@ -224,8 +221,11 @@ marketing products. However, their alliances with other companies, startups
 and technology/research centers are easier to trace and can hint about their 
 approach to Automated Driving.
 
+
 Figure \ref{fig:oem-ad} gathers the most important coallitions for Automated
 Driving with OEMs involved.
+
+
 
 \begin{figure*}[p]
     \centering
@@ -254,7 +254,7 @@ Driving with OEMs involved.
 %    \\
 %    Renault-Nissan & Japan, EE.UU. \& China & Maintains speed, Steering 
 %    control, Front radar, Lidars & \~2017 & Transdev, Microsoft and TechCrunch 
-%    (from Oath)  & Fully autonomous car within the next 10 years. Level 3 -> 
+%    (from Oath)  & Fully autonomous car within the next 10 years. Level 3 -> 
 %    2020 & --- 
 %    \\
 %    Daimler & Germany & Vision, data fusion, radar. & 2015 (Truck \& F015) & 
@@ -286,5 +286,14 @@ Driving with OEMs involved.
 
 \subsection{Conclusions}
 
+Here it has been presented a survey about one of the most critical parts in autonomous vehicles, their sensors. Choosing the sensors configuration of an autonomous vehicle can be challenging. For all the perception competences, each sensor has different strengths and weakness. The task in which one sensor is not good, the other outperforms and vice versa. Usually the best solution consists in getting information from more than one type of sensor and fuse their information. It creates a more robust  perception system as it has more data variety from different sources and also increases the safety as the fault of an specific sensor can be managed by another one. As all of these advantages, it also presents some challenges like finding a proper way to calibrate all those sensors, or making good decisions when two sensors have different outputs, or in other words, make a proper fusion of all the information. Computational power and energy consumption are also related with the sensors choice. The more data the vehicle gets, the more computational power it will be needed with it corresponding energy consumption. That means that, if the vehicle has more sensors, the final cost will increase and therefore it will be more difficult  to produce those vehicles.
+
+This survey has reviewed all the different sensors technologies avalible, describing their characteristics and how are they applied to get information usefull to solve the main perception competences. It gives a global vision of different sensor configurations and techniques to obtain usefull information from the environment.
+
+The relevant works and demos provide a good perspective of how different manufacturers and research groups do perception tasks and wich kind of sensors they use for that purpose.
+
+Finally, the section \ref{sec:05-commercialsystems}, which talks about commercial sensor systems fo ADAS can form an intuition about where are the manufacturers going in the autonomous vehicle process and how are they planning to get there.
 
 
+
+%As the technology advances, new sensors with new specifications and charasteristics appears in the market [research with new platforms]
