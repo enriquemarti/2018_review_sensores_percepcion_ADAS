@@ -1,8 +1,8 @@
 %Hacer referencia a los accidentes, o plantear otra motivación?
-Every year more than one milion people die on road accidents, and several 
+Every year more than one milion people die on road accidents and several 
 million more get injured. In addition to the social cost, it also has an
 important economic impact for nations worldwide. According to 
-\cite{Thomas2013}, the most frequent causes for car accidents in the
+\cite{Thomas2013} the most frequent causes for car accidents in the
 European Union are human related: speeding, driving under the effects of
 alcohol or drugs, reckless driving, distractions or just plain misjudgments.
 This is likely to be extrapolable to the rest of the world.
@@ -14,35 +14,39 @@ towards reducing the number of traffic accidents.
 Based on recent developments and demonstrations around the world, there is a 
 tendency to think that Automated Driving with a high level of automation will 
 be available in a few years. 
-Highly advanced ADAS, like Adaptative Cruise Control (ACC), Automatic Emergency
-Braking(AEB) or Lane Keep Asistant (LKA) are currently avalible at the market 
-and highly accepted between users. Also, some recent demos like Waymo or Tesla 
+Advanced Driving Asistance Systems (ADAS), like Adaptative Cruise Control 
+(ACC), Automatic Emergency Braking (AEB) or Lane Keep Asistant (LKA) are
+currently avalible at the market and highly accepted between users. 
+Also, some recent demos like Waymo or Aptiv 
 (discused in detail in Section \ref{sec:04-relevantdemos}) shows how future 
 autonomous vehicles will be.
 However, there are still many research challenges, such as navigation in urban 
 dynamic environments, accurate obstacle avoidance capabilities, environment 
-understanding in real-time, and perception uncertainties among others. This 
-research is needed to allow cooperative maneuvers between automated and 
-semiautomated vehicles, which still need further efforts in real 
-implementation, specifically in urban environment.
+understanding in real-time, and perception uncertainties among others.
+
+\emph{Further research is needed to allow cooperative maneuvers between 
+automated and semiautomated vehicles, which still need further efforts in
+    real implementation, specifically in urban environment.}
 
 The architecture of autonomous vehicles is usually divided into three 
 categories: Perception of the environment, behaviour planning and motion 
-execution \ref{XXXX}[Sagar Behere](sense-plan-act). The first category, 
-perception of the environment, can be challenging for complex and dynamic 
-environments. Autonomous vehicles obtain data of their sorrounding making use 
+execution \ref{XXXX}[Sagar Behere](sense-plan-act). Autonomous 
+vehicles obtain data of their sorrounding making use 
 of different sensors, such as cameras, LiDARS and radars. This raw data is then 
 processed to extract relevant characteristics which are the input of the 
 following categories (behaviour planning and motion execution), that will 
 perform tasks such as path planning, collision avoidance or control of the 
-vehicle among others \ref{XXXX}[Bagloee2016].
+vehicle among others \ref{XXXX}[Bagloee2016]. 
 
-This paper pays special attention to the sensor and perception stages.
-They especially important because they are the first link in the chain of
-Automated Driving, and a failure in that stage is propagated and has a chance
-of producing a severe accident. Some examples in the real world include
-the 2016 Tesla AutoPilot accident \cite{NTSB2017}, where a man was killed 
-after its car crashed a truck: the camera failed to detect the truck because
+Perception is a very challenging problem in the real world for several
+reasons. First, the environment is complex and highly dynamic, with some cases
+involving a large number of participants (dense traffic, populated cities). 
+Second, it needs to work reliably under a wide range of external conditions, 
+including lighting and weather (rain, fog, snow, dust). 
+Perception errors are propagated and can be the cause of severe accidents. 
+Some real examples include the 2016 Tesla AutoPilot accident \cite{NTSB2017},
+where a man was killed after its car crashed a truck: 
+the camera failed to detect the truck because
 it was painted in a color similar to the bright sky, while at the same time 
 the radar detection was descarded as background noise by perception algorithms.
 Later in 2018, other Tesla vehicles have crashed against highway dividers
@@ -52,27 +56,39 @@ crossing the road \cite{NTSB2018} in the night, dressed in dark clothes.
 Only the LiDAR provided a positive detection, that was discarded as a false
 positive by perception algorithms.
 
-Automated vehicles need to have a good understanding of the surrounding 
-environment in order to drive safely in the roads. A state of the art of the 
-different configurations and sensors used by different manufacturers, based on 
-the most relevant demonstrators on Automated Driving, developed by research 
-institutions and manufactures is presented. This topic has been widely 
-investigated in the literature, but based usually on ADAS implementation. It is 
-a key aspect in the future developments highly automated cars, where Real Time 
-Motion planning needs more accurate and robust inputs. This paper makes an 
-overview and analysis of the main problems, applications and sensor 
-technologies available in the market.
+This article reviews sensor technologies, perception algorithms and explores
+their relation, to provide an integral view of the process that leads from raw
+sensor data to meaningful information for the driving task.
+This topic has been previously investigated in the literature, but usually
+centered on ADAS implementation \cite{Yenkanchi2016,Ziebinski2016a} or at a
+more general level within Automated Driving \cite{Pendleton2017}. 
 
-The content of this paper is organized as follows. Section \ref{sec:02-sensors} 
-describes the 
-sensors commonly used for perception explaining the technologies that they use 
-and the new emerging ones that will be used in the future. The most important 
-competences in perception are discused in section
-\ref{sec:03-problemsapplications}, describing the different sensors that can
-used in each competence and discussing their advantages and disadvantages. 
-Section \ref{sec:04-relevantdemos} presents the most relevant works and demos, 
-describing the kind of sensors used for each one. Finally, section
-\ref{sec:06-discussion} presents the most relevant alliances between OEMs and 
-technological companies involved in automated driving projects, and contains a
-final discussion of the future challenges for sensors and perception in
-Automated Driving systems.
+%The presented work It presents a review of the most relevant
+%sensor technologies for exteroceptive perception, and a state of the art of 
+%perception algorithms for generating by the , based on 
+%the most relevant demonstrators on Automated Driving, developed by research 
+%institutions and manufactures is presented.  It is 
+%a key aspect in the future developments highly automated cars, where Real Time 
+%Motion planning needs more accurate and robust inputs. This paper makes an 
+%overview and analysis of the main problems, applications and sensor 
+%technologies available in the market.
+
+The content of the article are organized as follows. Section 
+\ref{sec:02-sensors} describes the sensors commonly used for perception 
+explaining the technologies, drawbacks and advantages, and related emerging 
+technologies that can be used in the future. The section also defines a 
+taxonomy of information that will allow to link sensor technologies with the 
+next section.
+Section \ref{sec:03-problemsapplications} starts describing the most important 
+competences in perception, to proceed with a state of the art of perception 
+algorithms and techniques grouped by competences. Sensors used on each work
+are enumerated, and their advantages and disadvantages discussed. 
+Section \ref{sec:04-relevantdemos} gives a perspective of the evolution of
+perception in Automated Driving, presenting the most relevant works and demos
+in the history of the discipline with a focus in sensor technologies used for
+each one. 
+Finally, section \ref{sec:06-discussion} contains a discussion of the current
+state of the discipline and the future challenges for sensors and perception in
+Automated Driving systems. It includes a review of the most relevant alliances 
+between OEMs and technological companies involved in automated driving projects
+at the time of writing the article.
