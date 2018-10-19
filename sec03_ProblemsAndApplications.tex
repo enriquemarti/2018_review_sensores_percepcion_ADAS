@@ -1,56 +1,32 @@
 
-
-En esta sección hablaremos de qué problemas hay que resolver en conducción automatizada y cómo se categorizan (SAE Levels, behavioral competencies NHTSA / California PATH, \url{https://storage.googleapis.com/sdc-prod/v1/safety-report/waymo-safety-report-2017-10.pdf}).
-
-Desarrollar el "arco argumental": problema -> descomposición en habilidades/partes -> información necesaria.
-
-Problems of interest in ADAS at different automation levels.
-Source: \href{http://www.mobileye.com/wp-content/uploads/2013/09/AEB_test_procedures_aug12.pdf}{MobilEye slides}
-
-%\subsection{SAE Automation Levels}
-%
-%\textbf{Level 0} comprises traditional assistance mechanisms that can be 
-%detected monitoring mechanical parts of the vehicle
-%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-%    \item	\gls{abs}
-%\end{itemize}
-%
-%\textbf{Level 1}
-%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-%    \item	Cruise control
-%    \item	\gls{aeb} Tightly related with \gls{fcw}. Three different cases
-%\end{itemize}
-%
-%\textbf{Level 2}
-%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-%    \item   \gls{acc}
-%\end{itemize}
-%
-%\textbf{Level 3}
-%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-%    \item Control sharing techniques (¿Sección propia?)
-%\end{itemize}
-%
-%\textbf{Level 4}
-%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-%    \item	...
-%\end{itemize}
-%
-%\textbf{Level 5}
-%\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
-%    \item	...
-%\end{itemize}
+This section analyze the state of the art in perception systems for Automated
+Driving. First of all a set of behavioral competences is identified, which
+serves as a link between perception and the next link in the Automated
+Driving chain. A systematic literature review is conducted to analyse the 
+solutions for each category, organized by sensor technology.
 
 \subsection{Behavioral competencies}
 
+Behavioral competencies in Automated Driving ``refers to the ability of an 
+automated vehicle to operate in the traffic conditions that it will regularly
+encounter" \cite{Nowakowski2015}. The NHTSA defined a set of 28 core 
+competencies for normal driving \cite{NHTSA2016}, that have been augmented to a 
+total of 47 by Waymo \cite{Waymo2017} in their internal tests.
+
+This section selects a subset of those behavioral competencies, interpreted
+from the point of view of perception requirements. Each competency will 
+involve acquiring information that requires specific perception capacities.
+The selected competences are used to structure the state of the art in
+perception algorithms, in the next subsection, in a purpose oriented approach.
 
 \begin{table}[H]
-    \caption{Behavioral competences}
-    %\centering
-    %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
+    \caption{Behavioral competences and relation with information taxonomy 
+        (see Table \ref{tab:info-taxonomy})}
+    \label{tab:behavioral-competences}
     \begin{tabularx}{\linewidth}{XlL}
         \toprule
-        \textbf{Competence}	& \textbf{\#} & \textbf{Behaviour}	\\
+        \textbf{Competence}	& \textbf{Information type} & \textbf{Behaviour}	
+        \\
         \midrule
         \multirow{4}{5cm}{Automatic Traffic Sign Detection
                          and Recognition (TSDR)}
@@ -87,6 +63,14 @@ Source: \href{http://www.mobileye.com/wp-content/uploads/2013/09/AEB_test_proced
         \bottomrule
     \end{tabularx}
 \end{table}
+
+This set of competences represents the link between perception and decision
+(planning), as a counterpart to the information taxonomy presented in the
+previous section (Table \ref{tab:info-taxonomy}),
+which linked sensors and perception algorithms. 
+Both tables can be combined to evaluate the suitability of sensor technologies
+for creating some set of Automated Driving capacities.
+
 
 \subsubsection{Automatic Traffic Sign Detection and Recognition (TSDR):} %[Definition? ]. 
 There are two main tasks for getting information from on road traffic signs: Traffic sign detection (TSD) which consists on finding the location, orientation and size of traffic signs in natural scene images, and Traffic Sign Recognition (TDR), classifying the detected traffic signs into their specific sub-classes in order to extract the inforation that they are providing to drivers.
@@ -179,8 +163,4 @@ There exists many different combinations, like radar and vision, LiDAR and visio
 Radar and LiDAR fusion, like in \cite{gohring2011radar} increases the precision of the speed obtained only with LiDAR and also obtained a good position and speed estimation when radar is unavalible (especially in curvy roads).
 Radar and vision fusion techniques usuallly use radar information to locate areas of interest on the images, and those images to detect vehicles and improve their position estimatioin \cite{alessandretti2007vehicle}.
 LiDAR and vision, some works like \cite{premebida2007lidar} uses LiDAR information for detection and tracking, and both camera and LiDAR for classification.
-
-
-
-
 

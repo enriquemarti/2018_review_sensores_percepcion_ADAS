@@ -1,41 +1,36 @@
 
-En esta sección se discutirán las principales tecnologías de sensores (opcional: revisión de tecnologías emergentes).
+This section presents a description of the principal sensing technologies for
+exteroceptive perception in Automated Driving. Advantages, drawbacks and 
+challenges are described for each sensor, followed by some of the emergent 
+technologies that can be relevant in the future of the discipline.
 
-Debemos cubrir el arco "sensores -> datos -> información", que lleva desde los sensores crudos hasta información relevante en AD. Esto nos permite enganchar con la sección Problems and applications.
+Sensors provide the raw data needed by perception algorithms, described in
+next section. In order to link both aspects, This section includes a
+categorization of information domains that will be referenced later in the
+article.
 
-
-%The JDL Information Fusion Model \cite{Llinas2000} is a well-known and 
-%widely used framework for discussions on sensor and information fusion systems.
-%It has been explored in the context of automotive domain
-%\cite{Polychronopoulos2006} and has been used as base for defining
-%automotive-specific sensor fusion frameworks \cite{Tatschke2006}. 
-%Perception layer is usually define to cover JDL levels 0 (raw data
-%pre-processing) and 1 (object refinement), while higher abstraction processes
-%belonging to levels 2 (situation refinement) and 3 (threat refinement) are
-%usually placed in the decision modules.
-%Level 4 (process refinement) is not contemplated, while Level 5 (user 
-%reinement)
-%is mostly related with HMIs and shared control or arbitration schemes, but
-%left out of the scope of this work.
+Section is concluded with two tables summarizing the adequacy of sensor 
+technologies for acquiring the types of information identified, and expected
+performance under different environmental and weather conditions.
 
 
 \subsection{Relevant information domains}
 
 The task of a perception system is to bridge the gap between sensors providing 
-data, and decision algorithms requiring information.
+data and decision algorithms requiring information.
 A classical differentiation between both terms is the following: data is 
 composed by raw, unorganized facts that need to be processed. 
 Information is the name given to data that has been processed, organized, 
 structured and presented in a proper context.
 
-The fields of study of ADAS and Automated Driving systems are large and 
-heterogeneous.
-This makes necessary to use many types of information, that can be organized 
-according to the following taxonomy / The following taxonomy gives an idea of 
-the heterogeneity and complexity of ADAS/AD problems domain:
+The following taxonomy is tightly related with the goals of perception stage
+(covered in section \ref{sec:03-problemsapplications}). It allows to
+present conclusions about the suitability of each sensor technology for
+the different perception tasks in a clear and organized way.
 
 \begin{table}[H]
     \caption{Information taxonomy in Automated Driving domain}
+    \label{tab:info-taxonomy}
     %\centering
     %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
     \begin{tabularx}{\linewidth}{lrL}
@@ -490,7 +485,8 @@ conditions.
 
 Figure \ref{fig:information_vs_sensors} relates the principal sensing 
 technologies currently used in the automotive market and Automated Driving
-initiatives.
+initiatives with relevant types of information identified in Table 
+\ref{tab:info-taxonomy}.
 
 \begin{figure}[h]
     \centering
@@ -499,11 +495,17 @@ initiatives.
     \label{fig:information_vs_sensors}
 \end{figure}
 
+Sensors and perception are expected to work uninterruptedly during vehicle 
+operation. Weather and other environmental factor can degrade sensor
+performance, but each technology is affected in a different way. 
+Table \ref{fig:sensors-environ} summarizes the effect of common external
+factors in the performance of the analyzed sensing technologies.
+
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.45\textwidth]{"img/sensors_atmospheric_conditions"}
     \caption{Sensor robustness under atmospheric and environmental factors}
-    \label{fig:radar-freqband}
+    \label{fig:sensors-environ}
 \end{figure}
 
 
