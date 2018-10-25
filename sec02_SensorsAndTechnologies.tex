@@ -9,10 +9,10 @@ next section. In order to link both aspects, This section includes a
 categorization of information domains that will be referenced later in the
 article.
 
-Section is concluded with two tables summarizing the adequacy of sensor 
+This section is concluded with two tables summarizing the adequacy of sensor 
 technologies for acquiring the types of information identified, and expected
 performance under different environmental and weather conditions.
-
+[****this section*****]
 
 \subsection{Relevant information domains}
 
@@ -68,26 +68,23 @@ the different perception tasks in a clear and organized way.
     \end{tabularx}
 \end{table}
 
-Elements with an asterisk are derived information. This is, something that can 
+Elements with an asterisk are derived information. This is, they that can 
 be inferred from sensed data but not directly observed. It is mostly related 
 with internal state of external entities, as the intentions of human beings and 
-animals. These items also happen to belong to higher levels in the JDL model.
+animals. These items also happen to belong to higher levels in the JDL model.[***ref a JDL?***]
 
-In this survey we are focused in perception of external elements, that is, the
-two last categories.
+This survey is focused in the perception of external elements, that corresponds to the
+two last categories (Environmenat and External actors).
 
 \subsection{Principal sensor technologies for perception}
 
-There are a few categories of sensors that are included in almost every ADAS/AD
-system and are sufficient to cover any reasonable perception need. 
-These categories are: artificial vision, radar, Lidar and 
-ultrasonic.
+The common sensors that are present in most of the modern ADAS and autonomous vehicles projects are: artificial vision, radar, Lidar and ultrasonic.
 
 Most of them are ranging sensors: the measured magnitude is distance to 
 external objects, by means of the round-trip delay time of a electromagnetic 
 wave (radar), a pulse of structured light (Lidar) or sound (ultrasonic).
 Artificial vision, in its most basic form, registers a grid of intensities and 
-colors. This allows to extract aditional information about the world, including 
+colors. This allows to extract additional information about the world, including 
 traffic elements that are encoded visually to allow being interpreted by humans 
 (signals, lanes, traffic lights).
 
@@ -215,7 +212,7 @@ devices, although not always targeting the automotive market.
     close objects are computationally expensive.
     
     At present time it is possible to find several of-the-shelf sensors for 
-    stereo vision, either in the automotive field (¿REFS?) or as generic
+    stereo vision, either in the automotive field\cite{ambarella2018} or as generic
     application products.
     
     \item \emph{Structured light:} a monocular camera coupled with a device that
@@ -229,7 +226,7 @@ devices, although not always targeting the automotive market.
     and have some additional limitations. 
     Being an active sensor (projects light), their 
     operative range is limited by the power of the emitter and the intensity of
-    ambient light. Reflections can affect its performance. Typical devices are 
+    ambient light. Reflections can affect its performance. Devices are 
     effective below the 20 meters mark, making them unfeasible for most 
     automotive applications.
     
@@ -242,7 +239,7 @@ devices, although not always targeting the automotive market.
     
     \item \emph{Time-of-flight:} cite{Hansard2013} is a technology somehow 
     related to LiDAR. 
-    A set of infrared LEDs emmit light modulated according a known scheme.
+    A set of infrared LEDs emmit light modulated according to a known scheme.
     The sensor captures light and measures, for each pixel, the phase shift
     with respect to emmited light. This is translated to round-trip-time 
     which is equivalent to a distance.
@@ -288,7 +285,7 @@ based on deep learning has been shown in \cite{Maqueda2018}.
 
 \subsection{Radar}
 
-Radar technology use high frequency electromagnetic waves to measure the
+Radar technology uses high frequency electromagnetic waves to measure the
 distance to objects in the environment.
 There are two principal technologies: pulsed radar emits a short burst and 
 measures distance using the round trip time. Most modern automotive 
@@ -318,8 +315,7 @@ However, radar processing can be tricky due to the reflectivity of the
 different materials: metals amplify radar signal, easening detection of 
 vehicles but increasing the apparent size of small objects as discarded cans
 in the road, while other materials (e.g. wood) are virtually transparent.
-This and other factors make radars kind of "shortsighted", which is equivalent 
-to say they have a low resolution. Horizontal and vertical positioning error 
+Horizontal and vertical positioning error 
 grows with distance, so that at 100 m is difficult to say if an obstacle is
 actually on the vehicle lane, or if it is a bridge over the road.
 
@@ -358,7 +354,7 @@ based antennas \cite{Brookner2016,Sleasman2017} for efficient synthetic aperture
 radars. Some manufacturers as Metawave (https://www.metawave.co/) are starting 
 to offer products oriented to automotive sector based on the technology.
 
-In a different line, ground-penetrating radar is a technology used from a long
+In a different line, ground-penetrating radar is a technology used long
 time ago in diverse areas ranging from archeology to industrial applications.
 MIT Lincoln Laboratory created a device \cite{Cornick2016} that can be placed 
 below a vehicle to get a reading describing the geological properties of the
@@ -424,7 +420,7 @@ However, they have several drawbacks to take into account:
 
 \subsubsection{Emerging LiDAR technologies}
 
-Direct speed measurement is a really nice feature for any sensor. Up to date,
+Direct speed measurement is a really usefull feature for any sensor. Up to date,
 only radars where able to capure speed, for instance using FMCW signals.
 The same concept has been researched along last decades \cite{Nordin2004}
 applied to LiDARs that emmit light continuously to measure objects speed based 
@@ -511,7 +507,7 @@ field of view of relevant sensing technologies.
 Sensors and perception are expected to work uninterruptedly during vehicle 
 operation. Weather and other environmental factor can degrade sensor
 performance, but each technology is affected in a different way. 
-Table \ref{fig:sensors-environ} summarizes the effect of common external
+Figure \ref{fig:sensors-environ} summarizes the effect of common external
 factors in the performance of the analyzed sensing technologies.
 
 \begin{figure}[h]
