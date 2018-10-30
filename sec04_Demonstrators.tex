@@ -13,25 +13,25 @@ The timeline allows to discern different stages ("ages") in the development of A
 
 \subsection{Pioneer works (1980-2000)}
 
-Pioneer works in Automated Driving start around mid-1980s. The Bundeswehr 
+Pioneer works in Automated Driving starts around mid-1980s. The Bundeswehr 
 University of Munich developed automated vehicles based on visual guidance, as 
 VaMoRs \cite{Dickmanns1987} (a large van) and VaMP \cite{Gregor2002} (a 
 Mercedes 500 SEL). Professor Ernst Dickmanns' team developed a saccadic vision 
 system based on cameras mounted on a rotating platform that allowed cameras to 
 focus in the details considered important.
-These systems mark a milestone because of the huge amount of computational 
+These systems marked a milestone because of the huge amount of computational 
 power needed to process the visual information, according to the standards at 
 that moment. It was accomplished by integrating sixty transputers that executed 
 an intelligent 4-D approach to object tracking.
 
 In early 1990s INRIA creates the concept of a "Cybercar", a small automated 
-electric vehicle for shared urban use \cite{Parent1993}. In 1993 starts project 
-Praxitèle \cite{Massot1999} as a mixed public and industry initiative that in a 
+electric vehicle for shared urban use \cite{Parent1993}. Later, in 1993, the project 
+Praxitèle \cite{Massot1999} starts as a mixed public and industry initiative that in a 
 few years lead to a fully functional prototype. 
-In 1997 the Cybercar debuts in Schippol airport to transport passengers, between the terminal and long stay parking \cite{Ozguner2007}. The vision and LiDAR based vehicle lacked pedals or steering wheels and moved autonomously in a dedicated lane that included semaphores and some pedestrian crossings.
+In 1997 the Cybercar debuts in Schippol airport to transport passengers, between the terminal and long stay parking \cite{Ozguner2007}. The vision and LiDAR based vehicle lacked pedals and steering wheels and moved autonomously in a dedicated lane that included semaphores and some pedestrian crossings.
 
 Also in 1997, the National Automated Highway System Consortium presented a 
-demonstration of Automated Driving functionalities\cite{Thorpe1997}. The demo 
+demonstration of Automated Driving functionalities \cite{Thorpe1997}. The demo 
 showed road following functionality based on vision sensors, distance 
 maintenance based on LiDAR, vehicle following based on Radar and other 
 functionalities including cooperative maneuvers and mixed environments. The 
@@ -63,7 +63,7 @@ complex processing pipeline that involved perception and estimation techniques,
 artificial intelligence, 3D mapping, risk assessment and path planning, 
 requiring 6 computers to do the processing. 
 
-The next DARPA Grand Challenge, known as Urban Challenge, took place in 2007. Participants had to complete a course of 96 km in urban area, while sharing the road with other participants and cars driven by professional drivers. Robots were required to obey traffic regulations, avoid obstacles and negotiate intersections properly. Carnegie Mellon University team won the contest with its vehicle Boss \cite{TartanRacing2005}, a modified Chevy Tahoe that included two video cameras, 5 radars and 13 LiDAR --including a roof mounted unit of the novel Velodyne 64HDL. Data was processed in a cluster of 10 server blades and featured a complex behavioral model \cite{Urmson2007} for covering all the expected situations.
+The next DARPA Grand Challenge, known as Urban Challenge, took place in 2007. Participants had to complete a course of 96 km in urban area, while sharing the road with other participants and cars driven by professional drivers. Robots were required to obey traffic regulations, avoid obstacles and negotiate intersections properly. Carnegie Mellon University team won the contest with its vehicle Boss \cite{TartanRacing2005}, a modified Chevy Tahoe that included two video cameras, 5 radars and 13 LiDAR, including a roof mounted unit of the novel Velodyne 64HDL. Data was processed in a cluster of 10 server blades and featured a complex behavioral model \cite{Urmson2007} for covering all the expected situations.
 
 These events had a huge scientific impact, but also triggered the attention of 
 Google. The company hired around 15 scientists from the DARPA challenge, 
@@ -88,24 +88,25 @@ it based on visual tracking and GPS points \cite{Broggi2012a}. The 13,000 km
 long trip included unmapped areas, degraded dirt roads and different traffic 
 conditions. 
 
-Three years later, the PROUD test put a vehicle with no driver behind the wheel in Parma roads for doing urban driving in real traffic \cite{Broggi2013}. It used a perception scheme similar to VIAC configuration, but more based in video and less in LiDARs.
+Three years later, the PROUD test put a vehicle with no driver behind the wheel in Parma roads for doing urban driving in real traffic \cite{Broggi2013}. It used a perception scheme similar to VIAC configuration, but relying more in cameras than in LiDARs.
  
 \subsection{Race to commercial products (2010-present)}
  
 In the last decade, the landscape of Automated Driving has been dominated by private initiatives. Automated vehicles between Levels 4 and 5 appear as a possibility in a few years, giving birth to several companies devoted to this end. 
 
-A significant number of them have been founded by people coming from the DARPA experience, or have hired them to lead the project \cite{Chapell2016}. An example is the robotaxi company nuTonomy (now acquired by Aptiv) was co-founded by the leader of the MIT team that ended \#4 in 2007 DARPA Urban Challenge.
-Cruise has been founded by a member of the same MIT team in 2007. Otto, a 
-company that pursues self-driving truck --they completed a beer delivery 
-service with an automated truck in 2016--, is founded an engineer in Google's 
-Street View project.
-Uber nuttered its self-driving car project with up to 50 people from the CMU 
+A significant number of these companies have been founded by people coming from the DARPA experience, or have hired them to lead the project \cite{Chapell2016}. An example is the robotaxi company nuTonomy (now acquired by Aptiv) was co-founded by the leader of the MIT team that ended \#4 in 2007 DARPA Urban Challenge.
+
+Cruise has been founded by a member of the same MIT team in 2007.
+
+Otto, a company founded by an engineer in Google's 
+Street View project completed a beer delivery service with an automated truck in 2016.
+Uber pushed its self-driving car project with up to 50 people from the CMU 
 Robotics Lab. Zoox robotaxi company is co-founded by a member of the Stanford 
 Autonomous Driving team with an expertise in LiDAR automated calibration 
-\cite{Levinson2011a}. Aurora company has an similar history 
-\cite{Anderson2013}, with people from Uber, MIT and Waymo. 
+\cite{Levinson2011a}, and Aurora company has a similar history, with people from Uber, MIT and Waymo \cite{Anderson2013}.
 
-Car manufacturers have reacted a bit slower. Apart from collaborations with research entities, as Stanford-Audi Pikes Peak ascent in 2010 that was focused on control close to dynamic limits and did not any current perception \cite{Funke2012}, they have not really entered into scene until the last five years. Most of them have ended creating coalitions with technological startups, as enumerated later in section \ref{sec:oem-ad}.
+Car manufacturers have reacted a bit slower. 
+Apart from collaborations with research entities, as Stanford and Audi to perform the Pikes Peak ascent in 2010 (focused on control and not in perception) \cite{Funke2012}, they have not really entered into scene until the last five years. Most of them have ended creating coalitions with technological startups, as enumerated later in section \ref{sec:oem-ad}.
 
 Mercedes-Benz presented the Bertha project in 2013, based on an experimental 
 S-Class 500 that drove a 103 km route in automated mode. The vehicle was 
@@ -124,10 +125,10 @@ more than 25 car brands. Some years before they started working in a completely
 vision-based approach to perception in Automated Vehicles \cite{Mobileye2018}. 
 Their AI is claimed to hand the car with an "assertive driving" style that 
 deals with traffic in a much less conservative way than its competitors, while 
-being safe \cite{Shalev-shwartz2016}, \cite{Shalev-Shwartz2017}. 
+being safe \cite{Shalev-shwartz2016, Shalev-Shwartz2017}. 
 After testing in real conditions \cite{Edelstein2018}, they presented a demo with an automated Ford equipped just with 12 small monocular cameras for fully automated driving in 2018 \cite{Scheer2018}.
 
-In 2014, the electric car manufacturer Testa entered in the automated driving scene. All their vehicles were equipped with a monocular camera (based on the Mobileye system) and an automotive radar that gathered data and trained a "ghost" self-driving system based on reinforcement learning. In 2017 all manufactured Tesla vehicles have the version 2 hardware, composed by a frontal radar, the same 12 ultrasonic rangers, and eight cameras that provide 360 degrees coverage. This sensor set together with nVidia Drive PX2 processing technology is claimed to be enough for full Level 5 automated driving, which will be available for a fee when ready --just a software update.
+In 2014, the electric car manufacturer Tesla entered in the automated driving scene. All their vehicles were equipped with a monocular camera (based on the Mobileye system) and an automotive radar that gathered data and trained a "ghost" self-driving system based on reinforcement learning. In 2017 all manufactured Tesla vehicles have the hardware version 2, composed by a frontal radar, the same 12 ultrasonic rangers, and eight cameras that provide 360 degrees coverage. This sensor set together with nVidia Drive PX2 processing technology is claimed to be enough for full Level 5 automated driving, which will be available for a fee when ready --just a software update.
 
 In 2015 VisLab was acquired by Ambarella, a company focused in embedded video 
 processing. With their industrial support, they have achieved to manufacture 
