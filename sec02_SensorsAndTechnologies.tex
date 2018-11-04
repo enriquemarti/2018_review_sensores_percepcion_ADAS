@@ -189,92 +189,102 @@ describes the three principal types that are already available as commercial
 devices, although not always targeting the automotive market.
 
 
-\begin{itemize}
-    \item \emph{Stereo vision:} a biology-inspired setup composed by two 
-    monocular cameras pointing in the same direction and separated by some
-    distance (known as baseline). An object close to the sensor is perceived as
-    located in different positions within each camera frame, while far objects
-    have the same location on the two images. Depth is, thus, not a direct
-    product of sensing but computed from raw measures. Extracting 
-    correspondences between pairs of frames is not trivial and a 
-    computationally demanding task.
-    
-    Tipically built with visible-light sensors, they are limited by the same
-    factors. Stereo vision has issues with low-textured patterns (e.g. solid
-    colors) because it difficults establishing correspondences between frames.
-    Also, a careful calibration is needed to make sure that disparities are
-    correctly translated to depths.
-    
-    Good algorithms can return a dense depth map, as opposed to sparse 
-    sensors as LiDARs. Maximum and minimum perceived depth are limited by
-    camera field of view and resolution: disparities smaller than one pixel
-    of far objects could be not detected, calculating large disparities of very 
-    close objects are computationally expensive.
-    
-    At present time it is possible to find several of-the-shelf sensors for 
-    stereo vision, either in the automotive field\cite{ambarella2018} or as generic
-    application products.
-    
-    \item \emph{Structured light:} a monocular camera coupled with a device that
-    illuminates the scene with a known pattern of infrared light. 
-    The distortion of the luminic pattern when projected over an irregular 
-    surface is captured by the camera and translated to a depth map.
-    
-    Structured light devices overcome some limitations of stereoscopic systems
-    as depending on texture patterns and having a high computational cost. 
-    However, they require the same high-accuracy calibration \cite{Garbat2013}
-    and have some additional limitations. 
-    Being an active sensor (projects light), their 
-    operative range is limited by the power of the emitter and the intensity of
-    ambient light. Reflections can affect its performance. Devices are 
-    effective below the 20 meters mark, making them unfeasible for most 
-    automotive applications.
-    
-    Microsoft Kinect, originally conceived as a gadget for its Xbox gaming 
-    console and now a discontinued product, is very popular for robotic 
-    applications. Microsoft RealSense is a product a product that combines 
-    stereoscopic vision with structured light, and is specifically targeted for 
-    outdoor applications requiring a short-mid range as drone navigation 
-    \cite{}.
-    
-    \item \emph{Time-of-flight:} cite{Hansard2013} is a technology somehow 
-    related to LiDAR. 
-    A set of infrared LEDs emmit light modulated according to a known scheme.
-    The sensor captures light and measures, for each pixel, the phase shift
-    with respect to emmited light. This is translated to round-trip-time 
-    which is equivalent to a distance.
-    The difference with LiDARs is that here the light source is a "bulb" that 
-    fills the entire scene, while in the former a laser emits directed pulse.
-    This makes time-of-flight devices less efective for large distances and
-    with intense ambient light.
-    
-    The advantages of time-of-flight sensors include: dense depth map, high 
-    accuracy and high refresh rate (easily up to 50 Hz) 
-    
-    Commercial products specify ranges up to 40 meters, with typical operative
-    distances under 20 meters.
-\end{itemize}
+%\begin{itemize}
+%    \item \emph{Stereo vision:} 
 
-As an alternative, it is possible to extract 3D information by using camera 
-motion for good performant SLAM algorithms \cite{Engel2014}\cite{Engel2018}, 
-but at the date there are not commercial sensors integrating that capacity.
+\textbf{Stereo vision:} depth is calculated \cite{Hamzah2016} from the 
+apparent displacement of visual features in the images capture by two 
+monocular cameras pointing in the same direction and separated by some
+distance (known as baseline). In the last years, several good performant 
+monocular SLAM algorithms \cite{Engel2014}\cite{Engel2018} have been 
+developed, which are not stereo systems but share some principles: they 
+exploit the motion of a single monocular camera setup, creating an 
+artificial baseline between consecutive frames that allow to estimate 
+depths and camera motion at the same time.
+    
+%    a biology-inspired setup composed by two 
+%    monocular cameras pointing in the same direction and separated by some
+%    distance (known as baseline). An object close to the sensor is perceived as
+%    located in different positions within each camera frame, while far objects
+%    have the same location on the two images. Depth is not a direct product of 
+%    sensing but computed from raw measures. 
+%    Extracting correspondences between pairs of frames is not trivial and a 
+%    computationally demanding task.
+        
+One of the greatest advantages of stereo vision systems is their capability 
+to provide dense depth maps, as opposed to sparse sensors as LiDARs. Their
+resolution, and maximum and minimum perceived depth are limited by
+camera field of view and imaging sensor resolution. 
+%    Disparities smaller 
+%    than one pixel of far objects could be not detected, and detecting large 
+%    disparities in very close objects is computationally expensive.    
+Stereo vision drawbacks include issues with low-textured patterns 
+(e.g. solid colors) that difficult establishing correspondences between
+frames. Also, it has a high computational complexity, and the pair of 
+cameras requires a careful calibration to ensure proper translation of 
+disparities to depths.
+
+%    At present time it is possible to find several of-the-shelf sensors for 
+%    stereo vision, either in the automotive field \cite{ambarella2018} or as 
+%    generic application products.
+    
+   %\item \emph{Structured light:} 
+    
+\textbf{Structured light:} a monocular camera coupled with a device that
+illuminates the scene with a known pattern of infrared light. 
+The distortion of the luminic pattern when projected over an irregular 
+surface is captured by the camera and translated to a depth map.
+
+Structured light devices overcome some limitations of stereoscopic systems
+as depending on texture patterns and having a high computational cost. 
+However, they require the same high-accuracy calibration \cite{Garbat2013}
+and have some additional limitations as short operative ranges (usually 
+below 20 meters), limited by the power of the emitter and the intensity of 
+ambient light. Reflections can affect its performance.
+
+%    This technology can be combined with stereo vision to improve robustness
+%    and operative conditions, as in the commercial device Intel RealSense 
+%D4500.
+
+%    \item \emph{Time-of-flight:} 
+\textbf{Time-of-flight:} is also an active sensing technology 
+\cite{Hansard2013}. It is based in the same round-trip-time principle 
+of LiDAR sensors: an emitter composed of infrared LEDs illuminates the scene
+with modulated light that is captured by the sensor after being reflected by 
+elements in the environment. 
+The round-trip-time can be calculated for each pixel based on the phase shift 
+of incoming light, which is then translated to a distance.
+
+Using a non-directed source of light (as opposed to the laser emitter in 
+LiDAR) has advantages and disadvantages. 
+The advantages include the ability to create dense depth maps, its high 
+accuracy and high refresh rate exceeding 50 Hz. The drawbacks include 
+problems with intense ambient light and a short operative range (10 to 20 
+meters). The last problem makes this technology unfeasible for many Automated 
+Driving applications, although some recent research line as indirect 
+time-of-flight \cite{Villa2017}, pulsed light time-of-flight or avalanche 
+photodiodes \cite{Panasonic2018} promise ranges between 50 and 250 meters.
+    
+%\end{itemize}
+
 
 \subsubsection{Emerging vision technologies}
 
 The most promising technology is known as event-based vision. It is a 
 bioinspired technology developed by Zurich University and the ETH Zurich. 
-It approaches the problem of processing and tracking fast 
-moving images in a completely different way: instead of capturing fixed frames
-at discrete times, the elements of the sensor are triggered asynchronously and
-indepently when a change on the intensity is detected. Each activation is
-called an event, and can be seen as something similar to the output of a 
-feature detection algorithm for artificial vision applications.
-Events can be grouped in time windows for getting a frame-like image, but this
-window can be dynamically adapted for attending different time scales.
-Sensor time resolution goes down to microseconds, and \cite{Mueggler2014} shows 
-integration windows of 1 ms (~1000 fps) in regular indoor lightning conditions
-to be sufficient for high speed tracking, thanks also to the 120 dB dynamic 
-range of the sensor.
+%It approaches the problem of processing and tracking fast 
+%moving images in a completely different way: 
+Instead of capturing fixed frames at discrete times, the elements of the sensor
+(pixels) are triggered asynchronously and indepently when a change on the
+intensity is detected generating a stream of activations also called 
+\emph{events}. 
+An event can be seen as something similar to the output of a feature detection 
+algorithm for artificial vision applications.
+Events can be grouped in adaptable time windows for getting a frame-like image,
+reaching the microsecond scale for high speed tracking. 
+The work \cite{Mueggler2014} shows integration windows of 1 ms (~1000 fps) in
+regular indoor lightning conditions to be sufficient for high speed tracking, 
+thanks also to the 120 dB dynamic range of the sensor.
 An additional advantage is that the output can be used in raw form for 
 applications as visual odometry \cite{Censi2014} and SLAM \cite{Vidal2017}
 relieving the CPU of time consuming operations on raw images.
