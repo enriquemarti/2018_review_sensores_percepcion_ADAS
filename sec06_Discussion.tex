@@ -9,97 +9,122 @@ As shown in sections \ref{sec:02-sensors} and \ref{sec:03-problemsapplications} 
 
 \subsubsection{Technical challenges}
 
+Sensor setups in Automated Driving are usually focused on the areas relevant 
+for the usual driving tasks: long range ahead from the vehicle, also long but 
+no so much behind, and short-mid range in the laterals. This covers all the 
+behavioral compentences enumerated in section 
+\ref{sec:03-problemsapplications}. 
+This plain 360 degree coverage can be insufficiente for a commercial system
+expected to work in the real world. Some specific challenges like 
+critical distances (too short and too large), occlusions or bad weather 
+conditions do not have a proper solution yet.
 
-\emph{Plain 360 degree coverage is not enough}
-
-Sensor setups in Automated Driving are usually focused on the areas relevant for the usual driving task: long range ahead from the vehicle, also long but no so much behind, and short-mid range in the laterals. This covers all the behavioral compentences enumerated in section \ref{sec:03-problemsapplications}, but there are some specific challenges like critical distances (too short and too large), oclusions, bad weather conditions and very fast events that are not usually covered and don't have a proper solution yet.
-
-
-\begin{itemize}
-    \item \emph{Very short distance} (including close to or below the 
-    car)
-        A person, animal or object right below the vehicle or intersecting 
-        the path of the wheels represents a safety issue. While most situations
-        can be anticipated when the element approaches the vehicle from the
-        distance, it is not the case right before starting the vehicle, 
-        while executing high accuracy maneuvers in certain conditions 
-        (close to people or other moving elements).  
-        
-        This is a problem that can be tackled by adding redundant sensors in 
-        specific positions. Some commercial 360-degree-view parking systems 
-        \cite{gandhi2006vehicle} already seem to have a good visibility of vehicle close 
-        surroudings. Waymo claims to have a special LiDAR monitoring this area
-        and even below the vehicle. 
-        
-        In the future there will be a need of devices specific for this task 
-        that can make automated vehicles even safer than human drivers in such 
-        situations.
-          
-    \item \emph{Very long distance} 
-        Detection and classification at 200 meters is an open issue.
-        The resolution needed to monitor the whole area with the required 
-        accuracy is overwhelming. Among current approaches, Ambarella 
-        integrates a Ultra High Resolution camera (4k video, probably 8k) 
-        (cited in \ref{sec:04-relevantdemos}), that is claimed to be enough for 
-        discerning small objects at that target distance. The biggest problem
-        is the raw computational power required to process so much information.
-        
-        A different approach could consist on sensors able to determine 
-        saliency (a common term in artificial vision 
-        \cite{Zhang2016a,Palazzi2018,Duthon2016}), 
-        so that other adaptive sensors can focus on that area, increasing
-        resolution, frame rate or accuracy. 
-        This reminds in some way the saccadic vision system used in Dickmann's 
-        pioneer vehicles \cite{Dickmanns1987,Gregor2002}, where a rotating 
-        platform where used to take images of areas of interest.
-        
-        While the last part is something feasible today, for example using solid
-        state LiDARs capable of random or adaptive sampling, the real challenge
-        resides in the saliency part: design a sensor that can determine that 
-        something very far away can be relevant, without falling in the
-        brute-force approach.
-        
-    \item \emph{Indirect observations} (e.g. after oclusions)
-        Humans are able to infer knowledge about the world based on subtle 
-        hints, e.g. see that someone is behind a car from a glimpse through
-        vehicle glasses, or attending at the shadow projected in the road. 
-        
-        There are two different ways to approach this problem:
-        the first one is to process the observations of high resolution sensors 
-        using and powerful processing algorithms. 
-        The second way is to create 
-        sensing technologies with super-human perception capabilities that can 
-        directly register such events or elements. 
-        Radars represent at present time the best example, since the propagation
-        of electromagnetic waves has properties very different to usual 
-        biological sensing capabilities. For example, automotive radars can 
-        sometimes detect several vehicles in a row, totally occluded by the 
-        first one. Another example is WaveSense's ground-penetrating radar 
-        \ref{https://www.bloomberg.com/news/articles/2018-09-17/self-driving-cars-still-can-t-handle-bad-weather}
-        previuosly presented in radar emerging technologies (section 
-        \ref{sec:02-sensors}). The challenge remains open.
+%\begin{itemize}
+\textbf{Very short distance}, including close to or below the car.
+    A person, animal or object right below the vehicle or intersecting 
+    the path of the wheels represents a safety issue. While most situations
+    can be anticipated when the element approaches the vehicle from the
+    distance, it is not the case right before starting the vehicle, 
+    while executing high accuracy maneuvers in certain conditions 
+    (close to people or other moving elements).  
     
-    \item {Environmental and weather conditions}    
-        Section \ref{sec:02-sensors} summarizes the suitability of common 
-        technologies under different conditions, some of which surpass human 
-        capacities. 
-        However, this is always an active field of research because perception 
-        can solve what humans compensate with reasoning. Following the road 
-        when most marks are covered by snow, or improving detection under heavy 
-        rain are examples of problems that can be solved at sensing level
-        without requiring further efforts on processing algorithms.
+    This is a problem that can be tackled by adding redundant sensors in 
+    specific positions. Some commercial 360-degree-view parking systems 
+    \cite{gandhi2006vehicle} already seem to have a good visibility of vehicle 
+    close 
+    surroudings. Waymo claims to have a special LiDAR monitoring this area
+    and even below the vehicle.         
+    In the future there will be a need of devices specific for this task 
+    that can make automated vehicles even safer than human drivers in such 
+    situations.
+      
+\textbf{Very long distance} 
+    Detection and classification at 200 meters is an open issue.
+    The resolution needed to monitor the whole area with the required 
+    accuracy is overwhelming. Among current approaches, Ambarella 
+    integrates a Ultra High Resolution camera (4k video, probably 8k) 
+    (cited in \ref{sec:04-relevantdemos}), that is claimed to be enough for 
+    discerning small objects at that target distance. The biggest problem
+    is the raw computational power required to process so much information.
     
-    \item \emph{Adaptation to very fast events} ???
+    A different approach could consist on sensors able to determine 
+    saliency (a common term in artificial vision 
+    \cite{Zhang2016a,Palazzi2018,Duthon2016}), 
+    so that other adaptive sensors can focus on that area, increasing
+    resolution, frame rate or accuracy. 
+    This reminds in some way the saccadic vision system used in Dickmann's 
+    pioneer vehicles \cite{Dickmanns1987,Gregor2002}, where a rotating 
+    platform where used to take images of areas of interest.
     
-\end{itemize}
+    While the last part is something feasible today, for example using solid
+    state LiDARs capable of random or adaptive sampling, the real challenge
+    resides in the saliency part: design a sensor that can determine that 
+    something very far away can be relevant, without falling in the
+    brute-force approach.
+    
+%    \item \emph{Indirect observations} (e.g. after oclusions)
+%        Humans are able to infer knowledge about the world based on subtle 
+%        hints, e.g. see that someone is behind a car from a glimpse through
+%        vehicle glasses, or attending at the shadow projected in the road. 
+%        
+%        There are two different ways to approach this problem:
+%        the first one is to process the observations of high resolution 
+%sensors 
+%        using and powerful processing algorithms. 
+%        The second way is to create 
+%        sensing technologies with super-human perception capabilities that can 
+%        directly register such events or elements. 
+%        Radars represent at present time the best example, since the 
+%propagation
+%        of electromagnetic waves has properties very different to usual 
+%        biological sensing capabilities. For example, automotive radars can 
+%        sometimes detect several vehicles in a row, totally occluded by the 
+%        first one. Another example is WaveSense's ground-penetrating radar 
+%        
+%\ref{https://www.bloomberg.com/news/articles/2018-09-17/self-driving-cars-still-can-t-handle-bad-weather}
+%        previuosly presented in radar emerging technologies (section 
+%        \ref{sec:02-sensors}). The challenge remains open.
+
+\textbf{Environmental and weather conditions}    
+    Section \ref{sec:02-sensors} summarizes the suitability of common 
+    technologies under different conditions, some of which surpass human 
+    capacities. 
+    However, this is always an active field of research because perception 
+    can solve what humans compensate with reasoning. Following the road 
+    when most marks are covered by snow, or improving detection under heavy 
+    rain are examples of problems that can be solved at sensing level
+    without requiring further efforts on processing algorithms.
+        
+\textbf{Intention detection}        
+    Human drivers infer the intentions of pedestrians and vehicles 
+    combining subtle sensory hints with a mind model of the observed actor,
+    and taking into account the context.
+    Head pose, gaze direction, position of hands, or motion of arms and 
+    legs can be used to assess the awareness of a pedestrian or a driver
+    about what is going on in a certain road area but are also indicative 
+    of intended motion direction. The steering angle of front wheels can
+    hint if a vehicle is going to leave a roundabout or stay inside.
+            
+    Many works can predict vehicle lane changes \cite{Kim2017}, risk at
+    intersections \cite{Lefevre2012} or pedestrian intentions
+    \cite{Kohler2015,Fang2017} applying machine learning and bayesian
+    techniques to data acquired by exteroceptive sensors. Its accuracy 
+    is sometimes limited by resolution and accuracy of sensor technologies,
+    which cannot capture the aforementioned hints.
+    Further sensor developments can lead to much powerful intention 
+    predictors, that will result in safer and more fluent driving 
+    algorithms.
+    
+\textbf{Generalization} ???
+    
+%\end{itemize}
 
 
 \subsubsection{Implantation challenges}
 
 The final purpose of research in autonomous driving is to create an autonomous vehicle that will be in the market (either for private custumers or for commercial use in a fleet). This means that the final product have to fulfill certain scalability, costs, and durability characteristics so its production is feasible. The final cost has to be as low as possible, and the durability of the vehicle need to be similar to the current vehicle's. The sensors are one of the most expensive parts and one of the most fragile, so their correct implantation is a key factor in the development of autonomous driving vehicles.
 
-\emph{Production scalability and costs}
-
+\textbf{Production scalability and costs}. 
 Mature technologies as visible light cameras and radars have already scaled up 
 their production and reduced costs so that every vehicle can equip them without
 a significant impact on its price. But it remains a challenge for LiDAR devices
@@ -114,8 +139,7 @@ It is difficult to provide estimations, because Automated Driving can have a
 significant effect in mobility, economiy an other factors. For a discussion
 on costs and impact of Automated Mobility services, see \cite{Bosch2018}.
 
-\emph{Durability and tolerance to failure}
-
+\textbf{Durability and tolerance to failure}.
 The perception system of an Automated Vehicle must work flawlessly for long
 periods under harsh conditions, as the rest of vehicle critical components. 
 In case of failure, redundancy and emergency fallback routines must be able to 
@@ -292,8 +316,9 @@ This survey has reviewed all the different sensors technologies avalible, descri
 
 The relevant works and demos provide a good perspective of how different manufacturers and research groups do perception tasks and wich kind of sensors they use for that purpose.
 
-Finally, the section \ref{sec:05-commercialsystems}, which talks about commercial sensor systems fo ADAS can form an intuition about where are the manufacturers going in the autonomous vehicle process and how are they planning to get there.
-
+Finally, the section \ref{sec:oem-ad} can form an intuition about where are the 
+manufacturers going in the autonomous vehicle process and how are they planning 
+to get there.
 
 
 %As the technology advances, new sensors with new specifications and charasteristics appears in the market [research with new platforms]
