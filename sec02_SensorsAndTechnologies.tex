@@ -21,7 +21,7 @@ composed by raw, unorganized facts that need to be processed.
 Information is the name given to data that has been processed, organized, 
 structured and presented in a proper context.
 
-The following taxonomy is tightly related with the goals of perception stage
+The following taxonomy (table \ref{tab:info-taxonomy}) is tightly related with the goals of perception stage
 (covered in section \ref{sec:03-problemsapplications}). It allows to
 present conclusions about the suitability of each sensor technology for
 the different perception tasks in a clear and organized way.
@@ -76,11 +76,11 @@ to the two last categories (Environmenat and External actors).
 
 \subsection{Principal sensor technologies for perception}
 
-The common sensors that are present in most of the modern ADAS and autonomous vehicles projects are: artificial vision, radar, Lidar and ultrasonic.
+The common sensors that are present in most of the modern ADAS and autonomous vehicles projects are: artificial vision, radar and Lidar.
 
 Most of them are ranging sensors: the measured magnitude is distance to 
 external objects, by means of the round-trip delay time of a electromagnetic 
-wave (radar), a pulse of structured light (Lidar) or sound (ultrasonic).
+wave (radar) or a pulse of structured light (Lidar).
 Artificial vision, in its most basic form, registers a grid of intensities and 
 colors. This allows to extract additional information about the world, including 
 traffic elements that are encoded visually to allow being interpreted by humans 
@@ -92,7 +92,7 @@ Driving: vision, radar and LiDAR.
 
 \subsection{Artificial Vision}
 Artificial vision is a popular technology that has been used for decades in 
-disciplines as mobile robotics, surveillance, industrial inspection. It acquires
+disciplines as mobile robotics, surveillance or industrial inspection. It acquires
 information about objects in the real world by analyzing their images as 
 captured by photo and video cameras. Cameras are devices that gather light using
 a sensor composed by a grid of thousands or millions of individual detection 
@@ -128,6 +128,7 @@ applications like automated driving:
     illumination is weaker. Fast moving elements appear blurred, which can 
     affect later processes as border or feature detection. Also, if the sensor
     does not capture light in its full surface simultaneously (rolling shutter)
+    distorsion effects can appear in those objets
 \end{itemize}
 
 In \cite{Pueo2016} some of these problems are analyzed from the perspective of
@@ -439,7 +440,7 @@ on Doppler effect. In the last years some research prototypes suitable for
 the automotive market start appearing \cite{Poulton2016}, until recently
 a company named Blackmore announced a commercial version. 
 Observation of speed can improve later perception stages. A direct use is to
-improve tracking of moving objects, but it makes possible to detect cyclists 
+improve tracking of moving objects, as it makes possible to detect cyclists 
 and discern when pedestrians are walking thanks to the different speeds of
 body and limbs.
 
