@@ -26,24 +26,24 @@ The following taxonomy is tightly related with the goals of perception stage
 present conclusions about the suitability of each sensor technology for
 the different perception tasks in a clear and organized way.
 
-\begin{table}[H]
+\begin{table}%[H]
     \caption{Information taxonomy in Automated Driving domain}
     \label{tab:info-taxonomy}
     %\centering
     %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
-    \begin{tabularx}{\linewidth}{lrL}
-        \toprule
+    \begin{tabular*}{\linewidth}{lr p{5.5cm}} %{\textwidth}{lrL}
+        \hline %\toprule
         \textbf{Category} & \textbf{\#}	& \textbf{Information type}	\\
-        \midrule
+        \hline %\midrule
         \multirow{2}{*}{Ego-vehicle}
          & 1 & Kinematic/dynamic (includes position) \\
          & 2 & Proprioceptive (components health/status) \\
-         \midrule
+         \hline %\midrule
          \multirow{3}{*}{Passengers/driver}
          & 3 & Driver awareness/capacities \\
          & 4 & * Driver intentions (mind model)  \\
          & 5 & Passenger status (needs, risk factors) \\
-         \midrule
+         \hline %\midrule
          \multirow{4}{*}{Environment}
          & 6 & Spatial configuration: location, size, shape, fine features 
          \\
@@ -52,7 +52,7 @@ the different perception tasks in a clear and organized way.
          elements \\
          & 9 & Contextual factors: weather, driving situation(e.g. jam, 
          highway, off-road) \\
-         \midrule
+         \hline %\midrule
          \multirow{4}{*}{External actors}
          & 10 & Spatial features: location, size, shape, fine features  \\
          & 11 & Kinematic/dynamic: position, motion \\
@@ -62,8 +62,8 @@ the different perception tasks in a clear and organized way.
          & 14 & * Situational engagement: collaborative/aware 
          (adult pedestrians, other vehicles) vs non-collaborative/unaware 
          (animals, children) \\ 
-        \bottomrule
-    \end{tabularx}
+        \hline %\bottomrule
+    \end{tabular*}
 \end{table}
 
 Elements with an asterisk are derived information. This is, they that can 
@@ -498,7 +498,7 @@ initiatives with relevant types of information identified in Table
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.7\textwidth]{"img/information_types_sensors"}
+    \includegraphics[width=0.95\linewidth]{"img/information_types_sensors"}
     \caption{Sensor adequacy for relevant types of information}
     \label{fig:information_vs_sensors}
 \end{figure}
@@ -508,12 +508,12 @@ vehicle. Ideally, this includes 360 degrees around the vehicle up to several
 hundreds meters. Figure \ref{fig:range-fov} shows usual operative range and
 field of view of relevant sensing technologies. 
 
-\begin{figure}[h]
+\begin{figure*}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{"img/plot_range-fov"}
+    \includegraphics[width=0.7\textwidth]{"img/plot_range-fov"}
     \caption{Range-FoV for depth sensors (3D sensing tecnology)}
     \label{fig:range-fov}
-\end{figure}
+\end{figure*}
 
 Sensors and perception are expected to work uninterruptedly during vehicle 
 operation. Weather and other environmental factor can degrade sensor
@@ -523,7 +523,7 @@ factors in the performance of the analyzed sensing technologies.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.45\textwidth]{"img/sensors_atmospheric_conditions"}
+    \includegraphics[width=0.75\linewidth]{"img/sensors_atmospheric_conditions"}
     \caption{Sensor robustness under atmospheric and environmental factors}
     \label{fig:sensors-environ}
 \end{figure}
