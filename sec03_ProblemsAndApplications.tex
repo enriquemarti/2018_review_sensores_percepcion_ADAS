@@ -19,32 +19,34 @@ involve acquiring information that requires specific perception capacities.
 The selected competences are used to structure the state of the art in
 perception algorithms, in the next subsection, in a purpose oriented approach.
 
-\begin{table}[H]
+\begin{table*} %[H]
     \caption{Behavioral competences and relation with information taxonomy 
         (see Table \ref{tab:info-taxonomy})}
     \label{tab:behavioral-competences}
-    \begin{tabularx}{\linewidth}{XlL}
-        \toprule
+    \begin{tabular*}{\textwidth}{m{4cm} l p{11cm}}%{XlL}
+        \hline %\toprule
         \textbf{Competence}	& \textbf{Information type} & \textbf{Behaviour}	
         \\
-        \midrule
-        \multirow{4}{5cm}{Automatic Traffic Sign Detection
+        \hline %\midrule
+        \multirow{4}{4cm}{Automatic Traffic Sign Detection
                          and Recognition (TSDR)}
          & 8    & Detect Speed Limit Changes, Speed Advisories, Traffic Signals 
          and Stop/Yield Signs \\
          & 8    & Detect Access Restrictions (One-Way, No Turn, Ramps, etc.) \\
          & 8    & Detect Temporary Traffic Control Devices \\
          & 6, 8 & Detect Passing and No Passing Zones  \\
-         \midrule
+         \hline %\midrule
          \multirow{4}{*}{Perception of the environment}
          & 8 & Detect Lines \\
          & 6, 8 & Detect Detours  \\
-         & 6 & Detect faded or missing moadway markings or signage and/or other 
+         & 6 & Detect faded/missing roadway markings, signage and other 
          temporary changes in traffic patterns \\
-         & 9 & Perception in unanticipated weather or lighting conditions outside of 
+         & 9 & Perception in unanticipated weather or lighting conditions 
+         outside 
          vehicle’s capability (e.g. rainstorm) \\
-         \midrule
-         \multirow{2}{5cm}{Vehicles, pedestrians and other obstacles detection}
+         \hline %\midrule
+         \multirow{6}{4cm}{Vehicles, pedestrians and other obstacles 
+         detection}
          & 10, 12, ¿13? & Detect Non-Collision Safety Situations (e.g. vehicle 
          doors ajar) \\
          & 10, 11, 12, 13 & Detect Stopped Vehicles, Emergency Vehicles, Lead 
@@ -60,9 +62,9 @@ perception algorithms, in the next subsection, in a purpose oriented approach.
          Citizens Directing Traffic After a Crash (Overriding or Acting as 
          Traffic Control Device) \\
 
-        \bottomrule
-    \end{tabularx}
-\end{table}
+        \hline %\bottomrule
+    \end{tabular*}
+\end{table*}
 
 This set of competences represents the link between perception and decision
 (planning), as a counterpart to the information taxonomy presented in the
@@ -159,10 +161,10 @@ are normalized to perform classification based on a supervised
 Gaussian–Bernoulli deep Boltzmann machine model.
 \end{flushleft}
 
-\newpage
+%\newpage
 \begin{flushleft}
 \textbf{Summary of sensors and their use for TSDR:}
-\begin{itemize}[leftmargin=20mm,labelsep=5.8mm]
+\begin{itemize}%[leftmargin=20mm,labelsep=5.8mm]
 \item \textbf{LiDAR:} Filtering for intensity (traffic signal has high Reflectance), 3D position and shape. Clustering for sign candidates
 \item \textbf{Camera}
 \subitem \textbf{Monocular B/W:} Feature extraction.
