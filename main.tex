@@ -168,7 +168,6 @@
 % version and documentation can be obtained at:
 % http://www.ctan.org/pkg/amsmath
 
-\usepackage[draft]{hyperref}
 
 
 
@@ -283,7 +282,11 @@
 % The latest version can be found at:
 % http://www.ctan.org/pkg/dblfloatfix
 
-\usepackage{hyperref}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{breakurl}
+\usepackage[draft,breaklinks]{hyperref}
+%\usepackage{hyperref}
 \usepackage{adjustbox}
 \usepackage{multirow, array}
 \usepackage{tabularx}
@@ -552,6 +555,8 @@ purus, ut pellentesque lectus laoreet ut.
 % set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
 %\begin{thebibliography}{1}
+
+\newpage
 
 \bibliographystyle{IEEEtran}
 \bibliography{IEEEabrv,Tecnalia_AD-2018_review_sensors_perception_ADAS}
