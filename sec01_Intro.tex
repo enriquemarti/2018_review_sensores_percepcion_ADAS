@@ -1,5 +1,5 @@
 %Hacer referencia a los accidentes, o plantear otra motivación?
-Every year more than one milion people die on road accidents and several 
+Every year more than one million people die on road accidents and several 
 million more get injured \cite{world2015global}. In addition to the social cost, it also has an
 important economic impact for nations worldwide. According to 
 \cite{Thomas2013} the most frequent causes for car accidents in the
@@ -13,29 +13,28 @@ towards reducing the number of traffic accidents.
 Based on recent developments and demonstrations around the world, there is a 
 tendency to think that Automated Driving with a high level of automation will 
 be available in a few years. 
-Advanced Driving Asistance Systems (ADAS), like Adaptative Cruise Control 
-(ACC), Automatic Emergency Braking (AEB) or Lane Keep Asistant (LKA) are
-currently avalible at the market \cite{Bengler2014} and highly accepted among
+Advanced Driving Assistance Systems (ADAS), like Adaptive Cruise Control 
+(ACC), Automatic Emergency Braking (AEB) or Lane Keep Assistant (LKA) are
+currently available in the market \cite{Bengler2014} and highly accepted among
 users. 
-Also, some recent demos like Waymo or Aptiv (discused in detail in Section
+Also, some recent demos like Waymo or Aptiv (discussed in detail in Section
 \ref{sec:04-relevantdemos}) shows how future autonomous vehicles will be.
 However, there are still many research challenges, such as navigation in urban 
-dynamic environments, accurate obstacle avoidance capabilities, environment 
-understanding in real-time, and perception uncertainties among others.
+dynamic environments, advanced understanding and interpretation of the driving 
+environment, or dealing with perception uncertainties.
 %
 %\emph{Further research is needed to allow cooperative maneuvers between 
 %automated and semiautomated vehicles, which still need further efforts in
 %    real implementation, specifically in urban environment.}
 
 The architecture of autonomous vehicles is usually divided into three 
-categories: Perception of the environment, behaviour planning and motion 
+categories: perception of the environment, behavior planning and motion 
 execution \cite{behere2015functional}. Autonomous 
-vehicles obtain data of their sorrounding making use 
-of different sensors, such as cameras, LiDARS and radars. This raw data is then 
-processed to extract relevant characteristics which are the input of the 
-following stages (behaviour planning and motion execution), that will 
-perform tasks such as path planning, collision avoidance or control of the 
-vehicle among others. 
+vehicles obtain information about their surroundings using different
+sensors, such as cameras, LiDARs and radars. Raw data is processed to extract
+relevant features which are the input to the following stages (behavior
+planning and motion execution), that will perform tasks such as path planning,
+collision avoidance or control of the vehicle among others. 
 
 Perception is a very challenging problem for several
 reasons. First, the environment is complex and highly dynamic, with some cases
@@ -47,16 +46,17 @@ Some real examples include the 2016 Tesla AutoPilot accident \cite{NTSB2017},
 where a man was killed after its car crashed a truck: 
 the camera failed to detect the truck because
 it was painted in a color similar to the bright sky, while at the same time 
-the radar detection was descarded as background noise by perception algorithms.
-Later in 2018, other Tesla vehicles have crashed against highway dividers
-after the lane following system failed to detect faded lines.
+the radar detection was discarded as background noise by perception algorithms.
+Later in 2018, a Tesla model X crashed a highway divider after the lane
+following system failed to detect faded lines and the concrete divider was not
+recognized, killing the driver \cite{NTSB2018a}.
 Also in 2018, an experimental self-driving Uber vehicle killed a woman
 crossing the road \cite{NTSB2018} in the night, dressed in dark clothes. 
 Only the LiDAR provided a positive detection, that was discarded as a false
 positive by perception algorithms.
 
-This article reviews sensor technologies, perception algorithms and explores
-their relation, to provide an integral view of the process that leads from raw
+This article reviews sensor technologies and perception algorithms, and explores
+their relation to provide an integral view of the process that leads from raw
 sensor data to meaningful information for the driving task.
 This topic has been previously investigated in the literature, but usually
 centered on ADAS implementation \cite{Yenkanchi2016,Ziebinski2016a} or at a
@@ -75,8 +75,8 @@ more general level within Automated Driving \cite{Pendleton2017}.
 The content of the article is organized as follows. Section 
 \ref{sec:02-sensors} describes the sensors commonly used for perception 
 explaining the technologies, drawbacks and advantages, and related emerging 
-technologies that can be used in the future. The section also defines a 
-taxonomy of information that will allow to link sensor technologies with the 
+technologies that can be used in the future. It also presents a 
+taxonomy of information that allows to link sensor technologies with the 
 next section.
 Section \ref{sec:03-problemsapplications} starts describing the most important 
 competences in perception, to proceed with a state of the art of perception 
@@ -89,5 +89,5 @@ each one.
 Finally, section \ref{sec:06-discussion} contains a discussion of the current
 state of the discipline and the future challenges for sensors and perception in
 Automated Driving systems. It includes a review of the most relevant alliances 
-between OEMs and technological companies involved in automated driving projects
-at the time of writing the article.
+between OEMs (Original Equipment Manufacturers) and technological companies
+involved in automated driving projects at the time of writing the article.

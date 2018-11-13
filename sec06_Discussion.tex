@@ -1,6 +1,9 @@
 
-In this section, a discussion of the future challenges that new automated vehicles will need to cope with is presented, from the technical and implantation point of view. Moreover, a description of the next commercial initiatives and OEMs forecasts is shown followed by the final conclusions.
-
+The last section of this article presents a discussion of the future challenges 
+for sensors and perception systems in new automated vehicles, both from the 
+technical and implantation point of view. A description of the next 
+commercial initiatives and OEMs forecasts is shown followed by the final 
+conclusions.
 
 
 \subsection{Future challenges}
@@ -12,9 +15,9 @@ As shown in sections \ref{sec:02-sensors} and \ref{sec:03-problemsapplications} 
 Sensor setups in Automated Driving are usually focused on the areas relevant 
 for the usual driving tasks: long range ahead from the vehicle, also long but 
 no so much behind, and short-mid range in the laterals. This covers all the 
-behavioral compentences enumerated in section 
+behavioral competences enumerated in section 
 \ref{sec:03-problemsapplications}. 
-This plain 360 degree coverage can be insufficiente for a commercial system
+But plain 360 degree coverage can be insufficient for a commercial system
 expected to work in the real world. Some specific challenges like 
 critical distances (too short and too large), occlusions or bad weather 
 conditions do not have a proper solution yet.
@@ -28,12 +31,11 @@ conditions do not have a proper solution yet.
     while executing high accuracy maneuvers in certain conditions 
     (close to people or other moving elements).  
     
-    This is a problem that can be tackled by adding redundant sensors in 
-    specific positions. Some commercial 360-degree-view parking systems 
-    \cite{gandhi2006vehicle} already seem to have a good visibility of vehicle 
-    close 
-    surroudings. Waymo claims to have a special LiDAR monitoring this area
-    and even below the vehicle.         
+    This problem be tackled by adding redundant sensors in specific positions.
+    Some commercial 360-degree-view parking systems \cite{gandhi2006vehicle} 
+    already seem to have a good visibility of vehicle immediate surroundings.
+    Waymo claims to have a special LiDAR monitoring this area and even below
+    the vehicle.         
     In the future there will be a need of devices specific for this task 
     that can make automated vehicles even safer than human drivers in such 
     situations.
@@ -49,7 +51,7 @@ conditions do not have a proper solution yet.
     
     A different approach could consist on sensors able to determine 
     saliency (a common term in artificial vision 
-    \cite{Zhang2016a,Palazzi2018,Duthon2016}), 
+    \cite{Zhang2016a,Palazzi2018,Duthon2016} to name relevancy or importance), 
     so that other adaptive sensors can focus on that area, increasing
     resolution, frame rate or accuracy. 
     This reminds in some way the saccadic vision system used in Dickmann's 
@@ -61,39 +63,16 @@ conditions do not have a proper solution yet.
     resides in the saliency part: design a sensor that can determine that 
     something very far away can be relevant, without falling in the
     brute-force approach.
-    
-%    \item \emph{Indirect observations} (e.g. after oclusions)
-%        Humans are able to infer knowledge about the world based on subtle 
-%        hints, e.g. see that someone is behind a car from a glimpse through
-%        vehicle glasses, or attending at the shadow projected in the road. 
-%        
-%        There are two different ways to approach this problem:
-%        the first one is to process the observations of high resolution 
-%sensors 
-%        using and powerful processing algorithms. 
-%        The second way is to create 
-%        sensing technologies with super-human perception capabilities that can 
-%        directly register such events or elements. 
-%        Radars represent at present time the best example, since the 
-%propagation
-%        of electromagnetic waves has properties very different to usual 
-%        biological sensing capabilities. For example, automotive radars can 
-%        sometimes detect several vehicles in a row, totally occluded by the 
-%        first one. Another example is WaveSense's ground-penetrating radar 
-%        
-%\ref{https://www.bloomberg.com/news/articles/2018-09-17/self-driving-cars-still-can-t-handle-bad-weather}
-%        previuosly presented in radar emerging technologies (section 
-%        \ref{sec:02-sensors}). The challenge remains open.
 
 \textbf{Environmental and weather conditions}    
     Section \ref{sec:02-sensors} summarizes the suitability of common 
     technologies under different conditions, some of which surpass human 
     capacities. 
-    However, this is always an active field of research because perception 
+    This is an always active field of research, because perception 
     can solve what humans compensate with reasoning. Following the road 
-    when most marks are covered by snow, or improving detection under heavy 
-    rain are examples of problems that can be solved at sensing level
-    without requiring further efforts on processing algorithms.
+    when most marks are covered by snow, improving detection under heavy 
+    rain or dense fog are examples of problems that can be solved at sensing
+    level without requiring further efforts on processing algorithms.
         
 \textbf{Intention detection}        
     Human drivers infer the intentions of pedestrians and vehicles 
@@ -115,60 +94,65 @@ conditions do not have a proper solution yet.
     predictors, that will result in safer and more fluent driving 
     algorithms.
     
-\textbf{Generalization}
-    
 %\end{itemize}
 
 
 \subsubsection{Implantation challenges}
 
-The aim of the research in automated driving is to develop products available in market soon, either for private customers or for shared applications (automated fleets). This means that these final products must fulfill certain scalability, costs, and durability characteristics so its production is feasible. The final cost should be as low as possible, and the durability of the vehicle need to be similar to the current vehicle's. The sensors are one of the most expensive parts today, and one of the most fragile, so their implantation is a key factor in the development of automated driving vehicles.
+The final goal of research in automated driving is to bring technologies to
+market, either for private customers or for shared applications (automated 
+fleets). Commercialization and implantation is feasible only if products 
+fulfill certain scalability, costs, and durability requirements. 
+Some sensors are among the most expensive and fragile components of a vehicle,
+so their implantation is a key factor in the development of automated driving
+vehicles.
 
 \textbf{Production scalability and costs}. 
 Mature technologies as visible light cameras and radars have already scaled up 
 their production and reduced costs so that every vehicle can equip them without
-a significant impact on its price. But it remains a challenge for LiDAR devices
+a significant impact on its price. This remains a challenge for LiDAR devices
 and other breakthrough technologies.
- 
-The cost that is considered acceptable for a production vehicle, however, varies depending on the scenario. For private owned vehicle, it must be kept at a rather small fraction of vehicle cost. In the case of fleet vehicles with a commercial use it can be higher because an Automated Driving system can compensate other costs (i.e. to reduce the number of drivers).
-It is difficult to provide an exact estimation, because Automated Driving can have a 
-significant effect in mobility, economy an other factors. For a discussion
-on costs and impact of Automated Mobility services, see \cite{Bosch2018}.
+The cost that is considered acceptable for a production vehicle, however, 
+varies depending on the scenario. For private owned vehicles it must be kept at 
+a rather small fraction of vehicle cost. In the case of fleet vehicles with a 
+commercial use it can be higher because an Automated Driving system can 
+compensate other costs (i.e. to reduce the number of drivers).
+It is difficult to provide an exact estimation, because Automated Driving can 
+have a significant effect in mobility, economy an other factors. 
+For a discussion on costs and impact of Automated Mobility services, see
+\cite{Bosch2018}.
 
 \textbf{Durability and tolerance to failure}.
 The perception system of an Automated Vehicle must work for long
-periods under harsh conditions, as the rest of vehicle critical components. 
+periods under harsh conditions, as the rest of critical components in a vehicle.
 In case of failure, redundancy and emergency fallback routines must be able to 
 mitigate the problem and drive the vehicle to a safe state, but it is a 
 threat that has to be avoided.
 
-Mechanical LiDARs have been around for about a decade, and are highly 
-specialized devices mostly used with research purposes.
-The controversial CEO of Quanergy claims 
-\cite{Hampstead2018}
-that mechanical LiDAR sensors are unsuitable for commercial 
-automotive applications because the mean-time-to-failure (MTF)
-"between 1,000 to 3,000 hours of operation" on the rotating 
+Mechanical LiDARs have been around for about a decade, but they are still
+highly specialized devices mostly used with research purposes.
+The controversial CEO of Quanergy claims \cite{Hampstead2018} that mechanical
+LiDAR sensors are unsuitable for commercial automotive applications because the
+mean-time-between-failures (MTF) is
+``between 1,000 to 3,000 hours of operation'' on the rotating 
 components is far too low for industry requirements. And that automakers want 
 an MTF of at least 13,000 hours.
-
-Solid state lidars based on vibrating micro-mirror (MEMS) can reduce costs and increase laser resolution but 
-still have movile parts (micro-mirror), which makes them susceptible to vehicle vibrations and more fragile.
+Solid state LiDAR based on vibrating micro-mirror (MEMS) can reduce costs and 
+increase laser resolution but still have mobile parts (micro-mirror), which
+makes them susceptible to vehicle vibrations and more fragile.
 
 External factors can affect sensors. A stone chip can crack a glass while 
 driving at high speeds ways, and this is something that can affect the 
 performance of video cameras and possibly LiDARs even when protected behind
 a plastic or glass layer. It is desirable to create or improve sensing 
 technology that can minimize the impact of that kind of events.
-
 Another kind of external factors are intentional attacks. A radar can be jammed,
 and a camera or a LiDAR can be blinded by the appropriate source of light.
 Future sensors will have to be robust against external interferences.
 
 \subsection{Commercial initiatives}
 
-At the end of the previous decade (2009), 
-the most requested  Advanced Driving Assistance Systems (ADAS) 
+At the end of the previous decade (2009), the most requested ADAS
 \cite{Frost&Sullivan2010} were the Anti-lock braking system and the Parking 
 Assistance by Warning. These systems cannot be classified
 higher than SAE Level 0.
@@ -188,7 +172,7 @@ is a sign that ADAS technology is completely integrated into the market and, thu
 Back in 2010, most traditional vehicle manufacturers did not consider Automated
 Driving as a priority. In the last years, the achievements of technological 
 pioneers (Google/Waymo, Uber, Tesla among others) gave place to early alliances
-between those companies that had the technology with OEMs that had the
+between those companies --that had the technology-- and OEMs --that had the
 platform, the experience and the market.
 
 By the end of 2018, all the important brands are involved in a race for creating
@@ -260,11 +244,33 @@ Figure \ref{fig:oem-ad} shows a resume of the most important research and collab
 
 \subsection{Conclusions}
 
-A survey about one of the most critical sensor parts in automated vehicles has been presented. Choosing the sensors configuration of an automated vehicle can be challenging. For all the perception competences, each sensor has different strengths and weakness. The task in which one sensor is not good, the other outperforms and vice versa. Usually the best solution consists in getting information from more than one type of sensor and fuse their information. It creates a more robust  perception system as it has more data variety from different sources and also increases the safety as the fault of an specific sensor can be managed by another one. As all of these advantages, it also presents some challenges like finding a proper way to calibrate all those sensors, or making good decisions when two sensors have different outputs, or in other words, make a proper fusion of all the information. Computational power and energy consumption are also related with the sensors choice. The more data the vehicle gets, the more computational power it will be needed with it corresponding energy consumption. The challenge is: if the vehicle has more sensors, the final cost will increase and therefore it will be more difficult  to produce those vehicles.
+A survey about one of the most critical sensor parts in automated vehicles has 
+been presented. Choosing the sensors configuration of an automated vehicle can 
+be challenging. Each sensor has different strengths and weaknesses regarding
+the type of information acquired, overall accuracy and quality and working 
+conditions. Usually the best solution consists in getting 
+information from more than one type of sensor and fuse their information. It 
+creates a more robust  perception system as it has more data variety from 
+different sources and also increases the safety as the fault of an specific 
+sensor can be managed by another one. As all of these advantages, it also 
+presents some challenges like finding a proper way to calibrate all those 
+sensors, or making good decisions when two sensors have different outputs, or 
+in other words, make a proper fusion of all the information. Computational 
+power and energy consumption are also related with the sensors choice. The more 
+data the vehicle gets, the more computational power it will be needed with it 
+corresponding energy consumption. The challenge is: if the vehicle has more 
+sensors, the final cost will increase and therefore it will be more difficult  
+to produce those vehicles.
 
-This survey has reviewed all the different sensors technologies avalible, describing their characteristics and how are they applied to get information usefull to solve the main perception competences. It gives a global vision of different sensor configurations and techniques to obtain usefull information from the environment.
+This survey has reviewed the most popular sensors technologies, 
+describing their characteristics and how are they applied to get information 
+useful to solve the main perception competences. It gives a global vision of 
+different sensor configurations and techniques to obtain useful information 
+from the environment.
 
-The relevant works and demos provide a good perspective of how different manufacturers and research groups do perception tasks and wich kind of sensors they use for that purpose. 
+The relevant works and demos provide a good perspective of how different 
+manufacturers and research groups do perception tasks and which kind of sensors 
+they use for that purpose. 
 Finally, the section \ref{sec:oem-ad} can form an intuition about where are the 
 manufacturers going in the autonomous vehicle process and how are they planning 
 to get there.

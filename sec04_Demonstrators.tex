@@ -75,7 +75,7 @@ Waymo's Chrisler Pacifica (2016-present).
 Google's approach to self-driving vehicles is largely founded in 3D mapping technologies \cite{Chapell2016}, where LiDARs are the fundamental tool.
 
 Meanwhile, University of Parma created the spin-off VisLab in 2009. They 
-continued creating new pieces of technology and preparing outstanding Automated 
+continued creating new pieces of technology and preparing innovative Automated 
 Driving demonstrators. As opposed to Google approach, they represent one of the 
 strongest supporters of artificial vision as the main component of perception 
 systems for AD. In 2010 they completed the VisLab Intercontinental Autonomous 
@@ -83,7 +83,7 @@ Challenge (VIAC), where four automated vans drove from Italy to China
 \cite{Bertozzi2011}.
 The leading vehicle did perception (with cameras and LiDARs), decision and 
 control, with some human intervention for selecting the route and managing 
-critical situations \cite{Broggi2012a}, and the rest of the vehicles followed 
+critical situations \cite{Broggi2012}, and the rest of the vehicles followed 
 it based on visual tracking and GPS points \cite{Broggi2012a}. The 13,000 km 
 long trip included unmapped areas, degraded dirt roads and different traffic 
 conditions. 
@@ -94,10 +94,12 @@ Three years later, the PROUD test put a vehicle with no driver behind the wheel 
  
 In the last decade, the landscape of Automated Driving has been dominated by private initiatives. Automated vehicles between Levels 4 and 5 appear as a possibility in a few years, giving birth to several companies devoted to this end. 
 
-A significant number of these companies have been founded by people coming from the DARPA experience, or have hired them to lead the project \cite{Chapell2016}. An example is the robotaxi company nuTonomy (now acquired by Aptiv) was co-founded by the leader of the MIT team that ended \#4 in 2007 DARPA Urban Challenge.
-
-Cruise has been founded by a member of the same MIT team in 2007.
-
+A significant number of these companies have been founded by people coming from 
+the DARPA experience, or have hired them to lead the project 
+\cite{Chapell2016}. An example is the robotaxi company nuTonomy (now acquired 
+by Aptiv) was co-founded by the leader of the MIT team that ended \#4 in 2007 
+DARPA Urban Challenge. Cruise has been founded by a member of the same MIT team 
+in 2007.
 Otto, a company founded by an engineer in Google's 
 Street View project completed a beer delivery service with an automated truck in 2016.
 Uber pushed its self-driving car project with up to 50 people from the CMU 
@@ -106,10 +108,11 @@ Autonomous Driving team with an expertise in LiDAR automated calibration
 \cite{Levinson2011a}, and Aurora company has a similar history, with people from Uber, MIT and Waymo \cite{Anderson2013}.
 
 Car manufacturers have reacted a bit slower. 
-Apart from collaborations with research entities, as Stanford and Audi to 
-perform the Pikes Peak ascent in 2010 (focused on control and not in 
-perception) \cite{Funke2012}, they have not really entered into scene until the 
-last five years. Some of them started independent research lines, for example
+Apart from collaborations with research entities, as Stanford and Audi teaming
+to complete an automated ascent to Pikes Peak in 2010 (focused on control and
+not in perception) \cite{Funke2012}, they have not really entered into scene
+until the last five years. 
+Some of them started independent research lines, for example
 BMW has been testing automation prototypes in roads since 2011 
 \cite{Aeberhard2015a}, but in the end most manufacturers have created
 coalitions with technological startups, as enumerated later in section
@@ -117,7 +120,7 @@ coalitions with technological startups, as enumerated later in section
 
 Mercedes-Benz presented the Bertha project in 2013, based on an experimental 
 S-Class 500 that drove a 103 km route in automated mode. The vehicle was 
-equipped exclusively with close-to-market sensors, and used 8 radars and 3 
+equipped exclusively with close-to-market sensors, using 8 radars and 3 
 video cameras for exteroceptive perception.
 This work presented innovative solutions in the perception stage 
 \cite{Bender2014}, with efficient algorithms processed in a heterogeneous 
@@ -130,12 +133,21 @@ example is Mobileye, the Israel-based company started working in embedded
 computer vision devices in 1999, and by 2015 their technology was present in 
 more than 25 car brands. Some years before they started working in a completely 
 vision-based approach to perception in Automated Vehicles \cite{Mobileye2018}. 
-Their AI is claimed to hand the car with an "assertive driving" style that 
-deals with traffic in a much less conservative way than its competitors, while 
-being safe \cite{Shalev-shwartz2016, Shalev-Shwartz2017}. 
+Their AI is claimed to hand the car with an ``\emph{assertive driving style}'' 
+that deals with traffic in a much less conservative way than its competitors,
+while being safe \cite{Shalev-shwartz2016, Shalev-Shwartz2017}. 
 After testing in real conditions \cite{Edelstein2018}, they presented a demo with an automated Ford equipped just with 12 small monocular cameras for fully automated driving in 2018 \cite{Scheer2018}.
 
-In 2014, the electric car manufacturer Tesla entered in the automated driving scene. All their vehicles were equipped with a monocular camera (based on the Mobileye system) and an automotive radar that gathered data and trained a "ghost" self-driving system based on reinforcement learning. In 2017 all manufactured Tesla vehicles have the hardware version 2, composed by a frontal radar, the same 12 ultrasonic rangers, and eight cameras that provide 360 degrees coverage. This sensor set together with nVidia Drive PX2 processing technology is claimed to be enough for full Level 5 automated driving, which will be available for a fee when ready --just a software update.
+In 2014, the electric car manufacturer Tesla entered in the automated driving 
+scene. All their vehicles were equipped with a monocular camera (based on the 
+Mobileye system) and an automotive radar that gathered data and trained a 
+"ghost" self-driving system based on reinforcement learning. In 2017 all 
+manufactured Tesla vehicles have the hardware version 2, composed by a frontal 
+radar, the same 12 ultrasonic rangers, and eight cameras that provide 360 
+degrees coverage. This sensor set together with nVidia Drive PX2 processing 
+technology is claimed to be enough for full Level 5 automated driving
+\cite{Hawkins2017}, which will be available for a fee when ready through a
+software update.
 
 In 2015 VisLab was acquired by Ambarella, a company focused in embedded video 
 processing. With their industrial support, they have achieved to manufacture 
@@ -144,18 +156,23 @@ stereo cameras \cite{Ambarella2018}. Its latest demo took place in Silicon
 Valley in 2018 \cite{AUVSI2018}, and does perception with 10 stereo pairs (a 
 total of 20 cameras) for creating a ultra-high resolution 3D scene. The system
 delivers around 900 million points per second.
-Long range vision relies in a forward facing 4k stereo pair together with a single automotive radar for better performance under low light or adverse weather conditions. This is a different approach to visual-based perception, since stereo vision aims to get the best of both LiDARs and image processing in a single tool, with additional advantages.
+Long range vision relies in a forward facing 4k stereo pair together with a 
+single automotive radar for better performance under low light or adverse 
+weather conditions. This is a different approach to visual-based perception, 
+since stereo vision aims to get the best of both LiDARs and image processing in 
+a single tool, with additional advantages.
 
 The debate around price and production scalability for some sensors is still an 
 open issue. Back to Waymo project, the Chrysler Pacifica equips custom sensors, 
-"two of the three LiDAR [...] are completely new categories of LiDAR" 
+``two of the three LiDAR [...] are completely new categories of LiDAR'' 
 \cite{Waymoteam2017}. The long-range LiDAR is claimed to dynamically zoom into 
 objects on the road, letting the vehicle see small objects up to 200 m away. 
-This reminds the features of solid state LiDARs: random sampling across the 
+This reminds the features of solid state LiDARs (see section
+ \ref{sec:03-lidar-emerging}): random sampling across the 
 scanning area and adaptive resolution. Although no details have been released 
 to public, they claim to have reduced production cost of LiDAR sensors to less 
-than one tenth in a few years (which still can be high, since original 64-layer 
-Velodyne costed over US\$ 75,000 when Waymo started its experiments).
+than one tenth in a few years (which still can be high, since the cost of the
+64-layer Velodyne was over US\$ 75,000 when Waymo started its experiments).
 
 Another important developer is Delphi, which completed in 2015 an automated
 trip between San Francisco and New York city using a custom Audi Q5 with

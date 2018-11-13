@@ -1,94 +1,25 @@
 
-The principal sensing technologies for exteroceptive perception in Automated 
-Driving are presented here. Advantages, drawbacks and 
-challenges are described for each sensor, followed by some of the emergent 
-technologies that can be relevant in the future of the discipline.
+This section presents the three principal sensing categories for exteroceptive
+perception in Automated Driving: artificial vision, radar and LiDAR.
+Exteroceptive sensors and external perception acquire information about the
+environment of the vehicle (e.g. road, other vehicles), as opposed to 
+proprioceptive sensors that provide information about the state of the vehicle
+(speed, accelerations, integrity of components) and are not covered in this 
+article. Communications are also out of the scope of the review. 
 
-Sensors provide the raw data needed by perception algorithms, described in
-next section. In order to link both aspects, this section includes a
-categorization of information domains that will be referenced later in the
-article.
-Two tables are presented to summarize the adequacy of sensor technologies for 
-acquiring the identified types of information, as well as the expected
-performance under different environmental and weather conditions.
+Next subsections present the advantages, drawbacks and challenges for the three 
+types of sensors mentioned above. Each one is followed with a review of
+relevant emergent technologies in the field.
 
-\subsection{Relevant information domains}
-
-The task of a perception system is to bridge the gap between sensors providing 
-data and decision algorithms requiring information.
-A classical differentiation between both terms is the following: data is 
-composed by raw, unorganized facts that need to be processed. 
-Information is the name given to data that has been processed, organized, 
-structured and presented in a proper context.
-
-The following taxonomy (table \ref{tab:info-taxonomy}) is tightly related with the goals of perception stage
-(covered in section \ref{sec:03-problemsapplications}). It allows to
-present conclusions about the suitability of each sensor technology for
-the different perception tasks in a clear and organized way.
-
-\begin{table}%[H]
-    \caption{Information taxonomy in Automated Driving domain}
-    \label{tab:info-taxonomy}
-    %\centering
-    %% \tablesize{} %% You can specify the fontsize here, e.g.  \tablesize{\footnotesize}. If commented out \small will be used.
-    \begin{tabular*}{\linewidth}{lr p{5.5cm}} %{\textwidth}{lrL}
-        \hline %\toprule
-        \textbf{Category} & \textbf{\#}	& \textbf{Information type}	\\
-        \hline %\midrule
-        \multirow{2}{*}{Ego-vehicle}
-         & 1 & Kinematic/dynamic (includes position) \\
-         & 2 & Proprioceptive (components health/status) \\
-         \hline %\midrule
-         \multirow{3}{*}{Passengers/driver}
-         & 3 & Driver awareness/capacities \\
-         & 4 & * Driver intentions (mind model)  \\
-         & 5 & Passenger status (needs, risk factors) \\
-         \hline %\midrule
-         \multirow{4}{*}{Environment}
-         & 6 & Spatial configuration: location, size, shape, fine features 
-         \\
-         & 7 & Identification: class, type, identity \\
-         & 8 & Regulation and semantics: traffic signs, road marks, other 
-         elements \\
-         & 9 & Contextual factors: weather, driving situation(e.g. jam, 
-         highway, off-road) \\
-         \hline %\midrule
-         \multirow{4}{*}{External actors}
-         & 10 & Spatial features: location, size, shape, fine features  \\
-         & 11 & Kinematic/dynamic: position, motion \\
-         & 12 & Identification: class, type, identity \\ 
-         & 13 & Semantic features: vehicle lights, pedestrian clothes, gestures 
-         \\
-         & 14 & * Situational engagement: collaborative/aware 
-         (adult pedestrians, other vehicles) vs non-collaborative/unaware 
-         (animals, children) \\ 
-        \hline %\bottomrule
-    \end{tabular*}
-\end{table}
-
-Elements with an asterisk are derived information. This is, they that can 
-be inferred from sensed data but not directly observed. It is mostly related 
-with internal state of external entities, as the intentions of human beings and 
-animals.
-
-This survey is focused in the perception of external elements, that corresponds 
-to the two last categories (Environmenat and External actors).
-
-\subsection{Principal sensor technologies for perception}
-
-The common sensors that are present in most of the modern ADAS and autonomous vehicles projects are: artificial vision, radar and Lidar.
-
-Most of them are ranging sensors: the measured magnitude is distance to 
-external objects, by means of the round-trip delay time of a electromagnetic 
-wave (radar) or a pulse of structured light (Lidar).
-Artificial vision, in its most basic form, registers a grid of intensities and 
-colors. This allows to extract additional information about the world, including 
-traffic elements that are encoded visually to allow being interpreted by humans 
-(signals, lanes, traffic lights).
-
-This section is focused in the three principal technologies for Automated 
-Driving: vision, radar and LiDAR.
-
+In \ref{sec:03-d-information-domains} a taxonomy of information domains is
+presented. It is useful for several purposes. First it allows to 
+link sensors technologies with perception algorithms described in section
+\ref{sec:03-problemsapplications}, since the first provide the raw data needed
+by the second. Second, the categorization is used to structure the subsequent
+analysis (section \ref{sec:03-e-sensors-for-perception}) about the suitability
+and adequacy of the presented sensing technologies for perception in Automated
+Driving. This last part includes also the expected performance under different
+environmental and weather conditions.
 
 \subsection{Artificial Vision}
 Artificial vision is a popular technology that has been used for decades in 
@@ -96,8 +27,8 @@ disciplines as mobile robotics, surveillance or industrial inspection. It acquir
 information about objects in the real world by analyzing their images as 
 captured by photo and video cameras. Cameras are devices that gather light using
 a sensor composed by a grid of thousands or millions of individual detection 
-elements. The amount of light captured by each element is translated more or 
-less directly into the intensity of a pixel in the resulting image. 
+elements. The amount of light captured by each element is translated into the
+intensity of a pixel in the resulting image. 
 
 This technology offers interesting features, as the low cost of sensors --only 
 some types-- and providing range of information types including spatial
@@ -108,27 +39,26 @@ Artificial vision technology face several challenges, especially in
 applications like automated driving:
 
 \begin{itemize}
-    \item Varying light conditions: driving is not limited to daylight 
-    conditions. It can also happen at night, indoors, or even worse,
-    during dusk or dawn with the sun close to the horizon. Dark spots,
-    shadows and other effects difficult the implementation of reliable 
+    \item Varying light conditions: driving is not limited to day. 
+    It can also happen at night, indoors, or at dusk or dawn 
+    with the sun close to the horizon. Dark spots, shadows, glares, 
+    reflections and other effects difficult the implementation of reliable 
     artificial visible algorithms.
     
-    \item High dynamic range in the scene (some areas are very dark 
-    and some others are strongly illuminated): while varying light conditions
-    can be mitigated through dynamimc exposure mechanisms, HDR conditions
-    are more difficult to deal with. Most sensor technologies have a 
-    limited capacity of capturing both extremes simultaneously, so that 
+    \item Scenes with a high dynamic range (containing very dark and strongly
+    illuminated areas in the same frame): while varying light conditions
+    can be mitigated through dynamic exposure mechanisms, HDR (High Dynamic
+    Range) conditions are more difficult to deal with. Most sensor technologies
+    have a  limited capacity of capturing both extremes simultaneously, so that 
     information is lost in one or the two sides. In automotive applications, 
     this can mean detecting lane lines at the cost of not seeing preceding
-    vehicles or vicecersa.
-    
-    
+    vehicles or vice versa.
+        
     \item Objects moving at great speed: cameras need higher exposures time as
     illumination is weaker. Fast moving elements appear blurred, which can 
     affect later processes as border or feature detection. Also, if the sensor
     does not capture light in its full surface simultaneously (rolling shutter)
-    distorsion effects can appear in those objets
+    distortion effects can appear in those objects.
 \end{itemize}
 
 In \cite{Pueo2016} some of these problems are analyzed from the perspective of
@@ -138,12 +68,12 @@ have been proposed.
 
 \begin{itemize}
     \item Rolling vs. Global shutter sensors. In rolling
-    shutter cameras, either sensor technology (rows activated sequentially) or
-    mechanical elements (a physical shutter moving to expose and oclude the 
-    sensor), the elements of the sensor capture light at differents time 
-    intervals. This have negative effects as: fast moving objects appearing
-    distorted, or flickering lights (fluorescents, LEDs) creating images with 
-    some parts illuminated and others dark. Rolling shutter effects
+    shutter cameras the elements of the sensor capture light at different time 
+    intervals. This is caused by sensor technology or by mechanical elements 
+    (e.g. physical shutter moving to expose and occlude the sensor). This have 
+    negative effects: fast moving objects appear distorted, flickering lights
+    (fluorescents, LEDs) create images with some parts illuminated and others 
+    dark. Rolling shutter effects
     can be corrected by compensating scene motion vector, as proposed in 
     \cite{Chia-KaiLiang2008}\cite{Chun2008}.
     Global shutter cameras, on the other hand, have the ability to capture 
@@ -172,17 +102,10 @@ have been proposed.
     visible light, near infrared and far infrared cameras in different 
     luminic and atmospheric conditions.
     
-    Light polarization represents an additional source of information which
-    is know to be used by animals able to perceive it (some ants, 
-    mantis-shrimp). There is an active line of research \cite{Garcia2018}
-    around sensors able  to capture this feature, since it can be useful in
-    conditions adverse for traditional sensors. 
-    
-    
 \end{itemize} 
 
 \subsubsection{3D technology}
-Although traditional camera technology is esentially 2D, there are some
+Although traditional camera technology is essentially 2D, there are some
 types of vision sensors that can perceive depth information. This section
 describes the three principal types that are already available as commercial
 devices, although not always targeting the automotive market.
@@ -194,12 +117,7 @@ devices, although not always targeting the automotive market.
 \textbf{Stereo vision:} depth is calculated \cite{Hamzah2016} from the 
 apparent displacement of visual features in the images capture by two 
 monocular cameras pointing in the same direction and separated by some
-distance (known as baseline). In the last years, several good performant 
-monocular SLAM algorithms \cite{Engel2014}\cite{Engel2018} have been 
-developed, which are not stereo systems but share some principles: they 
-exploit the motion of a single monocular camera setup, creating an 
-artificial baseline between consecutive frames that allow to estimate 
-depths and camera motion at the same time.
+distance (known as baseline). 
     
 %    a biology-inspired setup composed by two 
 %    monocular cameras pointing in the same direction and separated by some
@@ -213,25 +131,25 @@ depths and camera motion at the same time.
 One of the greatest advantages of stereo vision systems is their capability 
 to provide dense depth maps, as opposed to sparse sensors as LiDARs. Their
 resolution, and maximum and minimum perceived depth are limited by
-camera field of view and imaging sensor resolution. 
-%    Disparities smaller 
-%    than one pixel of far objects could be not detected, and detecting large 
-%    disparities in very close objects is computationally expensive.    
+camera field of view and imaging sensor resolution.     
 Stereo vision drawbacks include issues with low-textured patterns 
 (e.g. solid colors) that difficult establishing correspondences between
 frames. Also, it has a high computational complexity, and the pair of 
 cameras requires a careful calibration to ensure proper translation of 
 disparities to depths.
 
-%    At present time it is possible to find several of-the-shelf sensors for 
-%    stereo vision, either in the automotive field \cite{ambarella2018} or as 
-%    generic application products.
-    
-   %\item \emph{Structured light:} 
+Several good performing monocular SLAM (Simultaneous Location And Mapping)
+algorithms \cite{Engel2014}\cite{Engel2018} have been developed in the last
+years. 
+These systems cannot be classified as stereo but share some of its principles: 
+the motion of a single monocular camera setup creates an artificial baseline
+between consecutive frames. This allows to estimate depth and camera motion at
+the same time.
+  
     
 \textbf{Structured light:} a monocular camera coupled with a device that
 illuminates the scene with a known pattern of infrared light. 
-The distortion of the luminic pattern when projected over an irregular 
+The distortion of the light pattern when projected over an irregular 
 surface is captured by the camera and translated to a depth map.
 
 Structured light devices overcome some limitations of stereoscopic systems
@@ -272,14 +190,11 @@ These technologies promise ranges between 50 and 250 meters.
 
 \subsubsection{Emerging vision technologies}
 
-The most promising technology is known as event-based vision. It is a 
-bioinspired technology developed by Zurich University and the ETH Zurich. 
-%It approaches the problem of processing and tracking fast 
-%moving images in a completely different way: 
-Instead of capturing fixed frames at discrete times, the elements of the sensor
-(pixels) are triggered asynchronously and indepently when a change on the
-intensity is detected generating a stream of activations also called 
-\emph{events}. 
+Event-based vision is a bioinspired technology developed by Zurich University
+and the ETH Zurich. Instead of capturing fixed frames at discrete times, the
+elements of the sensor (pixels) are triggered asynchronously and independently
+when a change on the intensity is detected generating a stream of activations
+also called \emph{events}. 
 An event can be seen as something similar to the output of a feature detection 
 algorithm for artificial vision applications.
 Events can be grouped in adaptable time windows for getting a frame-like image,
@@ -292,30 +207,41 @@ applications as visual odometry \cite{Censi2014} and SLAM \cite{Vidal2017}
 relieving the CPU of time consuming operations on raw images.
 More recently, a steering wheel control for automated driving systems 
 based on deep learning has been shown in \cite{Maqueda2018}.
- 
+
+Light polarization represents an additional source of information which
+is know to be used by animals able to perceive it (some ants, 
+mantis-shrimp). There is an active line of research \cite{Garcia2018}
+around sensors able  to capture this feature, since it can be useful in
+conditions adverse for traditional sensors.
  
 
 \subsection{Radar}
 
-Radar technology uses high frequency electromagnetic waves to measure the
-distance to objects in the environment.
-There are two principal technologies: pulsed radar emits a short burst and 
-measures distance using the round trip time. Most modern automotive 
-radars use Frequency-Modulated Continuous Wave (FMCW) where a signal with
-a well known and stable frequency is modulated with another continuous signal
-that varies its frequency up and down (tipically using a triangular shape).
+Radar technology use high frequency electromagnetic waves to measure the
+distance to objects based on the \emph{round-trip time} principle, which is the
+time it takes the wave to reach the object, bounce on it and travel back to the
+sensor. The direction of the emitted wave varies to cover the field of view of 
+the sensor. Beam steering can be achieved in many ways, from mechanical methods
+to the modern digital beamforming that is implemented in most automotive radars
+\cite{Hasch2015}.
+ 
+There are two principal technologies: pulsed radar and Frequency-Modulated
+Continuous Wave (FMCW). Pulsed radar emits a short burst and measures distance
+using the raw round-trip time. FMCW technology emits a signal with a well known
+and stable frequency, that is modulated with another continuous signal that
+varies its frequency up and down (typically using a triangular shape).
 Distance is determined using the frequency shift between the emitted and 
-reflected signals. Both technologies allow to measure target speed based
-on Doppler effect.
+reflected signals. 
+Both technologies can exploit Doppler effect to measure the relative speed of 
+the target with respect to the sensor. 
 
-Starting in 2004, EU allocated a permanent 5 GHz wide band around 79 GHz 
-\cite{EULawandPublications2004}. 
-Short distance applications as blind spot detection, parking assistance, jam 
-assistance and pre-crash measures use the upper part (77-81 GHz), since it 
-offers a better resolution. Long distance applications as ACC use a radar 
-signal around 76-78 GHz. However, manufacturers are implementing multifrequency 
-chips that can switch between different functions dinamycally.
-%This information is resumed in figure \ref{fig:radar-freqband}
+Starting in 2004, EU allocated a permanent 5 GHz wide band around 79 GHz
+\cite{EULawandPublications2004}. Short distance applications as blind spot
+detection, parking assistance, jam assistance and pre-crash measures use the 
+upper part (77-81 GHz), since it offers a better resolution. Long distance 
+applications as ACC use a radar signal around 76-78 GHz. 
+Most modern automotive radars use FMCW technology in multi-frequency chips that 
+can switch between different bands and functions dynamically.
 
 One of the strongest arguments for including radar sensing in automated 
 vehicles is its independence of light and weather conditions. 
@@ -323,13 +249,33 @@ It works in the dark, and detections are almost equally good with snow,
 rain, fog or dust \cite{Reina2015}. Long range radars can see up to 250 m
 in very adverse conditions, where no other sensor works.
 
-However, radar processing can be tricky due to the reflectivity of the
-different materials: metals amplify radar signal, easening detection of 
-vehicles but increasing the apparent size of small objects as discarded cans
-in the road, while other materials (e.g. wood) are virtually transparent.
-Horizontal and vertical positioning error 
-grows with distance, so that at 100 m is difficult to say if an obstacle is
-actually on the vehicle lane, or if it is a bridge over the road.
+Radar sensors present some difficulties and drawbacks:
+
+\begin{itemize}
+    \item Sensible to target reflectivity: processing radar data is a tricky
+    task, due to the heterogeneous reflectivity of the different materials. 
+    Metals amplify radar signal, easing detection of vehicles but increasing
+    the apparent size of small objects as discarded cans in the road, while 
+    other materials (e.g. wood) are virtually transparent.
+    This can cause false positives (detect a non existing obstacle) and false
+    negatives (not detecting an actual obstacle).
+    
+    \item Resolution and accuracy: radars are very accurate measuring distance
+    and speed along the line that connects the sensor with a target. However, 
+    horizontal resolution depends on the characteristics of the emitted beam.
+    Raw angular resolution in digital beamforming systems falls between 2 to 5
+    degrees \cite{Schneider2005}, although angle of arrival can be refined
+    using advanced processing techniques to reach resolutions between 0.1
+    degrees for long range radars (with a narrow FoV around 30 degrees) and 1
+    degree for short range sensors \cite{Kissinger2012}. 
+    This angular resolution is translated into a spatial resolution that grows
+    with distance. At 30 meters it can be difficult to separate (detect as
+    independent targets) a pedestrian from a nearby car, something crucial for
+    implementing an emergency braking ADAS. 
+    At 100 m distance it can be impossible to separate vehicles in neighbor
+    lanes, determine if a vehicle is in our same lane, and even if a detection
+    is a vehicle or a bridge over the road.
+\end{itemize}
 
 As Automated Driving technology advances, radars are expected to go from its
 current use of detecting targets and measuring its speed to providing richer
@@ -343,7 +289,7 @@ the roof of a car is used to map the environment, including not only other
 vehicles and static objects but also the ground.
 In \cite{Kohler2013} explores the feasibility of radars operating between 
 100 and 300 GHz. They present a prototype working at 150 GHz and conclude 
-that atmosferic absorption and reflectivity of materials usually found in 
+that atmospheric absorption and reflectivity of materials usually found in 
 driving scenarios make this technology feasible, with the benefit of a high
 resolution that may enable radar imaging.
 
@@ -354,16 +300,17 @@ One of the most active research area is related with high resolution radar
 imaging for automobiles. Apart from research in early stages previously 
 referred, a number of technological companies and startups are working in 
 commercial products. 
-For example, Arbe Robotics (http://www.arberobotics.com/) is working in a 
+For example, Arbe Robotics \cite{ArbeRobotics2018} is working in a 
 model with 300 m range, a field of view of 100 degrees horizontal, 30 degrees
 vertical, and a resolution of 1 degree azimuth and 2 degrees elevation. 
 This model is expected to generate a full 4D (3D position plus speed) image of
 the scene at 25-50 Hz, thanks to the embedded machine learning and SLAM
 algorithms.
 
-One of the key technologies that could lead to this achievement are metamaterial
-based antennas \cite{Brookner2016,Sleasman2017} for efficient synthetic aperture
-radars. Some manufacturers as Metawave (https://www.metawave.co/) are starting 
+One of the key technologies that could lead to this achievement are 
+meta-material based antennas \cite{Brookner2016,Sleasman2017} for efficient
+synthetic aperture radars. 
+Some manufacturers as Metawave \cite{Metawave2018} are starting 
 to offer products oriented to automotive sector based on the technology.
 
 In a different line, ground-penetrating radar is a technology used long
@@ -374,35 +321,41 @@ first few meters under the ground. This reading is not affected by snow,
 water, dust or any other element over the surface of the road. The idea is to
 create maps that can be used later to localize vehicles, with an accuracy of
 a few centimeters. %\cite{XXXX}
-Recently, Wavesense company (https://wavesense.io/) announced tests in snowy
-places and is close to commercialize this technology.
+Recently, Wavesense \cite{WaveSense} announced tests in snowy places and is
+close to commercialization stage.
 
 
 
 \subsection{LiDAR}
-LiDAR (Light Detection And Ranging) is an active ranging technology that calculates distance to objects by measuring round trip time of a laser light pulse.
-Devices apt for robotic and automotive applications use a low power 
-near-infrared laser (900-1050 nm) that is invisible, eye-safe and able to 
-measure up to 200 m under direct sunlight. The long range is achieved thanks to
-laser beams having a low divergence, so that the reflected power does not decay
-too much with distance.
-LiDARs can be used for mapping environments. Tipically, a rotating mirror is used to change the direction of the laser pulse, reaching 360º horizontal coverage. Commercial solutions use an array of emitters to produce several vertical layers (between 4 and 128) that, combined with rotation, generate a point cloud that represents the the environment.
-
+LiDAR (Light Detection And Ranging) is an active ranging technology that 
+calculates distance to objects by measuring round-trip time of a laser light 
+pulse.
+Sensors for robotic and automotive applications use a low power 
+near-infrared laser (900-1050 nm) that is invisible, eye-safe. 
+Laser beams have a low divergence, so that the reflected power does not decay 
+too much with distance. Thanks to this, LiDARs can measure distances up to 
+200 m under direct sunlight.
+Typically, a rotating mirror is used to change the direction of the laser 
+pulse, reaching 360º horizontal coverage. Commercial solutions use an array of 
+emitters to produce several vertical layers (between 4 and 128) that, combined 
+with rotation, generate a point cloud that represents the the environment.
 Lidar sensors feature an extraordinary accuracy measuring distances, averaging
 a few millimeters in most cases and degrading to 0.1-0.5 meters in the worst 
-cases. This makes Lidar the favorite choice for creating accurate digital maps.
+cases. This makes LiDAR a good choice for creating accurate digital maps.
 
 However, they have several drawbacks to take into account:
 
 \begin{itemize}
-    \item Sparse mesaures (not dense): according to \cite{Gatziolis2008} typical
-    lidar beam divergence is between 0.1 and 1 mrad. 
+    \item Sparse measures (not dense): according to \cite{Gatziolis2008} typical
+    LiDAR beam divergence is between 0.1 and 1 mrad (0.005 to 0.05 degrees). 
     The commercial device Velodyne HDL64 covers a vertical FoV of 26.8 degrees 
     using 64 layers (consecutive layers are separated 0.42 degrees), and has a
-    2.0 mrad divergence \cite{Glennie2010} (0.11 degrees). Horizontal resolution
-    varies between 0.1 to 0.4 degrees. In most cases, then, there is a high 
-    fraction of the total volume not iluminated by laser beams. Small targets or
-    structures based on threads and bars can remain undetected.
+    2.0 mrad divergence \cite{Glennie2010} (0.11 degrees). Low-end devices as 
+    model VLP-16 cover a V-FoV of 30 degrees with 16 layers (separation of 2 
+    degrees). This leaves a vertical gap between 0.3 an 1.8 degrees that is not
+    illuminated by laser beams, that at 50 meters distance is equivalent to a 
+    vertical gap between 0.26 and 1.5 meters. Small targets or structures based 
+    on threads and bars can remain undetected.
     
     \item Low vertical resolution: in low cost models, which usually feature 
     less than 16 layers, vertical resolution (separation between consecutive
@@ -411,7 +364,7 @@ However, they have several drawbacks to take into account:
     degrees, but at a much higher cost.
     
     \item Poor detection of dark and specular objects. Black cars
-    can appear as invisible to the lidar, since they combine a color that
+    can appear as invisible to the LiDAR, since they combine a color that
     absorbs most radiation with a non-Lambertian material that does not scatter
     radiation back to receiver.
     
@@ -426,23 +379,24 @@ However, they have several drawbacks to take into account:
     beams are affected by rain and fog because water droplets scatter the light 
     \cite{Wang2008}, reducing the operative range of the device and producing 
     false measures in the front of the cloud. The effect of dust has been
-    explored in \cite{Phillips2017}. Lidar performance in these scenarios is 
+    explored in \cite{Phillips2017}. LiDAR performance in these scenarios is 
     worse than radar, but still better than cameras and human eye.
 \end{itemize}
 
 \subsubsection{Emerging LiDAR technologies}
+\label{sec:03-lidar-emerging}
 
-Direct speed measurement is a really usefull feature for any sensor. Up to date,
-only radars where able to capure speed, for instance using FMCW signals.
+Direct speed measurement is a really useful feature for any sensor. Up to date,
+only radars where able to capture speed, for instance using FMCW signals.
 The same concept has been researched along last decades \cite{Nordin2004}
-applied to LiDARs that emmit light continuously to measure objects speed based 
+applied to LiDARs that emit light continuously to measure objects speed based 
 on Doppler effect. In the last years some research prototypes suitable for
 the automotive market start appearing \cite{Poulton2016}, until recently
 a company named Blackmore announced a commercial version. 
-Observation of speed can improve later perception stages. A direct use is to
-improve tracking of moving objects, as it makes possible to detect cyclists 
-and discern when pedestrians are walking thanks to the different speeds of
-body and limbs.
+Apart from improving tracking of moving objects, observation of speed can
+add semantic information useful to enhance activity recognition and behavior
+prediction. An example is detecting the different speeds of limbs and body for
+cyclists and pedestrians.
 
 Regarding LiDARs, however, the most popular emerging technology in the last 
 years has been Solid State LiDAR. It offers advantages when it comes
@@ -469,7 +423,7 @@ with a range of 150 m. They report a spot size of 5 cm at 100 m, that is
 comparable to a beam divergence of 0.5 mrad --4 times smaller than Velodyne 
 HDL64 model.
 
-OPA technology has additional advantages over mechanical lidars: the scan 
+OPA technology has additional advantages over mechanical LiDAR: the scan 
 pattern can be random in the entire FoV, which is great for characterizing fast 
 moving objects. It is possible to observe only a region of interest within the 
 FoV. Also, it is possible to augment the point density within each frame for 
@@ -479,7 +433,67 @@ of interest for enhanced shape recognition even at far distances.
 This is similar to Waymo's claims about the LiDARs they have developed for their
 self-driving vehicles, as described in section \ref{sec:04-relevantdemos}.
 
+\subsection{Relevant information domains}
+\label{sec:03-d-information-domains}
+
+The task of a perception system is to bridge the gap between sensors providing 
+data and decision algorithms requiring information.
+A classical differentiation between both terms is the following: data is 
+composed by raw, unorganized facts that need to be processed. 
+Information is the name given to data that has been processed, organized, 
+structured and presented in a proper context.
+
+The following taxonomy (table \ref{tab:info-taxonomy}) is tightly related with 
+the goals of perception stage (covered in section
+\ref{sec:03-problemsapplications}). It allows to present conclusions about the
+suitability of each sensor technology for the different perception tasks in a
+clear and organized way.
+
+\begin{table}%[H]
+    \caption{Information taxonomy in Automated Driving domain}
+    \label{tab:info-taxonomy}
+    \begin{tabular*}{\linewidth}{lr p{5.5cm}} %{\textwidth}{lrL}
+        \hline %\toprule
+        \textbf{Category} & \textbf{\#}	& \textbf{Information type}	\\
+        \hline %\midrule
+        \multirow{2}{*}{Ego-vehicle}
+        & 1 & Kinematic/dynamic (includes position) \\
+        & 2 & Proprioceptive (components health/status) \\
+        \hline %\midrule
+        \multirow{3}{*}{Passengers/driver}
+        & 3 & Driver awareness/capacities \\
+        & 4 & * Driver intentions (mind model)  \\
+        & 5 & Passenger status (needs, risk factors) \\
+        \hline %\midrule
+        \multirow{4}{*}{Environment}
+        & 6 & Spatial configuration: location, size, shape, fine features 
+        \\
+        & 7 & Identification: class, type, identity \\
+        & 8 & Regulation and semantics: traffic signs, road marks, other 
+        elements \\
+        & 9 & Contextual factors: weather, driving situation(e.g. jam, 
+        highway, off-road) \\
+        \hline %\midrule
+        \multirow{4}{*}{External actors}
+        & 10 & Spatial features: location, size, shape, fine features  \\
+        & 11 & Kinematic/dynamic: position, motion \\
+        & 12 & Identification: class, type, identity \\ 
+        & 13 & Semantic features: vehicle lights, pedestrian clothes, gestures 
+        \\
+        & 14 & * Situational engagement: collaborative/aware 
+        (adult pedestrians, other vehicles) vs non-collaborative/unaware 
+        (animals, children) \\ 
+        \hline %\bottomrule
+    \end{tabular*}
+\end{table}
+
+Elements with an asterisk are derived information. This is, they that can 
+be inferred from sensed data but not directly observed. It is mostly related 
+with internal state of external entities, as the intentions of human beings and 
+animals.
+
 \subsection{Using sensors for perception}
+\label{sec:03-e-sensors-for-perception}
 
 Sensor selection and arrangement is one of the most important aspects in the 
 design of a perception system for automated vehicles. It also has a great impact
@@ -512,7 +526,7 @@ field of view of relevant sensing technologies.
 \begin{figure*}[h]
     \centering
     \includegraphics[width=0.7\textwidth]{"img/plot_range-fov"}
-    \caption{Range-FoV for depth sensors (3D sensing tecnology)}
+    \caption{Range-FoV for depth sensors (3D sensing technology)}
     \label{fig:range-fov}
 \end{figure*}
 
