@@ -182,65 +182,83 @@ marketing products. However, their alliances with other companies, startups
 and technology/research centers are easier to trace and can hint about their 
 approach to Automated Driving.
 
+%\begin{figure*}[t]
+%    \centering
+%    \includegraphics[width=0.9\textwidth]{"img/OEM_jp_trim"}
+%    \caption{OEM projects and alliances in Automated Driving}
+%    \label{fig:oem-ad}
+%\end{figure*}
 
-Figure \ref{fig:oem-ad} shows a resume of the most important research and collaboration for Automated Driving with OEMs involved. The most relevant works are leaded by Ford, GM and Daimler, based on LiDARs, cameras and radar technologies. However, the influences of Waymo and Tesla, and the alliances with other actors (i.e.: NVIDIA, Apple or Intel-Mobileye-) plays an important role in this automated race. Another important consideration is that most the OEMs started their Automated program just two years ago. Other OEMs have also their focus in these technologies, but in this review only mention some of the most promising.
-
-\begin{figure*}[t]
-    \centering
-    \includegraphics[width=0.9\textwidth]{"img/OEM_jp_trim"}
+\begin{table*}[t]
+    \ra{1.3}
     \caption{OEM projects and alliances in Automated Driving}
-    \label{fig:oem-ad}
-\end{figure*}
+    \label{tab:oem-ad}
+    \begin{tabular}{@{}p{1.5cm}p{2.5cm}p{3.0cm}r*{4}{p{2.5cm}}@{}} 
+        %p{2cm}p{2cm}p{2cm}@{}}
+        \toprule
+        \textbf{OEM} & \textbf{Test site} & \textbf{Technologies} &
+        \textbf{Since} & \textbf{Collaborations} & \textbf{Forecast} & 
+        \textbf{Test fleet} 
+        \\    
+        \cmidrule(r{4pt}){1-1} \cmidrule(l){2-7}
+        Ford & Detroit, Arizona \& California (USA) & LiDAR, and mapping  & 
+        $\sim$2016 & Argo, Velodyne, SAIPS, civilmaps. & Level 4 (2021) & 
+        Fusion Hybrid sedans ($\sim$100 by 2018)
+        \\
+        GM & Detroit, S. Francisco \& Scottsdale, Arizona (USA) & LiDAR, 
+        HD map, radar, camera & $\sim$2016 & Waymo and 
+        Jaguar-Land Rover & 2020 (Fortune) & $\sim$50 vehicles (2017) 
+        \\
+        Renault-Nissan & Japan, USA \& China & Front radar, LiDAR. Speed and 
+        Steering control & $\sim$2017 & Transdev, Microsoft and 
+        TechCrunch 
+        (from Oath)  & \parbox[t][][t]{2cm}{$<$2030 (Level 5)\\ 2020 (Level 3)} 
+        & --- 
+        \\
+        Daimler & Germany & Vision, data fusion, radar. & 2015 & 
+        Bosch & 2020 & Commercial cars (Level 2) 
+        \\
+        Volkswagen-Audi Group & Germany & LiDAR, data fusion, adaptive cruise 
+        control, Trafic Jam Assist, self-parking & 2015 & 
+        \parbox[t][][t]{2.2cm}{Delphi (2015) \\ Aurora (2017)} & 2025 (Level 4) 
+        & Commercial cars (Level 3, Traffic Jams) 
+        \\ 
+        BMW & Germany, China & Vision, LiDAR, DGPS & 2011 & Intel, Baidu, HERE 
+        & 2022 (Level 5) & 
+        Commercial cars (Level 2) 
+        \\
+        Waymo & California (USA) & LiDAR, vision system, radar, data fusion, 
+        RT 
+        Path plan.. & 2010 & Fiat-Chrysler,  Velodyne. & --- & 100 autonomous 
+        Pacifica minivans  
+        \\
+        Volvo & Sweden. \& Uber: San Francisco, Pittsburgh  & Vision, LiDAR, 
+        GPS, 
+        V2I & 2011 & Uber (U.S), Autoliv (Sweden)  & $\sim$2020 & Commercial 
+        cars 
+        (Level 2) 
+        \\
+        Tesla & USA & Camera, radar, AI & $\sim$2015 & Apple, Mobileye and 
+        Nvidia 
+        & 
+        $\sim$2020 (Full automation)  & Commercial cars (Level 2) \\
+        Hyundai & South Korea & AI, LiDAR, Camera & 2014 & KIA, Aurora & 
+        \parbox[t][][t]{2.2cm}{AD Level 3.\\2020 (Highways).\\2030 (city 
+        streets)} & --- 
+        \\
+        \bottomrule  
+    \end{tabular}
+\end{table*}
 
-%\begin{table}
-%    \caption{OEMs with Automated Driving projects}
-%    \label{tab:oems}
-%    \begin{tabular}{ | l | l | l | l | l | l | l | }
-%    \textbf{OEMs} & \textbf{Test side} & \textbf{Technologies} & \textbf{Since}
-%     & \textbf{Collaborations} & \textbf{Forecast} & \textbf{Test fleet} 
-%    \\
-%    \hline
-%    Ford & Detroit, Arizona \& California (U.S.A.) & AI, LiDAR, and mapping  & 
-%    \~2016 & Argo, Velodyne, SAIPS, civilmaps. & Level 4 (2021) & Fusion 
-%Hybrid 
-%    sedans \~100 by 2018 
-%    \\
-%    GM & Detroit San Francisco \& Scottsdale, Arizona (U.S.A.) & Lidar, very 
-%    accurance map, radar, camera & \~2016 & Google’s Waymo and Jaguar-Land 
-%    Rover & before 2020 (Fortune) & Fifty vehicles have been built by GM 
-%(2017) 
-%    \\
-%    Renault-Nissan & Japan, EE.UU. \& China & Maintains speed, Steering 
-%    control, Front radar, Lidars & \~2017 & Transdev, Microsoft and TechCrunch 
-%    (from Oath)  & Fully autonomous car within the next 10 years. Level 3 -> 
-%    2020 & --- 
-%    \\
-%    Daimler & Germany & Vision, data fusion, radar. & 2015 (Truck \& F015) & 
-%    Bosch & 2020 & Commercial cars (level 2) 
-%    \\
-%    Volkswagen Group (Audi) & Germany & Lidar, data fusion, adaptive cruise 
-%    control, self-parking \& TJA  & 2015 & Audi -> Delphi (2015);  Aurora 
-%    (2017) & 2025 (level 4) & Commercial cars (level 3 -> Traffic Jams) 
-%    \\ 
-%    BMW & Germany, China & Vision, lidar, DGPS & 2011 & Intel,  and With Baidu 
-%    \& Nokia’s HERE   & Level 5 autonomous car on the road by 2022. & 
-%    Commercial cars (level 2) 
-%    \\
-%    Waymo & California (U.S.A.) & Lidar, vision system, radar, data fusion, RT 
-%    Path plan.. & 2010 & Fiat-Chrysler,  Velodyne. & --- & 100 autonomous 
-%    Pacifica minivans  
-%    \\
-%    Volvo & Sweden. \& Uber: San Francisco, Pittsburgh  & Vision, lidar, GPS, 
-%    V2I & 2011 & Uber (U.S), Autoliv (Sweden)  & \~2020 & Commercial cars 
-%    (level 2) 
-%    \\
-%    Tesla & U.S.A. & Camera, radar, AI & \~2015 & Apple, Mobileye and Nvidia & 
-%    \~Full automated 2020  & Commercial cars (level 2) \\
-%    Hyundai & South Korea & AI, LiDAR, Camera & 2014 & KIA, Aurora & AD Level 
-%    3-> Highways by 2020 and to city streets by 2030 & --- 
-%    \\
-%    \end{tabular}
-%\end{table}
+Table \ref{tab:oem-ad} shows a resume of the most important research and 
+collaboration for Automated Driving with OEMs involved. The most relevant works 
+are leaded by Ford, GM and Daimler, based on LiDARs, cameras and radar 
+technologies. However, the influences of Waymo and Tesla, and the alliances 
+with other actors (i.e.: NVIDIA, Apple or Intel-Mobileye-) plays an important 
+role in this automated race. Another important consideration is that most the 
+OEMs started their Automated program just two years ago. Other OEMs have also 
+their focus in these technologies, but in this review only mention some of the 
+most promising.
 
 \subsection{Conclusions}
 

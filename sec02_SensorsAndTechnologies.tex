@@ -500,8 +500,8 @@ design of a perception system for automated vehicles. It also has a great impact
 in its cost, with some setups having several times the price of the rest of 
 the vehicle. 
 This epigraph summarizes some of the most important factors to consider: type 
-of information acquired, physical coverage and impact of external factors in 
-performance.
+of information acquired, impact of external factors in performance and spatial
+coverage.
 
 In first place, the characteristics of a sensing technology determines its 
 suitability for acquiring certain types of information, and restricts its range 
@@ -518,6 +518,19 @@ initiatives with relevant types of information identified in Table
     \label{fig:information_vs_sensors}
 \end{figure}
 
+Sensors and perception are expected to work uninterruptedly during vehicle 
+operation. Weather and other environmental factor can degrade sensor
+performance, but each technology is affected in a different way. 
+Figure \ref{fig:sensors-environ} summarizes the effect of common external
+factors in the performance of the analyzed sensing technologies.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.68\linewidth]{"img/sensors_atmospheric_conditions"}
+\caption{Sensor robustness under atmospheric and environmental factors}
+\label{fig:sensors-environ}
+\end{figure}
+
 A perception system needs to cover adequately the relevant surroundings of the
 vehicle. Ideally, this includes 360 degrees around the vehicle up to several
 hundreds meters. Figure \ref{fig:range-fov} shows usual operative range and
@@ -529,17 +542,4 @@ field of view of relevant sensing technologies.
     \caption{Range-FoV for depth sensors (3D sensing technology)}
     \label{fig:range-fov}
 \end{figure*}
-
-Sensors and perception are expected to work uninterruptedly during vehicle 
-operation. Weather and other environmental factor can degrade sensor
-performance, but each technology is affected in a different way. 
-Figure \ref{fig:sensors-environ} summarizes the effect of common external
-factors in the performance of the analyzed sensing technologies.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.75\linewidth]{"img/sensors_atmospheric_conditions"}
-    \caption{Sensor robustness under atmospheric and environmental factors}
-    \label{fig:sensors-environ}
-\end{figure}
 

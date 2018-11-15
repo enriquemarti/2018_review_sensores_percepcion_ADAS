@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="663.58142mm"
-   height="256.53848mm"
-   viewBox="0 0 663.58142 256.53848"
+   width="649.58142mm"
+   height="227.89555mm"
+   viewBox="0 0 649.58141 227.89555"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
@@ -1082,22 +1082,22 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.39696839"
-     inkscape:cx="1121.2054"
-     inkscape:cy="1047.4135"
+     inkscape:zoom="0.28069904"
+     inkscape:cx="2095.5918"
+     inkscape:cy="22.199109"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1019"
-     inkscape:window-x="-9"
+     inkscape:window-height="1053"
+     inkscape:window-x="1911"
      inkscape:window-y="-9"
      inkscape:window-maximized="1"
      showguides="false"
-     fit-margin-top="10"
-     fit-margin-left="10"
-     fit-margin-right="10"
-     fit-margin-bottom="10" />
+     fit-margin-top="3"
+     fit-margin-left="3"
+     fit-margin-right="3"
+     fit-margin-bottom="3" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -1114,7 +1114,7 @@
      inkscape:label="Capa 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(273.06421,-10.452771)">
+     transform="translate(266.06421,-32.0957)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot2120"
@@ -4262,7 +4262,7 @@
            inkscape:connector-curvature="0"
            id="path14777"
            style="font-size:5.64444447px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-           d="m 245.29744,9.9524226 q -0.14607,0.038585 -0.3197,0.063389 -0.17088,0.0248 -0.30592,0.0248 -0.47129,0 -0.71658,-0.253569 -0.2453,-0.253559 -0.2453,-0.8130426 V 7.3369061 h -0.35002 V 6.901446 h 0.35002 V 6.0167455 h 0.51815 V 6.901446 h 1.06935 v 0.4354601 h -1.06935 V 8.739749 q 0,0.2425347 0.011,0.3803385 0.011,0.1350477 0.0772,0.253559 0.0606,0.1102431 0.16537,0.1626085 0.10748,0.049609 0.32521,0.049609 0.12678,0 0.26459,-0.035829 0.1378,-0.038585 0.19843,-0.06339 h 0.0276 z" />
+           d="m 245.29744,9.9524226 q -0.14607,0.038585 -0.3197,0.063389 -0.17088,0.0248 -0.30592,0.0248 -0.47129,0 -0.71658,-0.2535714 -0.2453,-0.253559 -0.2453,-0.8130426 V 7.3369061 h -0.35002 V 6.901446 h 0.35002 V 6.0167455 h 0.51815 V 6.901446 h 1.06935 v 0.4354601 h -1.06935 V 8.739749 q 0,0.2425347 0.011,0.3803385 0.011,0.1350477 0.0772,0.253559 0.0606,0.1102431 0.16537,0.1626085 0.10748,0.049609 0.32521,0.049609 0.12678,0 0.26459,-0.035829 0.1378,-0.038585 0.19843,-0.06339 h 0.0276 z" />
         <path
            inkscape:connector-curvature="0"
            id="path14779"
@@ -4292,7 +4292,7 @@
            inkscape:connector-curvature="0"
            id="path14789"
            style="font-size:5.64444447px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-           d="m 261.00708,9.9524226 q -0.14607,0.038585 -0.3197,0.063389 -0.17088,0.0248 -0.30593,0.0248 -0.47129,0 -0.71658,-0.253569 -0.24529,-0.253559 -0.24529,-0.8130426 V 7.3369061 h -0.35002 V 6.901446 h 0.35002 V 6.0167455 h 0.51814 V 6.901446 h 1.06936 v 0.4354601 h -1.06936 V 8.739749 q 0,0.2425347 0.011,0.3803385 0.011,0.1350477 0.0772,0.253559 0.0606,0.1102431 0.16536,0.1626085 0.10749,0.049609 0.32522,0.049609 0.12678,0 0.26458,-0.035829 0.13781,-0.038585 0.19844,-0.06339 h 0.0276 z" />
+           d="m 261.00708,9.9524226 q -0.14607,0.038585 -0.3197,0.063389 -0.17088,0.0248 -0.30593,0.0248 -0.47129,0 -0.71658,-0.2535714 Q 259.41958,9.5334836 259.41958,8.974 V 7.3369061 h -0.35002 V 6.901446 h 0.35002 V 6.0167455 h 0.51814 V 6.901446 h 1.06936 v 0.4354601 h -1.06936 V 8.739749 q 0,0.2425347 0.011,0.3803385 0.011,0.1350477 0.0772,0.253559 0.0606,0.1102431 0.16536,0.1626085 0.10749,0.049609 0.32522,0.049609 0.12678,0 0.26458,-0.035829 0.13781,-0.038585 0.19844,-0.06339 h 0.0276 z" />
         <path
            inkscape:connector-curvature="0"
            id="path14791"
@@ -6285,7 +6285,7 @@
        inkscape:connector-curvature="0"
        id="path19324"
        d="M -201.89568,64.804203 V 236.92578 h 580.11703"
-       style="fill:none;stroke:#000000;stroke-width:1.16499996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:;marker-end:url(#marker31880)" />
+       style="fill:none;stroke:#000000;stroke-width:1.16499996;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker31880)" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot19340"
@@ -12728,7 +12728,7 @@
          id="tspan4718"
          x="337.25711"
          y="103.60126"
-         style="stroke-width:0.26458332"></tspan></text>
+         style="stroke-width:0.26458332" /></text>
     <g
        id="g6709">
       <path
@@ -13271,7 +13271,7 @@
            sodipodi:role="line"
            x="30.661972"
            y="332.23956"
-           style="font-size:5.64444447px;text-align:start;text-anchor:start;stroke-width:0.26458332">oct-2005 DARPA Grand Chllg.</tspan></text>
+           style="font-size:5.64444447px;text-align:start;text-anchor:start;stroke-width:0.26458332">oct-2005 DARPA Grd. Chllg.</tspan></text>
       <path
          inkscape:connector-curvature="0"
          id="path8135"
@@ -13347,7 +13347,7 @@
            sodipodi:role="line"
            x="30.661972"
            y="332.23956"
-           style="font-size:5.64444447px;text-align:start;text-anchor:start;stroke-width:0.26458332">1994 Univ. Bundeswehr Munich</tspan></text>
+           style="font-size:5.64444447px;text-align:start;text-anchor:start;stroke-width:0.26458332">1994 Univ. BW Munich</tspan></text>
       <path
          inkscape:connector-curvature="0"
          id="path8175"
@@ -13423,7 +13423,7 @@
            sodipodi:role="line"
            x="30.661972"
            y="332.23956"
-           style="font-size:5.64444447px;text-align:start;text-anchor:start;stroke-width:0.26458332">1987 Univ. Bundeswehr Munich</tspan></text>
+           style="font-size:5.64444447px;text-align:start;text-anchor:start;stroke-width:0.26458332">1987 Univ. BW Munich</tspan></text>
       <path
          inkscape:connector-curvature="0"
          id="path8767"

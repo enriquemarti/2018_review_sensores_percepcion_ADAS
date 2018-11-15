@@ -289,10 +289,14 @@
 %\usepackage{hyperref}
 \usepackage{adjustbox}
 \usepackage{multirow, array}
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 \usepackage{tabularx}
+\usepackage{makecell}
 \usepackage{float}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 \usepackage[acronym]{glossaries}
+\usepackage{flushend}
 
 
 %\ifCLASSOPTIONcaptionsoff
@@ -379,7 +383,7 @@
 % was not built to handle multiple paragraphs
 %
 
-\author{Enrique~Mart\'i,%~\IEEEmembership{Member,~IEEE,}
+\author{Enrique~Mart\'i, %~\IEEEmembership{Member,~IEEE,}
         Miguel \'Angel~de Miguel, %~\IEEEmembership{Fellow,~OSA,}
 		Fernando~Garc\'ia,~\IEEEmembership{Member,~IEEE,}
         and~Joshu\'e~P\'erez,%~\IEEEmembership{Life~Fellow,~IEEE}% <-this % 
@@ -470,7 +474,7 @@ Legan\'es, 28911, Spain}% <-this % stops a space
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Automated Driving, sensors, perception.
+Automated Driving, sensors, perception, OEM.
 \end{IEEEkeywords}
 
 
@@ -515,15 +519,10 @@ Automated Driving, sensors, perception.
 % use section* for acknowledgment
 \section*{Acknowledgment}
 
-
-The authors would like to thank Aliquam aliquet laoreet tincidunt. Proin sit 
-amet lacinia massa, quis tempor libero. Nulla rhoncus ex sed tortor elementum 
-tincidunt. Nulla varius, nisi eget feugiat congue, dolor sapien lacinia quam, 
-sed bibendum nulla quam id tortor.
-
-In suscipit nulla iaculis elit finibus, faucibus commodo mi elementum. 
-Curabitur a lectus nunc. In hac habitasse platea dictumst. Donec semper congue 
-purus, ut pellentesque lectus laoreet ut.
+This work has been partly supported by ECSEL Project ENABLE-S3 
+(with grant agreement number 692455-2), by the Spanish Government through
+CICYT projects (TRA2015-63708-R and TRA2016-78886-C3-1-R), and Comunidad de
+Madrid through SEGVAUTO-TRIES (S2013/MIT-2713).
 
 
 % Can use something like this to put references on a page
@@ -576,48 +575,96 @@ purus, ut pellentesque lectus laoreet ut.
 %\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
 % or if you just want to reserve a space for a photo:
 
-\begin{IEEEbiography}{Xxxx Xxxx}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque porttitor 
-ipsum at diam elementum maximus. Proin pharetra, mi in dapibus sagittis, nulla 
-nulla consequat massa, et fringilla turpis libero venenatis urna. Nullam vel 
-felis lorem. Morbi eget velit venenatis, rhoncus mauris bibendum, cursus dui. 
-Aliquam erat volutpat. Morbi dignissim massa sed nibh pretium molestie. Nam 
-efficitur turpis augue, vel lacinia velit rhoncus ut. Praesent id accumsan 
-orci. Nunc eget massa.
+%\newpage
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{img/foto_kike}}]
+    {Enrique Mart\'i} is a Senior Researcher on Automated Driving at Tecnalia 
+    Research and Innovation since 2017. He holds a B.E. degree in Computer
+    Sciences (2009), a M.Sc. in Computer Science and Technology (2010) and a 
+    PhD (2015) from University Carlos III de Madrid, with a thesis on sensor
+    fusion systems sensitive to context information. He stayed as visiting
+    researcher in the SUNY University at Buffalo (USA) and in the Centre for
+    Maritime Research and Experimentation at La Spezia (Italy), working on 
+    coastal surveillance systems based on experimental radar technologies.
+    He has more than 10 years of experience in Sensor Fusion and Estimation,
+    including participation in national and European R\&D projects and creation
+    of commercial information fusion products for large scale surveillance.
+    He has worked as Lead Engineer in Navigation and Localization systems in
+    a private company building custom UAVs for industrial inspection.
+    His research interests include sensor technologies, information fusion,
+    estimation techniques, machine learning and optimization applied to
+    automated vehicles.
 \end{IEEEbiography}
 
 % if you will not have a photo at all:
-\begin{IEEEbiography}{Yyyy Yyyy}
-Phasellus nec metus et orci tempor convallis. Integer augue eros, sodales vitae 
-ipsum eget, lobortis iaculis elit. Nullam tempus ante eu pulvinar malesuada. 
-Aliquam viverra sed orci ac condimentum. Aliquam et porta dolor. Nullam 
-hendrerit felis eu tempus pulvinar. Nam vitae nibh nec leo mollis pretium et 
-eget metus. Duis commodo ante a urna vehicula tincidunt at sed dolor. In 
-dapibus tortor at nisi varius, vel ornare neque cursus. Sed.
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{img/Foto_miguel}}]
+{Miguel \'Angel de Miguel}
+    was born in Madrid, Spain in 1993. He received the B.S degree in 
+    electronics engineering in 2015 and the M.S. degree in industrial
+    engineering in 2017, both from University Carlos III de Madrid.
+    In 2013 he joined the Intelligent Systems Lab where he has collaborated
+    in industrial research projects for three years. Currently, he is a Ph.D. 
+    student and an assistant lecturer in the university he studied.
+    His research interests include the areas of path planning and control 
+    with a focus on applications for autonomous vehicles.
 \end{IEEEbiography}
+
 
 % insert where needed to balance the two columns on the last page with
 % biographies
 %\newpage
 
-\begin{IEEEbiographynophoto}{Xxxx Xxxx}
-Ut commodo velit sit amet tincidunt sollicitudin. Suspendisse eu hendrerit 
-quam. Nam non nibh tincidunt, posuere justo eu, congue mi. Proin faucibus 
-consequat lobortis. Proin pretium, dolor vitae ornare convallis, mi lacus 
-porttitor elit, ac finibus nisl nisi id massa. Integer consectetur efficitur 
-dapibus. Morbi posuere leo enim, quis pretium risus volutpat sit amet. Morbi ac 
-varius odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
-Morbi id.
-\end{IEEEbiographynophoto}
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]
+        {img/foto_fernando}}]
+    {Fernando Garc\'ia} is Visiting Professor at Universidad Carlos III de
+    Madrid. Where he focuses his researches in Intelligent Vehicles and
+    Intelligent 
+Transportation Systems involving the use of Computer Vision, Sensor Fusion, and 
+Human Factors, as well as Vehicle Communication. He has been recipient of the 
+Master in Robotics and Automatics Scholarship at Universidad Carlos III de 
+Madrid in 2008, the Barreiros Foundation Award in the domain of Automotive and 
+Vehicle Applications in Spain in 2014 and finalist to the best PhD Thesis 
+Dissertation Award in the period 2013-2015 given by ITSS Spanish Chapter, and 
+the award to the innovation in the automotive sector, diagnosis "Galeria de 
+innovación Motortec 2015".  He has organization experience in the ITSS 
+conferences  and is member of the BoG and Vice-president of the Spanish Chapter 
+of the IEEE-ITSS since January 2017.
+He has been involved in more than 40 research projects, 16 of which are funded 
+by public entities. He is author of 3 patents and published more than 70 papers 
+in international conferences and journals. He spent 10 months as visiting 
+researcher in Vislab, at Universidad de Parma, spread in different periods 
+(2008, 2011 and 2014). He also stayed as visiting researcher during 4 months at 
+SUNY University at Buffalo in 2010. As lecturer, he has given lectures in 
+different international Universities such as University of Buffalo, Università 
+degli Studi di Parma, Universidad Pontificia Bolivariana de Medellin, 
+Universidad de las Fuerzas Armadas de Quito (ESPE), Universidad de La Salle at 
+Bogotá, and Universidad Politécnica de Madrid. Moreover, he gives lectures in 
+Programming, Computer Vision, Data Fusion, Intelligent Transport Systems and 
+Control Engineering.
 
-\begin{IEEEbiographynophoto}{Yyyy Yyyy}
-Nullam eget ex ullamcorper, viverra urna quis, tempus magna. Nam facilisis erat 
-purus, et aliquam leo elementum vel. In sollicitudin ante at feugiat iaculis. 
-Vivamus in neque placerat, efficitur leo vel, dictum eros. Aliquam egestas, dui 
-eu sollicitudin volutpat, nunc eros vulputate eros, laoreet porttitor leo justo 
-quis mauris. Nam sem lectus, faucibus eget iaculis cursus, condimentum sit amet 
-odio. Nulla dignissim magna et quam rutrum, quis elementum risus pulvinar.
-\end{IEEEbiographynophoto}
+\end{IEEEbiography}
+
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{img/FotoPaperJosh}}]
+    {Joshu\'e P\'erez} is a Research leader on Automated Driving at Tecnalia 
+    Research and Innovation, since 2015. He received the B.E. degree in 
+    electronic engineering from the Sim\'on Bol\'ivar University, Venezuela, in 
+    2007. His M.E. degree and his Ph.D. degree from the University Complutense 
+    of Madrid were achieved in 2009 and 2012, respectively. He received the 
+    best PhD thesis award in intelligent control from the Spanish Committee of 
+    Automation (CEA). He has more than 11 years of experience in the 
+    Intelligent Transportation System field, where he has been working in 
+    national and European projects ranging from ADAS up to fully automated 
+    vehicles. His research interests include fuzzy logic, modeling, control, 
+    path planning, Cybercars, cooperative maneuvers, automated vehicles, Shared 
+    Control, and vehicle standards. He is associate editor of IEEE Intelligent 
+    Vehicle Symposium. In 2014, he was guest editors of the IEEE Intelligent 
+    Transportation Systems Magazine, in the special issue of ELECTRO-MOBILITY. 
+    He has technically led 20+ EU and national projects for demonstrating 
+    different ADAS technologies. He has more than 100 publications related to 
+    Automated Driving, ADAS and cooperative maneuvers.
+
+
+\end{IEEEbiography}
 
 % You can push biographies down or up by placing
 % a \vfill before or after them. The appropriate
