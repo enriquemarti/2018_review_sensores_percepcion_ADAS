@@ -1,8 +1,7 @@
 
-This section analyze the state of the art in perception systems for Automated
-Driving. First of all a set of behavioral competences is identified, which
-serves as a link between perception and the next link in the Automated
-Driving chain. A systematic literature review is conducted to analyze the 
+This section analyzes the state of the art in perception systems for Automated
+Driving. A set of behavioral competences is identified, followed
+by a systematic literature review that analyzes the 
 solutions for each category, organized by sensor technology.
 
 \subsection{Behavioral competencies}
@@ -12,14 +11,14 @@ automated vehicle to operate in the traffic conditions that it will regularly
 encounter" \cite{Nowakowski2015}. The NHTSA defined a set of 28 core 
 competencies for normal driving \cite{NHTSA2016}, that have been augmented to a 
 total of 47 by Waymo \cite{Waymo2017} in their internal tests.
-
 Table \ref{tab:behavioral-competences} selects a subset of those behavioral
-competencies and arranges them in categories arising from perception 
-requirements: each competency will involve acquiring information that requires
-specific perception capacities. 
-The selected competences are used to structure the state of the art in
+competencies and arranges them in categories that are used to structure the state of the art in
 perception algorithms in a purpose oriented approach.
-
+%arising from perception 
+%requirements: each competency will involve acquiring information that requires
+%specific perception capacities. 
+%The selected competences are used to structure the state of the art in
+%perception algorithms in a purpose oriented approach.
 \begin{table*} %[H]
     \caption{Behavioral competences and relation with information taxonomy 
         (see Table \ref{tab:info-taxonomy})}
@@ -66,7 +65,6 @@ perception algorithms in a purpose oriented approach.
         \hline %\bottomrule
     \end{tabular*}
 \end{table*}
-
 This set of competences represents the link between perception and decision
 (planning), as a counterpart to the information taxonomy presented in the
 previous section (Table \ref{tab:info-taxonomy}), which linked sensors and 
@@ -75,9 +73,7 @@ Both tables can be combined to evaluate the suitability of sensor technologies
 for creating some set of Automated Driving capacities.
 
 The next subsections describe the state of the art in perception techniques for
-the three identified categories of behavioral competencies: traffic sign 
-detection and recognition, perception of the environment, and detection of 
-vehicles, pedestrians and other obstacles.
+the three identified categories of behavioral competencies.
 
 \subsection{Automatic Traffic Sign Detection and Recognition (TSDR)} 
 %[Definition? ]. 
@@ -97,45 +93,57 @@ drivers.
 %sign mapping systems are used for generating a database of traffic signs 
 %of a certain area. This last application does not need to work on real-time. 
 
-Traffic signs are designed for human visual perception. Two sensors are mostly
-used for these tasks: monocular cameras in different configurations 
-(single camera, multiple focal or multiple cameras) and LiDAR sensors.
+%Traffic signs are designed for human visual perception. Two sensors are mostly
+%used for these tasks: monocular cameras in different configurations 
+%(single camera, multiple focal or multiple cameras) and LiDAR sensors.
 Below are shown the most relevant solutions according to the type of sensor 
 and the technology used.
 
 \subsubsection{Camera based solutions}
 Cameras are the most common sensor for TSDR. They can be used for TSR, TSD or both at the same time.
+%As an example of TSR, \cite{frejlichowski2015application} proposes a method 
+%based on the Polar-Fourier Grayscale Descriptor, which applies the information 
+%about silhouette and intensity of an object. In \cite{gao2015learning} a 
+%learning method based on a histogram intersection kernel is used to quantize 
+%features, that are encoded in a look-up table.
 As an example of TSR, \cite{frejlichowski2015application} proposes a method 
-based on the Polar-Fourier Grayscale Descriptor, which applies the information 
-about silhouette and intensity of an object. In \cite{gao2015learning} a 
-learning method based on a histogram intersection kernel is used to quantize 
-features, that are encoded in a look-up table.
+based on the Polar-Fourier Grayscale Descriptor, and \cite{gao2015learning} a 
+learning method based on a histogram intersection kernel.
+%For TSD, \cite{zhang2017real} proposes a method based on a fast Convolutional 
+%Neural Network (CNN) inspired in the YOLOv2 network. This algorithm 
+%can detect the position of the traffic sign and classify it into Mandatory 
+%(blue colored), Danger (triangle shaped) and Prohibitory (red circle). 
+%\cite{villalon2017traffic} detects stop and yield signs with a statistical 
+%template built using color information in different color spaces (YCbCR and ErEgEb).
 For TSD, \cite{zhang2017real} proposes a method based on a fast Convolutional 
 Neural Network (CNN) inspired in the YOLOv2 network. This algorithm 
-can detect the position of the traffic sign and classify it into Mandatory 
-(blue colored), Danger (triangle shaped) and Prohibitory (red circle). 
+can detect the position of the traffic sign and classify it according to its shape. 
 \cite{villalon2017traffic} detects stop and yield signs with a statistical 
-template built using color information in different color spaces (YCbCR and 
-ErEgEb). TSD techniques can also be applied to traffic light detection, as in 
+template built using color information in different color spaces (YCbCR and ErEgEb).
+TSD techniques can also be applied to traffic light detection, as in 
 \cite{hosseinyalamdary2017bayesian}, where a Bayesian inference framework to 
 detect and map traffic lights is described. A different approach is proposed by 
 \cite{gu2011traffic} that uses a dual focal camera system composed of a wide 
-angle camera assisted with a telephoto camera which is moved by a mirrors 
-system in order to get higher quality images of the traffic signs.
-Camera sensors can also perform detection and recognition tasks as is 
-shown in the following works. \cite{miyata2017automatic} uses local binary 
-pattern method for detecting speed signals and a neural network for the 
-recognition of the numbers of the sped limit sign. \cite{yang2016towards} 
-presents a fast detection method based on traffic sign proposal extraction and 
-classification built upon a color probability model and a color Histogram of
-Oriented Gradients (HOG) combined with a convolutional neural network to
-further classify the detected signs into subclasses.
-\cite{wali2015automatic} performs detection and recognition tasks using a RGB 
-colour segmentation and shape matching followed by support vector machine (SVM) 
-classifier. \cite{timofte2014multi} works with a system composed by eight 
-roof-mounted cameras which takes images every meter. The dataset is processed 
-offline combining 2D and 3D techniques to create a database with more than 
-13,000 traffic signs annotations.
+angle camera and a telephoto camera which is moved by mirrors 
+in order to get higher quality images of the traffic signs.
+%Camera sensors can also perform TSD and TSR tasks as is 
+%shown in the following works. \cite{miyata2017automatic} uses local binary 
+%pattern method for detecting speed signals and a neural network for the 
+%recognition of the numbers of the sped limit sign. \cite{yang2016towards} 
+%presents a fast detection method based on traffic sign proposal extraction and 
+%classification built upon a color probability model and a color Histogram of
+%Oriented Gradients (HOG) combined with a convolutional neural network to
+%further classify the detected signs into subclasses.
+%\cite{wali2015automatic} performs detection and recognition tasks using a RGB 
+%colour segmentation and shape matching followed by support vector machine (SVM) 
+%classifier. 
+Camera sensors can also perform TSD and TSR tasks as is 
+shown in the following works where first the signals are detected attending to
+their color or shape, and then they are classified using machine learning techniques (CNN or SVM)
+\cite{miyata2017automatic, yang2016towards, wali2015automatic}. In \cite{timofte2014multi}
+a system composed by eight roof-mounted cameras which takes images every meter
+perform offline TDSR to create a database with more than 13,000 traffic signs annotations
+
 
 \subsubsection{LiDAR based solutions}
 LiDAR sensors have been used for TSD. Their 3D perception capabilities are 
@@ -164,21 +172,22 @@ are normalized to perform classification based on a supervised
 Gaussian–Bernoulli deep Boltzmann machine model.
 
 
-%\newpage
-\subsubsection{Summary of sensors and their use for TSDR}
-\begin{itemize}%[leftmargin=20mm,labelsep=5.8mm]
-\item \textbf{LiDAR:} Filtering for intensity (traffic signal has high Reflectance), 3D position and shape. Clustering for sign candidates
-\item \textbf{Camera}
-\subitem \textbf{Monocular B/W:} Feature extraction.
-\subitem \textbf{Monocular Color:} Color information. Classification with 
-different methods: SVM, CNN, ..., or both, detection and classification.
-\subitem \textbf{Multiple cameras:} Mapping signals in roads, 3d position.
-\subitem \textbf{Multiple focal:} Short focal for detection and long focal for 
-higher quality sign image.
-\item \textbf{Fusion LiDAR and Camera:} Using LiDAR intensity and 3d position 
-and shape information for detecting, and camera color and shape information for 
-recognizing
-\end{itemize}
+%Como el resto no tiene un summary lo quito
+
+%\subsubsection{Summary of sensors and their use for TSDR}
+%\begin{itemize}%[leftmargin=20mm,labelsep=5.8mm]
+%\item \textbf{LiDAR:} Filtering for intensity (traffic signal has high Reflectance), 3D position and shape. Clustering for sign candidates
+%\item \textbf{Camera}
+%\subitem \textbf{Monocular B/W:} Feature extraction.
+%\subitem \textbf{Monocular Color:} Color information. Classification with 
+%different methods: SVM, CNN, ..., or both, detection and classification.
+%\subitem \textbf{Multiple cameras:} Mapping signals in roads, 3d position.
+%\subitem \textbf{Multiple focal:} Short focal for detection and long focal for 
+%higher quality sign image.
+%\item \textbf{Fusion LiDAR and Camera:} Using LiDAR intensity and 3d position 
+%and shape information for detecting, and camera color and shape information for 
+%recognizing
+%\end{itemize}
 
 \subsection{Perception of the environment}
 The purpose of this competence is to characterize and describe the road, which
