@@ -41,28 +41,26 @@ conditions do not have a proper solution yet.
     situations.
       
 \textbf{Very long distance} 
-    Detection and classification at 200 meters is an open issue.
-    The resolution needed to monitor the whole area with the required 
-    accuracy is overwhelming. Among current approaches, Ambarella 
-    integrates a Ultra High Resolution camera (4k video, probably 8k) 
-    (cited in \ref{sec:04-relevantdemos}), that is claimed to be enough for 
-    discerning small objects at that target distance. The biggest problem
-    is the raw computational power required to process so much information.
+    Detection and classification above 200 meters is an open issue. 
+    Among current approaches, Ambarella integrates a Ultra High Resolution 
+    camera (cited in \ref{sec:04-relevantdemos}) that is claimed to be enough
+    for discerning small objects at that target distance, subject to the 
+    limitations of visible light cameras.
     
-    A different approach could consist on sensors able to determine 
-    saliency (a common term in artificial vision 
-    \cite{Zhang2016a,Palazzi2018,Duthon2016} to name relevancy or importance), 
-    so that other adaptive sensors can focus on that area, increasing
-    resolution, frame rate or accuracy. 
-    This reminds in some way the saccadic vision system used in Dickmann's 
-    pioneer vehicles \cite{Dickmanns1987,Gregor2002}, where a rotating 
-    platform where used to take images of areas of interest.
-    
-    While the last part is something feasible today, for example using solid
-    state LiDARs capable of random or adaptive sampling, the real challenge
-    resides in the saliency part: design a sensor that can determine that 
-    something very far away can be relevant, without falling in the
-    brute-force approach.
+    Solutions based on saliency (a common term in artificial vision 
+    \cite{Zhang2016a,Palazzi2018,Duthon2016} to name relevancy or importance) 
+    can be an alternative to the high resolution and computational cost 
+    associated to brute force approaches. Solid state LiDAR capable of
+    random and adaptive sampling is a potential candidate solution for such 
+    technology, achieving something similar to Waymo's claims about their custom
+    built LiDARs.
+%    Early saccadic vision system in \cite{Dickmanns1987,Gregor2002}, where a 
+%    rotating platform where used to take images of areas of interest.    
+%    While the last part is something feasible today, for example using solid
+%    state LiDARs capable of random or adaptive sampling, the real challenge
+%    resides in the saliency part: design a sensor that can determine that 
+%    something very far away can be relevant, without falling in the
+%    brute-force approach.
 
 \textbf{Environmental and weather conditions}    
     Section \ref{sec:02-sensors} summarizes the suitability of common 
@@ -78,21 +76,16 @@ conditions do not have a proper solution yet.
     Human drivers infer the intentions of pedestrians and vehicles 
     combining subtle sensory hints with a mind model of the observed actor,
     and taking into account the context.
-    Head pose, gaze direction, position of hands, or motion of arms and 
-    legs can be used to assess the awareness of a pedestrian or a driver
-    about what is going on in a certain road area but are also indicative 
-    of intended motion direction. The steering angle of front wheels can
-    hint if a vehicle is going to leave a roundabout or stay inside.
-            
-    Many works can predict vehicle lane changes \cite{Kim2017}, risk at
-    intersections \cite{Lefevre2012} or pedestrian intentions
+    Head pose, gaze direction, motion of limbs can be used to assess the
+    awareness level and intentions of pedestrians and drivers.
+                
+    Equivalently, some works can predict vehicle lane changes \cite{Kim2017},
+    risk at intersections \cite{Lefevre2012} or pedestrian intentions
     \cite{Kohler2015,Fang2017} applying machine learning and bayesian
-    techniques to data acquired by exteroceptive sensors. Its accuracy 
-    is sometimes limited by resolution and accuracy of sensor technologies,
-    which cannot capture the aforementioned hints.
-    Further sensor developments can lead to much powerful intention 
-    predictors, that will result in safer and more fluent driving 
-    algorithms.
+    techniques to data acquired by exteroceptive sensors. 
+    Further sensor developments in resolution and accuracy potentially lead
+    to much powerful intention predictors, that will result in safer and more
+     fluent driving algorithms.
     
 %\end{itemize}
 
@@ -129,58 +122,45 @@ In case of failure, redundancy and emergency fallback routines must be able to
 mitigate the problem and drive the vehicle to a safe state, but it is a 
 threat that has to be avoided.
 
-Mechanical LiDARs have been around for about a decade, but they are still
-highly specialized devices mostly used with research purposes.
-The controversial CEO of Quanergy claims \cite{Hampstead2018} that mechanical
-LiDAR sensors are unsuitable for commercial automotive applications because the
-mean-time-between-failures (MTF) is
-``between 1,000 to 3,000 hours of operation'' on the rotating 
-components is far too low for industry requirements. And that automakers want 
-an MTF of at least 13,000 hours.
+Mechanical LiDARs are claimed \cite{Hampstead2018} to be unsuitable for
+commercial automotive applications because its mean-time-between-failures (MTF)
+(1,000 to 3,000 hours) is too low for industry requirements (at least 13,000
+hours).
 Solid state LiDAR based on vibrating micro-mirror (MEMS) can reduce costs and 
 increase laser resolution but still have mobile parts (micro-mirror), which
 makes them susceptible to vehicle vibrations and more fragile.
 
 External factors can affect sensors. A stone chip can crack a glass while 
-driving at high speeds ways, and this is something that can affect the 
-performance of video cameras and possibly LiDARs even when protected behind
-a plastic or glass layer. It is desirable to create or improve sensing 
-technology that can minimize the impact of that kind of events.
-Another kind of external factors are intentional attacks. A radar can be jammed,
-and a camera or a LiDAR can be blinded by the appropriate source of light.
-Future sensors will have to be robust against external interferences.
+driving at high speeds ways, affecting the performance of video cameras and 
+possibly LiDARs even when protected behind a plastic or glass layer. 
+Another kind of external factors are intentional attacks \cite{Petit2015a}: 
+radars can be jammed and a camera or a LiDAR can be blinded by the appropriate
+source of light.
+Future sensors will have to be robust against both external interferences.
 
 \subsection{Commercial initiatives}
 
-At the end of the previous decade (2009), the most requested ADAS
-\cite{Frost&Sullivan2010} were the Anti-lock braking system and the Parking 
-Assistance by Warning. These systems cannot be classified
-higher than SAE Level 0.
-
-In the last decade the automotive market have grown the offer and complexity
-of ADAS \cite{Perez2016}. The most advanced cars today equip an ensemble of 
-ADAS that place them somewhere between SAE Levels 2 and 3 in the scale of Automated
-Driving. Some examples are Tesla AutoPilot and Audi JamAssist, able to
-drive the vehicle under user supervision in specific scenarios.
-
-The fact that manufacturers are starting to talk about SAE Levels 2 and 3
-is a sign that ADAS technology is completely integrated into the market and, thus, are not a subject of research per se anymore.  
+In the last decade the automotive market has grown the offer and complexity
+of ADAS \cite{Perez2016}. The most requested ADAS in 2009
+\cite{Frost&Sullivan2010} were Anti-lock braking system and Parking Assistance
+by Warning, which cannot be classified higher than SAE Level 0.
+Today most advanced cars today equip an ensemble of ADAS that place them
+somewhere between SAE Levels 2 and 3 in the scale of Automated Driving. 
+Some examples are Tesla AutoPilot and Audi JamAssist, able to
+drive the vehicle under user supervision in specific scenarios.  
 
 \subsubsection{OEMs in Automated Driving}
 \label{sec:oem-ad}
 
-Back in 2010, most traditional vehicle manufacturers did not consider Automated
-Driving as a priority. In the last years, the achievements of technological 
-pioneers (Google/Waymo, Uber, Tesla among others) gave place to early alliances
-between those companies --that had the technology-- and OEMs --that had the
-platform, the experience and the market.
+Around 2015 most important OEMs decided to take serious initiatives towards
+bringing high and fully Automated Driving (SAE Levels 4 and 5) to the market.
+In order to accelerate their roadmaps, they established alliances with
+technological companies and startups.
 
-By the end of 2018, all the important brands are involved in a race for creating
-the first highly automated vehicle (SAE Levels 4 and 5). It is difficult to
-get information about their research further than public demonstrations and
-marketing products. However, their alliances with other companies, startups
-and technology/research centers are easier to trace and can hint about their 
-approach to Automated Driving.
+It is difficult to get information about their research, further than public
+demonstrations and marketing products. However, these alliances with other
+companies, startups and technology/research centers are easier to trace and can
+hint about their approach to Automated Driving.
 
 %\begin{figure*}[t]
 %    \centering
@@ -189,7 +169,7 @@ approach to Automated Driving.
 %    \label{fig:oem-ad}
 %\end{figure*}
 
-\begin{table*}[t]
+\begin{table*}[h]
     \ra{1.3}
     \caption{OEM projects and alliances in Automated Driving}
     \label{tab:oem-ad}
