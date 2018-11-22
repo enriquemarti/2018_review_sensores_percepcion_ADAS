@@ -107,10 +107,10 @@ a significant impact on its price. This remains a challenge for LiDAR devices
 and other breakthrough technologies.
 The cost that is considered acceptable for a production vehicle, however, 
 varies depending on the scenario. For private owned vehicles it must be kept at 
-a rather small fraction of vehicle cost. In the case of fleet vehicles with a 
-commercial use it can be higher because an Automated Driving system can 
-compensate other costs (i.e. to reduce the number of drivers).
-It is difficult to provide an exact estimation, because Automated Driving can 
+a rather small fraction of vehicle cost. Commercial fleet vehicles can afford 
+higher prices because an Automated Driving system can compensate other costs 
+(i.e. reducing the number of drivers).
+It is difficult to get an exact estimation, because Automated Driving can 
 have a significant effect in mobility, economy an other factors. 
 For a discussion on costs and impact of Automated Mobility services, see
 \cite{Bosch2018}.
@@ -122,21 +122,17 @@ In case of failure, redundancy and emergency fallback routines must be able to
 mitigate the problem and drive the vehicle to a safe state, but it is a 
 threat that has to be avoided.
 
-Mechanical LiDARs are claimed \cite{Hampstead2018} to be unsuitable for
-commercial automotive applications because its mean-time-between-failures (MTF)
-(1,000 to 3,000 hours) is too low for industry requirements (at least 13,000
-hours).
-Solid state LiDAR based on vibrating micro-mirror (MEMS) can reduce costs and 
-increase laser resolution but still have mobile parts (micro-mirror), which
-makes them susceptible to vehicle vibrations and more fragile.
-
+Mechanical LiDARs represent the clearest example of reliability issues: their 
+mean-time-between-failures (MTF)(1,000 to 3,000 hours) is too low for 
+automotive industry requirements (at least 13,000 hours) \cite{Hampstead2018}.
 External factors can affect sensors. A stone chip can crack a glass while 
 driving at high speeds ways, affecting the performance of video cameras and 
 possibly LiDARs even when protected behind a plastic or glass layer. 
 Another kind of external factors are intentional attacks \cite{Petit2015a}: 
 radars can be jammed and a camera or a LiDAR can be blinded by the appropriate
 source of light.
-Future sensors will have to be robust against both external interferences.
+Future sensors will have to be robust against both types of external 
+interference.
 
 \subsection{Commercial initiatives}
 
@@ -173,7 +169,7 @@ hint about their approach to Automated Driving.
     \ra{1.3}
     \caption{OEM projects and alliances in Automated Driving}
     \label{tab:oem-ad}
-    \begin{tabular}{@{}p{1.5cm}p{2.5cm}p{3.0cm}r*{4}{p{2.5cm}}@{}} 
+    \begin{tabular}{@{}p{1.5cm}p{2.5cm}p{3.0cm}r*{2}{p{2.5cm}}p{2cm}p{3cm}@{}} 
         %p{2cm}p{2cm}p{2cm}@{}}
         \toprule
         \textbf{OEM} & \textbf{Test site} & \textbf{Technologies} &
@@ -183,16 +179,15 @@ hint about their approach to Automated Driving.
         \cmidrule(r{4pt}){1-1} \cmidrule(l){2-7}
         Ford & Detroit, Arizona \& California (USA) & LiDAR, and mapping  & 
         $\sim$2016 & Argo, Velodyne, SAIPS, civilmaps. & Level 4 (2021) & 
-        Fusion Hybrid sedans ($\sim$100 by 2018)
+        Fusion Hybrid ($\sim$100 by 2018)
         \\
-        GM & Detroit, S. Francisco \& Scottsdale, Arizona (USA) & LiDAR, 
+        GM & Detroit, S. Francisco \& Scottsdale (USA) & LiDAR, 
         HD map, radar, camera & $\sim$2016 & Waymo and 
         Jaguar-Land Rover & 2020 (Fortune) & $\sim$50 vehicles (2017) 
         \\
-        Renault-Nissan & Japan, USA \& China & Front radar, LiDAR. Speed and 
-        Steering control & $\sim$2017 & Transdev, Microsoft and 
-        TechCrunch 
-        (from Oath)  & \parbox[t][][t]{2cm}{$<$2030 (Level 5)\\ 2020 (Level 3)} 
+        Renault-Nissan & Japan, USA \& China & Front radar, LiDAR. 
+        Speed/steering control & $\sim$2017 & Transdev, Microsoft. & 
+        \parbox[t][][t]{2cm}{$<$2030 (Level 5)\\ 2020 (Level 3)} 
         & --- 
         \\
         Daimler & Germany & Vision, data fusion, radar. & 2015 & 
@@ -221,7 +216,7 @@ hint about their approach to Automated Driving.
         Tesla & USA & Camera, radar, AI & $\sim$2015 & Apple, Mobileye and 
         Nvidia 
         & 
-        $\sim$2020 (Full automation)  & Commercial cars (Level 2) \\
+        $\sim$2020 Level 5)  & Commercial cars (Level 2) \\
         Hyundai & South Korea & AI, LiDAR, Camera & 2014 & KIA, Aurora & 
         \parbox[t][][t]{2.2cm}{AD Level 3.\\2020 (Highways).\\2030 (city 
         streets)} & --- 

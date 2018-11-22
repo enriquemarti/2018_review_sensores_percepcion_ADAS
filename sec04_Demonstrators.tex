@@ -39,10 +39,11 @@ functionalities including cooperative maneuvers and mixed environments.
 
 At that time, relevant functional demonstrators strongly relied on visual 
 processing. The University of Parma started in 1996 a project with its vehicle 
-ARGO \cite{Broggi1998}, a Lancia Thema equipped with two cameras that allowed 
-road following, platooning and obstacle avoidance. They detected lane lines and 
-vehicles using classical image processing techniques including preprocessing 
-steps, feature extraction, model fitting and spatio-temporal filtering.
+ARGO \cite{Broggi1998}, equipped with two cameras that allowed road following,
+platooning and obstacle avoidance.
+%They detected lane lines and 
+%vehicles using classical image processing techniques including preprocessing 
+%steps, feature extraction, model fitting and spatio-temporal filtering.
 It completed over 2000 km of autonomous driving in public roads, and the full 
 experience was compiled in a book \cite{Broggi1999}.
 
@@ -59,28 +60,29 @@ LiDAR units
 %geometry 
 , a frontal camera, GPS sensors, an IMU, wheel odometry and two 
 automotive radars \cite{Thrun2006}. These sensors were the input of a 
-complex processing pipeline that involved perception and estimation techniques, 
-artificial intelligence, 3D mapping, risk assessment and path planning, 
-requiring 6 computers to do the processing. 
+complex processing pipeline distributed over 6 computers, that involved
+perception and estimation techniques, artificial intelligence, 3D mapping, 
+risk assessment and path planning.
+%, requiring 6 computers to do the processing. 
 
-The next DARPA Grand Challenge, known as Urban Challenge, took place in 2007. 
-Participants had to complete a course of 96 km in urban area, sharing the road 
+For the next DARPA Challenge (Urban Challenge, 2007), participants had to
+complete a 96 km course in urban area, sharing the road 
 with other participants and cars driven by professional drivers. Robots were 
 required to obey traffic regulations, avoid obstacles and negotiate 
 intersections properly. Carnegie Mellon University team won the contest with 
-its vehicle Boss \cite{TartanRacing2005}, that included two video cameras, 5 
-radars and 13 LiDAR, including a roof mounted unit of the novel Velodyne 64HDL. 
-Data was processed in a cluster of 10 server blades and featured a complex 
-behavioral model \cite{Urmson2007} for covering all the expected situations.
+its vehicle Boss \cite{TartanRacing2005}, featuring a complex perception
+system composed by two video cameras, 5 
+radars and 13 LiDAR (including a roof mounted unit of the novel Velodyne 64HDL).
+A cluster of 10 server blades processed a complex behavioral model
+\cite{Urmson2007} for covering all the expected situations.
 
 These events triggered the attention of Google. 
 The company hired around 15 scientists from the DARPA challenge, 
 including the winners of 2005 and 2007 \cite{Montemerlo2008}, 
-\cite{Levinson2011}. Google's approach to self-driving vehicles is largely 
-founded in 3D mapping technologies \cite{Chapell2016}, where LiDARs are the 
-fundamental tool. All their vehicles had a roof-mounted spinning LiDAR,
-starting with the original Toyota Prius (2009), the Firefly prototype (2014)
-and ending with Waymo's Chrisler Pacifica (2016-present).
+\cite{Levinson2011}. Google's (and Waymo's) approach to self-driving vehicles
+is largely founded in LiDAR and 3D mapping technologies \cite{Chapell2016}. 
+All their vehicles have had a roof-mounted spinning LiDAR: Toyota Prius (2009),
+the Firefly prototype (2014) and Chrisler Pacifica (2016-present).
 
 Meanwhile, University of Parma created the spin-off VisLab in 2009. 
 As opposed to Google approach, they represent one of the strongest supporters
@@ -94,8 +96,8 @@ critical situations \cite{Broggi2012}. The 13,000 km long trip included
 unmapped areas, degraded dirt roads and different traffic conditions. 
 In 2013 the PROUD test put a vehicle with no driver behind the wheel in Parma 
 roads for doing urban driving in real traffic \cite{Broggi2013}. 
-Selected sensor configuration was very similar to that used in VIAC three years
-before.
+%Selected sensor configuration was very similar to that used in VIAC three years
+%before.
  
 \subsection{Race to commercial products (2010-present)}
  

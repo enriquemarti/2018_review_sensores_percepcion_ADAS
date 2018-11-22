@@ -1,15 +1,16 @@
 
-This section presents the three principal sensing categories for exteroceptive
-perception in Automated Driving: artificial vision, radar and LiDAR.
-Exteroceptive sensors and external perception acquire information about the
-environment of the vehicle (e.g. road, other vehicles), as opposed to 
-proprioceptive sensors that provide information about the state of the vehicle
-(speed, accelerations, integrity of components) and are not covered in this 
-article. Communications are also out of the scope of the review. 
+This work is focused in exteroceptive sensors, leaving proprioceptive sensors
+and communications out of the scope of the review.
+Exteroception in Automated Driving is related with information in the
+surroundings of the vehicle, as opposed to propioception that is related with 
+the state of the vehicle itself (speed, accelerations, component integrity). 
+Propriceptive sensors and communications are out of the scope of this review.
 
-Next subsections present the advantages, drawbacks and challenges for the three 
-types of sensors mentioned above. Each one is followed with a review of
-relevant emergent technologies in the field.
+Next subsections present the advantages, drawbacks and current challenges for 
+the three principal sensor technologies for exteroceptive perception in
+Automated Driving: artificial vision, radar and LiDAR. 
+Each one is followed with a review of relevant emergent technologies in the
+field.
 
 In \ref{sec:03-d-information-domains} a taxonomy of information domains is
 presented. It is useful for several purposes. First it allows to 
@@ -24,16 +25,9 @@ environmental and weather conditions.
 \subsection{Artificial Vision}
 Artificial vision is a popular technology that has been used for decades in 
 disciplines as mobile robotics, surveillance or industrial inspection. 
-It acquires information about objects in the real world by analyzing their
-images as captured by photo and video cameras. 
-%Cameras are devices that gather light using
-%a sensor composed by a grid of thousands or millions of individual detection 
-%elements. The amount of light captured by each element is translated into the
-%intensity of a pixel in the resulting image. 
-
-This technology offers interesting features, as the low cost of sensors --only 
-some types-- and providing range of information types including spatial
-(shape, size, distances), dynamic (motion of objects by analyzing their 
+This technology offers interesting features, as the low cost of sensors 
+--for most popular types-- and providing range of information types including
+spatial (shape, size, distances), dynamic (motion of objects by analyzing their 
 displacement between consecutive frames) and semantic (shape analysis).
 
 Artificial vision technology face several challenges, especially in 
@@ -46,7 +40,7 @@ applications like automated driving:
     implementation of reliable artificial visible algorithms.
     
     \item Scenes with a High Dynamic Range (HDR) contain dark and strongly
-    illuminated areas in the same frame.
+    illuminated areas in the same frame, as entering or exiting a tunnel.
     Most sensor technologies have a limited capacity of capturing both extremes
     simultaneously, so that information is lost in one or the two sides (under- 
     or overexposure). 
@@ -65,32 +59,29 @@ have been proposed.
 
 \begin{itemize}    
     \item High Dynamic Range imaging (HDR): common sensors in photographic and 
-    industrial cameras offer a dynamic range of 60-75 dB (10 to 12.5 EVs),
-    that is not sufficient in mixed illumination environments as entering or 
-    exiting tunnels. Sony launched its IMX390 automotive sensor with an
-    extended 120 dB range (equivalent to 20 EVs) and 2k resolution. 
-    An automotive grade sensor combining HDR capabilities and 
-    Near Infra-Red light detection is analyzed in \cite{Maddalena2005}. 
+    industrial cameras offer a dynamic range of 60-75 dB, while
+    mixed illumination environments require at least 120 dB.
+    An automotive grade sensor combining HDR capabilities and Near Infra-Red
+    light detection is analyzed in \cite{Maddalena2005}. In 2017 Sony launched
+    a 120 dB automotive sensor and 2k resolution.
     In \cite{Strobel2013} a sensor with 130 dB range (global shutter) and up
     to 170 dB (rolling shutter) is presented for industrial safety application.
     
     \item Global shutter sensors and Rolling shutter compensation. In rolling
     shutter cameras the elements of the sensor capture light at different time 
-    intervals, creating artifacts as distorted objects under motion or frames
-    half-dark-half-light in rooms illuminated by flickering lights (LEDs, 
-    fluorescents). 
-    These effects have been corrected using software able to compensate scene
-    motion vector \cite{Chia-KaiLiang2008}\cite{Chun2008}. Global shutter
-    cameras, on the other hand, have the ability to capture light in all the
-    elements of the sensor simultaneously. 
+    intervals, causing moving objects to appear distorted and creating
+    half-dark-half-light frames in scenes illuminated by flickering lights
+    (LEDs, fluorescents). 
+    This effects can be corrected by a motion compensation software 
+    \cite{Chia-KaiLiang2008}\cite{Chun2008}. Global shutter cameras, on the
+    other hand, have the ability to capture light in all the elements of the 
+    sensor simultaneously. 
         
     \item Captured spectrum: Far infrared cameras (wavelength 900-1400 nm, also
-    called thermal cameras) detect the emissions of hot objects including
-    living beings. 
-    Thermal cameras are effective for pedestrian and animal detection
+    called thermal cameras) are effective for pedestrian and animal detection
     \cite{OMalley2008}\cite{Besbes2015} in the dark and through dust and smoke.
     Near Infrared (750-900 nm) complements visible spectrum with a better
-    contrast in high dynamic range scenes, improves night visibility. 
+    contrast in high dynamic range scenes, and better night visibility. 
     In \cite{Pinchon2018} authors compare visible light, near infrared and far
     infrared cameras in different light and atmospheric conditions.
     
@@ -102,45 +93,38 @@ types of vision sensors that can perceive depth information. This section
 describes the three principal types that are already available as commercial
 devices, although not always targeting the automotive market.
 
-
-%\begin{itemize}
-%    \item \emph{Stereo vision:} 
-
 \textbf{Stereo vision:} depth is calculated \cite{Hamzah2016} from the 
 apparent displacement of visual features in the images capture by two 
-monocular cameras pointing in the same direction and separated by some
-distance (known as baseline). 
+carefully calibrated monocular cameras pointing in the same direction and
+separated by some distance (known as baseline). 
             
 One of the greatest advantages of stereo vision systems is their capability 
-to provide dense depth maps, as opposed to sparse sensors as LiDARs. 
-%Their
-%resolution, and maximum and minimum perceived depth are limited by
-%camera field of view and imaging sensor resolution.     
+to provide dense depth maps, as opposed to sparse sensors (e.g. LiDARs).  
 Stereo vision drawbacks include issues with low-textured patterns 
 (e.g. solid colors) that difficult establishing correspondences between
-frames. Also, it has a high computational complexity, and the pair of 
-cameras requires a careful calibration to ensure proper translation of 
-disparities to depths.
+frames.
+%Also, it has a high computational complexity, and the pair of 
+%cameras requires a careful calibration to ensure proper translation of 
+%disparities to depths.
 
-Several good performing monocular SLAM (Simultaneous Location And Mapping)
-algorithms \cite{Engel2014}\cite{Engel2018} have been developed in the last
-years. 
-These systems cannot be classified as stereo but share some of its principles: 
-the motion of a single monocular camera setup creates an artificial baseline
-between consecutive frames. This allows to estimate depth and camera motion at
-the same time.
+Monocular SLAM (Simultaneous Location And Mapping) algorithms share some of the
+working principles of stereo system: the motion of a single monocular camera 
+creates an artificial baseline between consecutive frames, from which depth and
+camera motion are estimated.
+Some works as \cite{Engel2014}\cite{Engel2018} represent a good alternative to
+stereo sensors for location and mapping. 
     
 \textbf{Structured light:} a monocular camera coupled with a device that
 illuminates the scene with a known pattern of infrared light. 
 The distortion of the light pattern when projected over an irregular 
 surface is captured by the camera and translated to a depth map.
 
-Structured light devices overcome some limitations of stereoscopic systems
-as depending on texture patterns and having a high computational cost. 
+Structured light devices overcome some limitations of stereoscopic systems,
+they do not depend on texture patterns and lowering the computational burden. 
 However, they require the same high-accuracy calibration \cite{Garbat2013}
-and have some additional limitations as short operative ranges (usually 
-below 20 meters), limited by the power of the emitter and the intensity of 
-ambient light. Reflections can affect its performance.
+and its operative range (usually below 20 meters) is limited by the power of
+the emitter and the intensity of ambient light. Reflections can affect its
+performance.
 
 %    This technology can be combined with stereo vision to improve robustness
 %    and operative conditions, as in the commercial device Intel RealSense 
@@ -150,42 +134,36 @@ ambient light. Reflections can affect its performance.
 \textbf{Time-of-flight:} an active sensing technology 
 \cite{Hansard2013}, based in the same round-trip-time principle 
 of LiDAR sensors (see \ref{sec:02-c-lidar}): an emitter composed of infrared 
-LEDs floods the scene
-with modulated light that is captured by the sensor after being reflected by 
-elements in the environment. 
+LEDs floods the scene with modulated light that is captured by the sensor after
+being reflected by elements in the environment. 
 The round-trip-time can be calculated for each pixel based on the phase shift 
 of incoming light, which is then translated to a distance.
 
 Using a non-directed source of light (as opposed to the low divergence laser
-emitter in LiDAR) has advantages and disadvantages. 
-The advantages include the ability to create dense depth maps, its high 
-accuracy and high refresh rate exceeding 50 Hz. The drawbacks include 
-problems with intense ambient light and a short operative range (10 to 20 
-meters), making this technology unfeasible for many Automated 
-Driving applications.
-
-This can change in a short future. Alternative research line as indirect
-time-of-flight \cite{Villa2017}, pulsed light time-of-flight or avalanche
-photodiodes \cite{Panasonic2018} appear to be close to commercialization. 
-These technologies promise ranges between 50 and 250 meters.
+emitter in LiDAR) has advantages as the ability to create dense depth maps and
+a high refresh rate exceeding 50 Hz. However, its operative range is short for
+automotive applications (10-20 meters) and has problems working under intense
+ambient light. 
+Some research lines as indirect time-of-flight \cite{Villa2017}, pulsed light
+time-of-flight or avalanche photodiodes \cite{Panasonic2018} could increase
+working range to 50-250 meters.
     
 %\end{itemize}
 
 
 \subsubsection{Emerging vision technologies}
 
-Event-based vision is a bioinspired technology developed by Zurich University
-and the ETH Zurich. The elements of the sensor (pixels) are triggered 
-asynchronously and independently when a change on the intensity is detected 
-generating a stream of activations also called \emph{events}. 
+In event-based vision the elements of the sensor (pixels) are triggered 
+asynchronously and independently when they detect a change on light intensity 
+(an \emph{event}).
 %An event can be seen as something similar to the output of a feature detection 
 %algorithm for artificial vision applications.
-Events can be grouped in adaptable time windows for getting a frame-like image,
-reaching the microsecond scale for high speed tracking. 
-The work \cite{Mueggler2014} shows tracking at 1000 FPS under regular indoor 
-lightning conditions. , 
+The sensor produce a stream of events that can be grouped in time windows for
+getting a frame-like image. 
 Independence of sensor elements raises the dynamic range of the sensor to 
-120 dB. 
+120 dB, allowing high speed applications in low light conditions. 
+\cite{Mueggler2014} shows tracking at 1000 FPS under regular indoor lightning 
+conditions, although the sensor works in sub-microsecond time scales.
 Events can be the input to visual odometry \cite{Censi2014} and SLAM
 \cite{Vidal2017} applications, relieving the CPU of time consuming operations
 on raw images. 
@@ -195,10 +173,10 @@ on raw images.
 %Light polarization represents an additional source of information which
 %is know to be used by animals able to perceive it (some ants, 
 %mantis-shrimp). 
-There is an active line of research \cite{Garcia2018} around sensors able to
-capture light polarization. It performs better than traditional sensors in
-some adverse conditions, and provides information than no other sensor can 
-capture.
+There is an active line of research \cite{Garcia2018} around sensors 
+capturing light polarization, which perform consistently under adverse
+meteorological conditions and provide exotic types of information (e.g.
+materials, composition, water in the road).
  
 
 \subsection{Radar}
@@ -207,18 +185,22 @@ Radar technology use high frequency electromagnetic waves to measure the
 distance to objects based on the \emph{round-trip time} principle, which is the
 time it takes the wave to reach the object, bounce on it and travel back to the
 sensor. 
-Many modern automotive radars use a technique known as digital beamforming
-\cite{Hasch2015} to direct the emitted wave in the desired direction.
  
-There are two principal technologies: pulsed radar and Frequency-Modulated
-Continuous Wave (FMCW). Pulsed radar emits a short burst and measures distance
-using the raw round-trip time. FMCW technology emits a signal with a well known
-and stable frequency, that is modulated with another continuous signal that
-varies its frequency up and down (typically using a triangular shape).
-Distance is determined using the frequency shift between the emitted and 
-reflected signals. 
-Both technologies can exploit Doppler effect to measure the relative speed of 
-the target with respect to the sensor. 
+%There are two principal technologies: pulsed radar and Frequency-Modulated
+%Continuous Wave (FMCW). Pulsed radar emits a short burst and measures distance
+%using the raw round-trip time.
+Most modern automotive radars are based on the Frequency-Modulated Continuous
+Wave (FMCW) technology, and use digital beamforming \cite{Hasch2015} to control
+the direction of the emitted wave. 
+FMCW consists on emitting a signal with a well known and stable frequency that
+is modulated with another continuous signal that varies its frequency up and
+down (typically using a triangular shape). Distance is
+determined using the frequency shift between the emitted and reflected signals. 
+Radars also exploit Doppler effect to get a direct observation of the relative
+speed of the target with respect to the sensor. 
+
+%Many modern automotive radars use a technique known as digital beamforming
+%\cite{Hasch2015} to direct the emitted wave in the desired direction.
 
 %Starting in 2004, EU allocated a permanent 5 GHz wide band around 79 GHz
 %\cite{EULawandPublications2004}. Short distance applications as blind spot
@@ -250,13 +232,11 @@ Radar sensors present some difficulties and drawbacks:
     and speed along the line that connects the sensor with a target. However, 
     horizontal resolution depends on the characteristics of the emitted beam.
     Raw angular resolution in digital beamforming systems falls between 2 to 5
-    degrees \cite{Schneider2005}, although the application of advanced
-    processing techniques can improve angle of arrival accuracy to 0.1 degrees 
-    in long range radars (with a narrow FoV around 30 degrees) and 1
-    degree for short range sensors \cite{Kissinger2012}. 
-    This angular resolution is translated into a spatial resolution that grows
-    with distance. At 30 meters it can be difficult to separate (detect as
-    independent targets) a pedestrian from a nearby car. 
+    degrees \cite{Schneider2005}, that can be improved to 0.1-1 degrees using 
+    advanced 
+    processing techniques \cite{Kissinger2012}. 
+    With this angular resolution, it can be difficult to separate (detect as
+    independent targets) a pedestrian from a nearby car at 30 m distance. 
     At 100 m distance it can be impossible to separate vehicles in neighbor
     lanes, determine if a vehicle is in our same lane, and even if a detection
     is a vehicle or a bridge over the road.
@@ -265,10 +245,9 @@ Radar sensors present some difficulties and drawbacks:
 \subsubsection{Emerging radar technologies}
 
 One of the most active research area is related with high resolution radar
-imaging for automobiles. High resolution radar can extend it use from target 
-tracking and speed measuring to providing richer semantic information. 
-Recent research explores the use of higher frequency bands to increase
-resolution, opening the door to radar imaging and creation of detailed 3D maps. 
+imaging for automobiles. Apart from benefits in target tracking and object
+separation, a higher resolution can get richer semantic information and enable
+further applications as target classification and environment mapping. 
 An example can be found in \cite{Reina2015}, where a 90GHz rotating radar in
 the roof of a car is used to map the environment, including vehicles, static
 objects and ground.
@@ -306,15 +285,13 @@ LiDAR (Light Detection And Ranging) is an active ranging technology that
 calculates distance to objects by measuring round-trip time of a laser light 
 pulse.
 Sensors for robotic and automotive applications use a low power 
-near-infrared laser (900-1050 nm) that is invisible, eye-safe. 
-Laser beams have a low divergence, so that the reflected power does not decay 
-too much with distance. Thanks to this, LiDARs can measure distances up to 
-200 m under direct sunlight.
+near-infrared laser (900-1050 nm) that is invisible and eye-safe. 
+Laser beams have a low divergence for reducing power decay with distance,
+allowing to measure distances up to 200 m under direct sunlight.
 Typically, a rotating mirror is used to change the direction of the laser 
 pulse, reaching 360º horizontal coverage. Commercial solutions use an array of 
-emitters to produce several vertical layers (between 4 and 128) 
-%that, combined with rotation, 
-that generate a point cloud representing the environment.
+emitters to produce several vertical layers (between 4 and 128) that generate a
+point cloud representing the environment.
 LiDAR sensors feature an extraordinary accuracy measuring distances, averaging
 a few millimeters in most cases and degrading to 0.1-0.5 meters in the worst 
 cases. This makes LiDAR a good choice for creating accurate digital maps.
@@ -328,14 +305,15 @@ However, they have several drawbacks to take into account:
     a vertical distance of 1.7 m. High end models reduce this to 0.2-0.4 
     degrees, but at a much higher cost.
     
-    \item Sparse measures (not dense): according to \cite{Gatziolis2008} typical
-    LiDAR beam divergence is between 0.1 and 1 mrad (0.005 to 0.05 degrees).
+    \item Sparse measures (not dense): 
+    %according to \cite{Gatziolis2008} typical LiDAR beam divergence is between 
+    %0.1 and 1 mrad (0.005 to 0.05 degrees).
     Commercial device Velodyne HDL64 has a 2 mrad divergence \cite{Glennie2010} 
     (0.11 degrees) and a vertical resolution of 0.42 degrees. At 50 meters 
-    distance, the 0.3 degree gap is equivalent to a blind strip 0.26 meters
-    tall. In low end devices (Velodyne VLP16) this grows to 1.5 meters. 
-    Small targets can remain undetected, and structures based on threads and 
-    bars are virtually invisible.
+    distance, the 0.3 degree gap between layers is equivalent to a blind strip
+    0.26 meters tall. In low end devices (Velodyne VLP16) this gap grows to 1.5
+    meters. Small targets can remain undetected, and structures based on
+    wires and bars are virtually invisible.
     
     \item Poor detection of dark and specular objects. Black cars
     can appear as invisible to the LiDAR, since they combine a color that
@@ -400,8 +378,9 @@ devices based on this technology.
 %divergence of 0.5 mrad --4 times smaller than Velodyne HDL64 model.
 
 OPA technology has additional advantages over mechanical LiDAR: the scan 
-pattern can be random in the entire FoV, which is great for characterizing fast 
-moving objects. It is possible to observe only a region of interest within the 
+pattern can be random in the entire FoV (Field of View), which is great for
+characterizing fast moving objects.
+It is possible to observe only a region of interest within the 
 FoV. Also, it is possible to augment the point density within each frame for 
 better resolution. The three features can be combined to do fast low resolution 
 inspection of the full FoV, and then tracking with high resolution the objects
@@ -429,7 +408,7 @@ clear and organized way.
 \begin{table}%[H]
     \caption{Information taxonomy in Automated Driving domain}
     \label{tab:info-taxonomy}
-    \begin{tabular*}{\linewidth}{lr p{5.5cm}} %{\textwidth}{lrL}
+    \begin{tabular*}{\linewidth}{lrp{5.8cm}} %{\textwidth}{lrL}
         \hline %\toprule
         \textbf{Category} & \textbf{\#}	& \textbf{Information type}	\\
         \hline %\midrule
@@ -437,19 +416,18 @@ clear and organized way.
         & 1 & Kinematic/dynamic (includes position) \\
         & 2 & Proprioceptive (components health/status) \\
         \hline %\midrule
-        \multirow{3}{*}{Passengers/driver}
+        \multirow{3}{*}{Occupants}
         & 3 & Driver awareness/capacities \\
         & 4 & * Driver intentions (mind model)  \\
         & 5 & Passenger status (needs, risk factors) \\
         \hline %\midrule
         \multirow{4}{*}{Environment}
-        & 6 & Spatial configuration: location, size, shape, fine features 
+        & 6 & Spatial features: location, size, shape, fine features 
         \\
         & 7 & Identification: class, type, identity \\
-        & 8 & Regulation and semantics: traffic signs, road marks, other 
-        elements \\
-        & 9 & Contextual factors: weather, driving situation(e.g. jam, 
-        highway, off-road) \\
+        & 8 & Semantic features: signs, road marks, regulation \\
+        & 9 & Contextual factors: weather, driving situation (e.g. jam, 
+        off-road, emergency) \\
         \hline %\midrule
         \multirow{4}{*}{External actors}
         & 10 & Spatial features: location, size, shape, fine features  \\
@@ -458,7 +436,7 @@ clear and organized way.
         & 13 & Semantic features: vehicle lights, pedestrian clothes, gestures 
         \\
         & 14 & * Situational engagement: collaborative/aware 
-        (adult pedestrians, other vehicles) vs non-collaborative/unaware 
+        (adults, other vehicles) vs non-collaborative/unaware 
         (animals, children) \\ 
         \hline %\bottomrule
     \end{tabular*}
@@ -473,14 +451,14 @@ animals.
 \label{sec:03-e-sensors-for-perception}
 
 Sensor selection and arrangement is one of the most important aspects in the 
-design of a perception system for automated vehicles. It also has a great impact
+design of a perception system for automated vehicles. It has a great impact
 in its cost, with some setups having several times the price of the rest of 
 the vehicle. 
-Many analysis focus in spatial coverage and range, but this epigraph summarizes
-two other aspects of the uttermost importance: type of information acquired and 
-impact of environmental factors.
+This epigraph summarizes two aspects of the uttermost importance: type of 
+information acquired and impact of environmental factors. For an analysis of
+spatial coverage and range see \cite{Schoettle2017}.
 
-In first place, the characteristics of a sensing technology determines its 
+The characteristics of a sensing technology determines its 
 suitability for acquiring certain types of information, and restricts its range 
 of operative conditions.
 Figure \ref{fig:information_vs_sensors} relates the principal sensing 
@@ -489,7 +467,7 @@ initiatives with relevant types of information identified in Table
 \ref{tab:info-taxonomy}. The adequacy of a sensor for acquiring a certain type
 of information (or equivalently, the expected quality of that type of
 information when captured by that sensing technology) is classified in three
-levels: Good (green shading, tick), Medium (ambar shading, letter M) and Bad
+levels: Good (green shading, tick), Medium (yellow shading, letter M) and Bad
 (red shading, letter B).
 
 \begin{figure}[h]
