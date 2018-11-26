@@ -14,21 +14,23 @@ The timeline allows to discern different stages ("ages") in the development of A
 
 Pioneer works in Automated Driving starts around mid-1980s. The Bundeswehr 
 University of Munich developed automated vehicles based on visual guidance, as 
-VaMoRs \cite{Dickmanns1987} (a large van) and VaMP \cite{Gregor2002} (a 
-Mercedes 500 SEL). Perception was built over a saccadic vision 
-system: cameras mounted on a rotating platform that allowed them to focus in
-relevant elements. Sixty transputers executed an intelligent 4-D approach to
-object tracking, delivering a huge amount of computational power according to
-the standards at that moment.
+VaMoRs \cite{Dickmanns1987} and VaMP \cite{Gregor2002}. 
+Perception was built over a saccadic vision system: cameras mounted on a
+rotating platform that allowed them to focus in relevant elements. 
+%Sixty transputers executed an intelligent 4-D approach to object tracking,
+%delivering a huge amount of computational power according to the standards at
+%that moment.
 
-In early 1990s INRIA creates the concept of a "Cybercar", a small automated 
-electric vehicle for shared urban use \cite{Parent1993}. Project Praxitèle
-\cite{Massot1999} (a mixed public and industry initiative) led to a fully
-functional prototype. In 1997 the Cybercar debuts in Schippol airport to
-transport passengers, between the terminal and long stay parking 
-\cite{Ozguner2007}. The vision and LiDAR based vehicle lacked pedals and 
-steering wheels and moved autonomously in a dedicated lane that included 
-semaphores and some pedestrian crossings.
+%In early 1990s INRIA creates the concept of a "Cybercar", a small automated 
+%electric vehicle for shared urban use \cite{Parent1993}. Project Praxitèle
+%\cite{Massot1999} (a mixed public and industry initiative) led to a fully
+%functional prototype. 
+The Cybercar concept is born in early 1990s \cite{Parent1993}, and in 1997
+a prototype is installed in Schippol airport to transport passengers between
+the terminal and long stay parking \cite{Ozguner2007}. 
+The vehicle lacked pedals and steering wheels, and used a LiDAR and vision
+system to do automated driving in a dedicated lane with semaphores and
+pedestrian crossings.
 
 Also in 1997, the National Automated Highway System Consortium presented a 
 demonstration of Automated Driving functionalities \cite{Thorpe1997}, intended 
@@ -37,15 +39,16 @@ The demo showed road following functionality based on vision sensors, distance
 maintenance based on LiDAR, vehicle following based on Radar and other 
 functionalities including cooperative maneuvers and mixed environments.
 
-At that time, relevant functional demonstrators strongly relied on visual 
-processing. The University of Parma started in 1996 a project with its vehicle 
+%At that time, relevant functional demonstrators strongly relied on visual 
+%processing. 
+The University of Parma started in 1996 a project with its vehicle 
 ARGO \cite{Broggi1998}, equipped with two cameras that allowed road following,
-platooning and obstacle avoidance.
+platooning and obstacle avoidance. The vehicle completed over 2000 km of 
+autonomous driving in public roads \cite{Broggi1999}.
 %They detected lane lines and 
 %vehicles using classical image processing techniques including preprocessing 
 %steps, feature extraction, model fitting and spatio-temporal filtering.
-It completed over 2000 km of autonomous driving in public roads, and the full 
-experience was compiled in a book \cite{Broggi1999}.
+
 
 \subsection{Proof of feasibility (2000-2010)}
 
@@ -111,9 +114,8 @@ Meanwhile, University of Parma created the spin-off VisLab in 2009.
 As opposed to Google approach, they represent one of the strongest supporters
 of artificial vision as the main component of perception systems for AD. 
 In 2010 they completed the VisLab Intercontinental Autonomous 
-Challenge (VIAC): four automated vans drove from Italy to China using public 
-roads including degraded dirt roads and crossing unmapped areas 
-\cite{Bertozzi2011}.
+Challenge (VIAC): four automated vans drove from Italy to China over public 
+roads that included degraded dirt roads and unmapped areas \cite{Bertozzi2011}.
 The leading vehicle did perception (with cameras and LiDARs), decision and 
 control, with some human intervention for selecting the route and managing 
 critical situations \cite{Broggi2012}. 
@@ -132,7 +134,7 @@ years. This vision gave birth to several companies devoted to this end, most of
 which were founded by people coming from the DARPA experience, or hired them to
 lead the project \cite{Chapell2016}. 
 
-Examples include the robotaxi company nuTonomy (acquired by Aptiv) co-founded
+Examples include the robotaxi company nuTonomy, co-founded
 by the leader of the MIT team in 2007 DARPA Urban Challenge. Cruise has been
 founded by a member of the same team.
 Otto was founded by an engineer in Google's Street View project.
@@ -150,16 +152,18 @@ Car manufacturers reacted a bit slower.
 %until the last five years. 
 Some of them started independent research lines, for example
 BMW has been testing automation prototypes in roads since 2011 
-\cite{Aeberhard2015a}, but in the end most manufacturers have created
-coalitions with technological startups, as enumerated later in section
-\ref{sec:oem-ad}.
+\cite{Aeberhard2015a} and Mercedes-Benz Bertha project \cite{Ziegler2014}
+%\cite{Bender2014} 
+drove in 2013 a 103 km route in automated
+mode using close-to-market sensors (8 radars and 3 video cameras)
+%This work presented new concepts as the \emph{Lanelets} for road 
+%representation 
+% and other innovative solutions .
+% processed in a heterogeneous computing platform (FPGAs, embedded 
+%processors).
+, but in the end most manufacturers have created coalitions with technological
+startups as enumerated in section \ref{sec:oem-ad}.
 
-Mercedes-Benz presented the Bertha project in 2013, an experimental 
-S-Class 500 that drove a 103 km route in automated mode using only 
-close-to-market sensors (8 radars and 3 video cameras). 
-This work presented new concepts as the \emph{Lanelets} for road representation 
-\cite{Ziegler2014} and other innovative solutions \cite{Bender2014}.
-% processed in a heterogeneous computing platform (FPGAs, embedded processors). 
 
 %This approach to perception --avoiding LiDARs. 
 %as expensive and far from mass 
@@ -179,22 +183,20 @@ Mobileye system) and an automotive radar that enabled the Level 2-3 AutoPilot
 functionality. 
 %that gathered data for training
 %a "ghost" self-driving system based on reinforcement learning. 
-In 2017 all manufactured Tesla vehicles have the hardware version 2, composed
-by a frontal radar, 12 ultrasonic rangers, and eight cameras that provide 360 
-degree coverage, together with a nVidia Drive PX2 processing platform.
+Starting 2017 new Tesla vehicles include the ``version 2'' hardware, 
+composed by a frontal radar, 12 sonars, and 8 cameras.
+%, together with a nVidia Drive PX2 processing platform.
 This sensor set is claimed to be enough for full Level 5 automated driving
 \cite{Hawkins2017}, which will be available for a fee (when ready) through a
 software update.
 
-In 2015 VisLab was acquired by Ambarella, a company focused in embedded video 
-processing. They are working on low power chips able to process dense disparity
-maps from high resolution stereo cameras \cite{Ambarella2018}. 
-Its latest demo (Silicon Valley, 2018 \cite{AUVSI2018}) fuse data from 10 stereo
-pairs (a total of 20 cameras) for creating a ultra-high resolution 3D scene 
-delivering 900 million points per second.
-Long range vision relies in a forward facing 4k stereo pair together with a 
-single automotive radar for better performance under low light or adverse 
-weather conditions. 
+In 2015 VisLab was acquired by Ambarella, a company working on low power chips
+able to process high resolution dense disparity maps from stereo cameras
+\cite{Ambarella2018}. 
+Its latest demo \cite{AUVSI2018} fused data from 10 stereo pairs into a
+ultra-high resolution 3D scene delivering 900 million points per second.
+Long range vision mix a forward facing 4k stereo pair with a radar for better
+performance under low light or adverse weather conditions. 
 %This is a different approach to visual-based perception, 
 %since stereo vision aims to get the best of both LiDARs and image processing 
 %in 
@@ -202,9 +204,8 @@ weather conditions.
 
 Delphi Automotive completed in 2015 an automated trip between San Francisco and
 New York city using a custom Audi Q5 with 10 radars, 6 LiDARs and 3 cameras 
-onboard. In 2017 they acquired nuTonomy, the first company to deliver a 
-robotaxi service in public roads (available in reduced area of Singapore), and
-created Aptiv. 
+onboard. In 2017 they acquired nuTonomy (the first company to deliver a 
+robotaxi service in public roads) and created Aptiv. 
 Aptiv presented an automated taxi for CES conference in january 2018, as part
 of a 20 vehicle fleet that has been serving a set of routes in Las Vegas for
 some months. The taxis have an extensive set of 10 radars and 9 LiDARs embedded 
