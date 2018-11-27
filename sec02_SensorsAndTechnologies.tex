@@ -42,13 +42,13 @@ and artificial vision technology:
     Dark spots, shadows, glares, reflections and other effects difficult the
     implementation of reliable artificial visible algorithms.
     Extending the capturing spectrum can solve some of these problems. 
-    Far infrared cameras (wavelength 900-1400 nm, also called thermal cameras) 
+    Far infrared (FIR) cameras (wavelength 900-1400 nm) 
     are effective for pedestrian and animal detection
     \cite{OMalley2008}\cite{Besbes2015}, in the dark and through dust and smoke.
-    Near Infrared (750-900 nm) complements visible spectrum with a better
+    Near Infrared (NIR)(750-900 nm) complements visible spectrum with a better
     contrast in high dynamic range scenes, and better night visibility. 
-    In \cite{Pinchon2018} authors compare visible light, near infrared and 
-    far infrared cameras in different light and atmospheric conditions.
+    In \cite{Pinchon2018} authors compare visible light, NIR and FIR cameras 
+    under different light and atmospheric conditions.
     
     \item Scenes with a High Dynamic Range (HDR) contain dark and strongly
     illuminated areas in the same frame, as entering or exiting a tunnel.
@@ -286,7 +286,9 @@ materials usually found in driving scenarios.
 One of the key technologies that can lead to high resolution radar imaging are 
 meta-material based antennas \cite{Brookner2016,Sleasman2017} for efficient
 synthetic aperture radars. 
-Some manufacturers as Metawave \cite{Metawave2018} are starting 
+Some manufacturers as Metawave \footnote{https://www.metawave.co/} 
+%\cite{Metawave2018} 
+are starting 
 to offer products oriented to automotive sector based on the technology.
 
 %In a different line, ground-penetrating radar is a technology used long
@@ -307,16 +309,17 @@ LiDAR (Light Detection And Ranging) is an active ranging technology that
 calculates distance to objects by measuring round-trip time of a laser light 
 pulse.
 Sensors for robotic and automotive applications use a low power 
-near-infrared laser (900-1050 nm) that is invisible and eye-safe. 
+NIR laser (900-1050 nm) that is invisible and eye-safe. 
 Laser beams have a low divergence for reducing power decay with distance,
 allowing to measure distances up to 200 m under direct sunlight.
 Typically, a rotating mirror is used to change the direction of the laser 
 pulse, reaching 360º horizontal coverage. Commercial solutions use an array of 
-emitters to produce several vertical layers (between 4 and 128) that generate a
-point cloud representing the environment.
-LiDAR sensors feature an extraordinary accuracy measuring distances, averaging
-a few millimeters in most cases and degrading to 0.1-0.5 meters in the worst 
-cases. This makes LiDAR a good choice for creating accurate digital maps.
+emitters to produce several vertical layers (between 4 and 128). This generates
+a 3D point cloud representing the environment.
+LiDAR sensors are a good choice for creating accurate digital maps, because
+of their high accuracy measuring distances which averages
+a few millimeters error in most cases and degrading to 0.1-0.5 meters in the 
+worse. % This makes LiDAR a good choice for creating accurate digital maps.
 
 However, they have several drawbacks to take into account:
 
@@ -382,12 +385,12 @@ by detecting the different speeds of limbs and body in cyclists and pedestrians.
 
 Solid state LiDAR is an umbrella term that includes several technologies, two 
 of which are oscillating micro-mirrors and Optical Phased Array (OPA).
-The first technology combines one or many laser emitters that are directed
-with micro-mirrors that can rotate around two axes, so that the beam 
-can be directed within a cone. Manufacturer LeddarTech commercializes devices
+The first technology directs laser emitter beams within a cone using
+micro-mirrors that can 
+rotate around two axes. Manufacturer LeddarTech commercializes devices
 based on this technology \cite{LeddarTech2016}.
 Optical phased arrays \cite{McManamon1996} is a technology similar to that used 
-for EBF radars. 
+for EBF radars 
 %An array of optical emitters generate coherent signals with a well
 %controlled phase difference. This generates a far-field radiation pattern 
 %pointing in a direction that depends on the phase. 
@@ -400,10 +403,10 @@ devices based on this technology.
 %divergence of 0.5 mrad --4 times smaller than Velodyne HDL64 model.
 
 OPA technology has additional advantages over mechanical LiDAR: the scan 
-pattern can be random in the entire FoV (Field of View), which is great for
-characterizing fast moving objects.
-It is possible to observe only a region of interest within the 
-FoV. Also, it is possible to augment the point density within each frame for 
+pattern can be random in the entire FoV (Field of View), 
+%which is great for characterizing fast moving objects.
+it is possible to observe only a region of interest, % within the FoV. 
+and can increase point density within frames or regions for
 better resolution. The three features can be combined to do fast low resolution 
 inspection of the full FoV, and then tracking with high resolution the objects
 of interest for enhanced shape recognition even at far distances.
