@@ -1043,7 +1043,7 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{"  longest.label  * "}" *
   write$ newline$
-  "\def\url#1{}"
+  "\providecommand{\url}[1]{#1}"
   write$ newline$
   "\csname url@samestyle\endcsname"
   write$ newline$
@@ -1949,7 +1949,6 @@ FUNCTION {article}
   format.pages output
   format.date "year" output.warn
   format.note output
-  format.url output
   fin.entry
   if.url.std.interword.spacing
 }
@@ -1973,7 +1972,6 @@ FUNCTION {book}
   format.volume output
   format.number output
   format.note output
-  format.url output
   fin.entry
   if.url.std.interword.spacing
 }
@@ -1990,7 +1988,6 @@ FUNCTION {booklet}
   format.address "address" bibinfo.check output
   format.date output
   format.note output
-  format.url output
   fin.entry
   if.url.std.interword.spacing
 }
@@ -2030,7 +2027,6 @@ FUNCTION {inbook}
   format.chapter output
   format.pages output
   format.note output
-  format.url output
   fin.entry
   if.url.std.interword.spacing
 }
@@ -2077,7 +2073,6 @@ FUNCTION {inproceedings}
   format.paper output
   format.pages output
   format.note output
-  format.url output
   fin.entry
   if.url.std.interword.spacing
 }
@@ -2203,7 +2198,6 @@ FUNCTION {proceedings}
     }
   if$
   format.note output
-  format.url output
   fin.entry
   if.url.std.interword.spacing
 }
