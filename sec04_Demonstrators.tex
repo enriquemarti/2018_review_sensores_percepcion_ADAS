@@ -12,11 +12,16 @@ The timeline allows to discern different stages ("ages") in the development of A
 
 \subsection{Pioneer works (1980-2000)}
 
-Pioneer works in Automated Driving starts around mid-1980s. The Bundeswehr 
-University of Munich developed automated vehicles based on visual guidance, as 
-VaMoRs \cite{Dickmanns1987} and VaMP \cite{Gregor2002}. 
-Perception was built over a saccadic vision system: cameras mounted on a
-rotating platform that allowed them to focus in relevant elements. 
+Pioneer works in Automated Driving starts around mid-1980s focused in vision 
+based techniques, which represented a huge computational burden for the
+embeddable computers of the time. Automated vehicles VaMoRs 
+\cite{Dickmanns1987} and VaMP \cite{Gregor2002} from Bundeswehr 
+University of Munich used a saccadic vision system: cameras on a rotating 
+platform that focus in relevant elements. 
+The University of Parma started its project ARGO in 1996. % \cite{Broggi1998}.
+The vehicle completed over 2000 km of autonomous driving in public roads 
+\cite{Broggi1999}, using a two camera system for road following,
+platooning and obstacle avoidance. 
 %Sixty transputers executed an intelligent 4-D approach to object tracking,
 %delivering a huge amount of computational power according to the standards at
 %that moment.
@@ -25,11 +30,11 @@ rotating platform that allowed them to focus in relevant elements.
 %electric vehicle for shared urban use \cite{Parent1993}. Project Praxitèle
 %\cite{Massot1999} (a mixed public and industry initiative) led to a fully
 %functional prototype. 
-The Cybercar concept is born in early 1990s \cite{Parent1993}, and in 1997
-a prototype is installed in Schippol airport to transport passengers between
-the terminal and long stay parking \cite{Ozguner2007}. 
-The vehicle lacked pedals and steering wheels, and used a LiDAR and vision
-system to do automated driving in a dedicated lane with semaphores and
+The Cybercar concept is born in early 1990s \cite{Parent1993}
+as an urban vehicle with no pedals or steering wheel. 
+In 1997 a prototype is installed in Schippol airport to transport passengers 
+between terminal and parking \cite{Ozguner2007}. It used a LiDAR and vision
+system to drive automatically in a dedicated lane with semaphores and
 pedestrian crossings.
 
 Also in 1997, the National Automated Highway System Consortium presented a 
@@ -41,10 +46,10 @@ functionalities including cooperative maneuvers and mixed environments.
 
 %At that time, relevant functional demonstrators strongly relied on visual 
 %processing. 
-The University of Parma started in 1996 a project with its vehicle 
-ARGO \cite{Broggi1998}, equipped with two cameras that allowed road following,
-platooning and obstacle avoidance. The vehicle completed over 2000 km of 
-autonomous driving in public roads \cite{Broggi1999}.
+%The University of Parma started in 1996 a project with its vehicle 
+%ARGO \cite{Broggi1998}, equipped with two cameras that allowed road following,
+%platooning and obstacle avoidance. The vehicle completed over 2000 km of 
+%autonomous driving in public roads \cite{Broggi1999}.
 %They detected lane lines and 
 %vehicles using classical image processing techniques including preprocessing 
 %steps, feature extraction, model fitting and spatio-temporal filtering.
@@ -56,7 +61,6 @@ In year 2004 DARPA started its Grand Challenge series to foster development of
 Automated Driving technologies. The achievements over those three years 
 not only represented a huge leap forward, but also called the attention of
 powerful agents.
-
 Two first challenges (2004 and 2005) consisted in covering a route over dirt
 roads with off-road sections, with a strong focus in navigation and control.
 Stanford University won the 2005 edition, equipping its vehicle Stanley with
@@ -64,7 +68,9 @@ Stanford University won the 2005 edition, equipping its vehicle Stanley with
 automotive radars \cite{Thrun2006}. 
 The Urban Challenge (2007) changed the focus to interaction with other vehicles,
 pedestrians and obeying complex traffic regulations. Carnegie Mellon University
-team ended in first position with its vehicle Boss \cite{TartanRacing2005}
+team ended in first position with its vehicle Boss 
+%\footnote{http://www.tartanracing.org/press/boss-glance.pdf} 
+\cite{TartanRacing2005}
 \cite{Urmson2007}, 
 featuring a perception system composed by two video cameras, 5 radars and 13
 LiDAR (including a roof mounted unit of the novel Velodyne 64HDL).
@@ -110,9 +116,9 @@ is largely founded in LiDAR and 3D mapping technologies \cite{Chapell2016}.
 All their vehicles have had a roof-mounted spinning LiDAR: Toyota Prius (2009),
 the Firefly prototype (2014) and Chrysler Pacifica (2016-present).
 
-Meanwhile, University of Parma created the spin-off VisLab in 2009. 
-As opposed to Google approach, they represent one of the strongest supporters
-of artificial vision as the main component of perception systems for AD. 
+The University of Parma created the spin-off VisLab in 2009. 
+They are strong supporters of artificial vision as the main component of 
+perception systems for AD. 
 In 2010 they completed the VisLab Intercontinental Autonomous 
 Challenge (VIAC): four automated vans drove from Italy to China over public 
 roads that included degraded dirt roads and unmapped areas \cite{Bertozzi2011}.
@@ -134,16 +140,14 @@ years. This vision gave birth to several companies devoted to this end, most of
 which were founded by people coming from the DARPA experience, or hired them to
 lead the project \cite{Chapell2016}. 
 
-Examples include the robotaxi company nuTonomy, co-founded
-by the leader of the MIT team in 2007 DARPA Urban Challenge. Cruise has been
-founded by a member of the same team.
-Otto was founded by an engineer in Google's Street View project.
-%, they completed a beer delivery service with an automated truck in 2016.
-Uber hired up to 50 people from the CMU Robotics Lab for its self-driving car 
-project. Zoox robotaxi company is co-founded by a member of the Stanford 
-Autonomous Driving team %with an expertise in LiDAR automated calibration 
-\cite{Levinson2011a}, and Aurora has a similar story with people from 
-Uber, MIT and Waymo \cite{Anderson2013}.
+Examples include the nuTonomy (co-founded
+by the leader of the MIT team in 2007 Challenge), Cruise (founded by a 
+member of the same team), Otto (founded by a participant in 2004 and 2005 
+Challenges), Uber (hired up to 50 people from the CMU Robotics Lab),  
+Zoox robotaxi company (co-founded by a member of the Stanford 
+Autonomous Driving team) %with an expertise in LiDAR automated calibration 
+\cite{Levinson2011a}, and Aurora (similar story with people from 
+Uber, MIT and Waymo \cite{Anderson2013}).
 
 Car manufacturers reacted a bit slower. 
 %Stanford and Audi teamed to complete an
@@ -179,7 +183,7 @@ a few years ago.
 %while being safe \cite{Shalev-shwartz2016, Shalev-Shwartz2017}. 
 After testing in real conditions \cite{Edelstein2018}, they presented a demo with an automated Ford equipped just with 12 small monocular cameras for fully automated driving in 2018 \cite{Scheer2018}.
 
-Electric car manufacturer Tesla entered the automated driving scene in 2014.
+Tesla entered the automated driving scene in 2014.
 All their vehicles were equipped with a monocular camera (based on 
 Mobileye system) and an automotive radar that enabled the Level 2-3 AutoPilot
 functionality. 
@@ -213,10 +217,9 @@ of a 20 vehicle fleet that has been serving a set of routes in Las Vegas for
 some months. The taxis have an extensive set of 10 radars and 9 LiDARs embedded 
 in the bodywork, plus one camera.
 
-Meanwhile, Waymo had grown a fleet of Chrysler Pacifica minivans that has
-self-driven 10 million miles by october 2018. They put efforts on improving
-production scalability and cutting prices of LiDAR sensors to less
-than one tenth in a few years. 
+Meanwhile, Waymo has grown a fleet of Chrysler Pacifica minivans that has
+self-driven 10 million miles by october 2018. Their efforts have reportedly 
+cut prices of LiDAR sensors to less than one tenth in a few years. 
 They claim to have created two ``new categories of LiDAR'' \cite{Waymoteam2017} 
 in the way, one for close range perception including below the car, and the
 other for long range. The long-range LiDAR can reportedly zoom dynamically into 
