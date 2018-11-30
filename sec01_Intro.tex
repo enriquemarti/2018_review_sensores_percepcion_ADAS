@@ -1,24 +1,23 @@
-%Hacer referencia a los accidentes, o plantear otra motivación?
+
 Every year more than one million people die on road accidents and several 
 million more get injured \cite{world2015global}. In addition to the social cost, it also has an
 important economic impact for nations worldwide. According to 
 \cite{Thomas2013} the most frequent causes for car accidents in the
 European Union are human related: speeding, driving under the effects of
 alcohol or drugs, reckless driving, distractions or just plain misjudgments.
-Automated Driving systems, also called self-driving vehicles, aim to take the 
-human driver out of the equation. Thus, they are designed to be a valuable tool
-towards reducing the number of traffic accidents.
-%Falta completar con datos reales y referencias.
 
+Automated Driving systems aim to take the human driver out of the equation. 
+This makes them a tool with the potential to reduce the number of traffic 
+accidents.
 Based on recent developments and demonstrations around the world, there is a 
 tendency to think that Automated Driving with a high level of automation will 
-be available in a few years. 
+be available in a few years. This raises questions about its safety. 
 %Advanced Driving Assistance Systems (ADAS), like Adaptive Cruise Control 
 %(ACC), Automatic Emergency Braking (AEB) or Lane Keep Assistant (LKA) are
 %currently available in the market \cite{Bengler2014} and highly accepted among
 %users. 
 %Also, some recent demos like Waymo or Aptiv (discussed in detail in Section
-%\ref{sec:04-relevantdemos}) shows how future autonomous vehicles will be.
+%\ref{sec:04-relevantdemos}) shows how future Automated vehicles will be.
 %However, there are still many research challenges, such as navigation in urban 
 %dynamic environments, advanced understanding and interpretation of the driving 
 %environment, or dealing with perception uncertainties.
@@ -27,9 +26,9 @@ be available in a few years.
 %automated and semiautomated vehicles, which still need further efforts in
 %    real implementation, specifically in urban environment.}
 
-The architecture of autonomous vehicles is usually divided into three 
+The architecture of Automated Vehicles is usually divided into three 
 categories: perception of the environment, behavior planning and motion 
-execution \cite{behere2015functional}. Autonomous 
+execution \cite{behere2015functional}. Automated 
 vehicles obtain information about their surroundings using different
 sensors, such as cameras, LiDARs and radars. Raw data is processed to extract
 relevant features which are the input to the following stages (behavior
@@ -41,7 +40,7 @@ reasons. First, the environment is complex and highly dynamic, with some cases
 involving a large number of participants (dense traffic, populated cities). 
 Second, it needs to work reliably under a wide range of external conditions, 
 including lighting and weather (rain, fog, snow, dust). 
-Perception errors are propagated and can cause of severe accidents. 
+Perception errors are propagated and can be the cause of severe accidents. 
 Some real examples include the 2016 Tesla AutoPilot accident \cite{NTSB2017},
 where a man was killed after its car crashed a truck: 
 the camera failed to detect the gray truck against a bright sky while radar
@@ -49,24 +48,25 @@ detection was discarded as background noise by perception algorithms.
 Later in 2018, a Tesla model X crashed a highway divider after the lane
 following system failed to detect faded lines and the concrete divider was not
 recognized, killing the driver \cite{NTSB2018a}.
-Also in 2018, an experimental self-driving Uber vehicle killed a woman
+Also in 2018, an experimental Uber vehicle killed a woman that was
 crossing the road \cite{NTSB2018} in the night, dressed in dark clothes. 
 Only the LiDAR provided a positive detection, that was discarded as a false
 positive by perception algorithms.
 
-This article reviews sensor technologies and perception algorithms, and explores
-their relation to provide an integral view of the process that leads from raw
-sensor data to meaningful information for the driving task.
-This topic has been previously investigated in the literature, but usually
-centered on ADAS implementation \cite{Yenkanchi2016,Ziebinski2016a} or at a
-more general level within Automated Driving \cite{Pendleton2017}. 
+%This article reviews sensor technologies and perception algorithms.
+Sensor technologies have been surveyed previously in the literature, 
+but usually centered on ADAS implementation \cite{Yenkanchi2016,Ziebinski2016a} 
+or at a general level within Automated Driving \cite{Pendleton2017}. 
+One of the main contributions of this work is its focus on the relation between 
+sensors and perception, which provide an integral view of the process that 
+leads from raw sensor data to meaningful information for the driving task.
 
 The content of the article is organized as follows. Section 
-\ref{sec:02-sensors} describes the sensors commonly used for perception 
-explaining the technologies, drawbacks and advantages, and related emerging 
-technologies that can be used in the future. It also presents a 
-taxonomy of information that allows to link sensor technologies with the 
-next section.
+\ref{sec:02-sensors} reviews the sensor technologies commonly used for 
+perception, its drawbacks and advantages, and related emerging 
+technologies that can be used in the future. 
+%It also presents a taxonomy of information that allows to link 
+%sensor technologies with the next section.
 Section \ref{sec:03-problemsapplications} starts describing the most important 
 competences in perception, to proceed with a state of the art of perception 
 algorithms and techniques grouped by competences. Sensors used on each work
@@ -79,4 +79,4 @@ Finally, section \ref{sec:06-discussion} contains a discussion of the current
 state of the discipline and the future challenges for sensors and perception in
 Automated Driving systems. It includes a review of the most relevant alliances 
 between OEMs (Original Equipment Manufacturers) and technological companies
-involved in automated driving projects at the time of writing the article.
+involved in Automated Driving projects at the time of writing the article.

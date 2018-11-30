@@ -7,19 +7,15 @@ solutions for each category, organized by sensor technology.
 \subsection{Behavioral competencies}
 
 Behavioral competencies in Automated Driving ``refers to the ability of an 
-automated vehicle to operate in the traffic conditions that it will regularly
+Automated Vehicle to operate in the traffic conditions that it will regularly
 encounter" \cite{Nowakowski2015}. The NHTSA defined a set of 28 core 
 competencies for normal driving \cite{NHTSA2016}, that have been augmented to a 
 total of 47 by Waymo \cite{Waymo2017} in their internal tests.
 Table \ref{tab:behavioral-competences} selects a subset of those behavioral
 competencies and arranges them in categories that are used to structure the state of the art in
 perception algorithms in a purpose oriented approach.
-%arising from perception 
-%requirements: each competency will involve acquiring information that requires
-%specific perception capacities. 
-%The selected competences are used to structure the state of the art in
-%perception algorithms in a purpose oriented approach.
-\begin{table*} %[H]
+
+\begin{table*}[t] %[H]
     \caption{Behavioral competences and relation with information taxonomy 
         (see Table \ref{tab:info-taxonomy})}
     \label{tab:behavioral-competences}
@@ -29,42 +25,42 @@ perception algorithms in a purpose oriented approach.
         \\
         \hline %\midrule
         \multirow{4}{4cm}{Automatic Traffic Sign Detection
-                         and Recognition (TSDR)}
-         & 8    & Detect Speed Limit Changes, Speed Advisories, Traffic Signals 
-         and Stop/Yield Signs \\
-         & 8    & Detect Access Restrictions (One-Way, No Turn, Ramps, etc.) \\
-         & 8    & Detect Temporary Traffic Control Devices \\
-         & 6, 8 & Detect Passing and No Passing Zones  \\
-         \hline %\midrule
-         \multirow{4}{*}{Perception of the environment}
-         & 8 & Detect Lines \\
-         & 6, 8 & Detect Detours  \\
-         & 6 & Detect faded/missing roadway markings, signs and other 
-         temporary changes in traffic patterns \\
-         & 9 & Perception under weather or lighting conditions 
-         outside 
-         vehicle’s capability (e.g. rainstorm) \\
-         \hline %\midrule
-         \multirow{6}{4cm}{Vehicles, pedestrians and other obstacles 
-         detection}
-         & 10, 12, 13 & Detect Non-Collision Safety Situations (e.g. vehicle 
-         doors ajar) \\
-         & 10, 11, 12, 13 & Detect Stopped Vehicles, Emergency Vehicles, Lead 
-         Vehicle, Motorcyclists, School Buses \\
-         & 6(, 1)  & Detect Static Obstacles in the Path of the Vehicle \\
-         & 6, 8, 9, 10, 11, 12 & Detect Pedestrians and Bicyclists at 
-         Intersections, Crosswalks and in Road (Not Walking Through 
-         Intersection or Crosswalk) \\
-         & 10, 11, 12 & Detect Animals \\
-         & 10, 12, 13 & Detect instructions from Work Zones and People 
-         Directing Traffic in Unplanned or Planned Events, Police/First 
-         Responder Controlling Traffic, Construction Zone Workers Controlling, 
-         Citizens Directing Traffic After a Crash (Overriding or Acting as 
-         Traffic Control Device) \\
-
+            and Recognition (TSDR)}
+        & 8    & Detect Speed Limit Changes, Speed Advisories, Traffic Signals 
+        and Stop/Yield Signs \\
+        & 8    & Detect Access Restrictions (One-Way, No Turn, Ramps, etc.) \\
+        & 8    & Detect Temporary Traffic Control Devices \\
+        & 6, 8 & Detect Passing and No Passing Zones  \\
+        \hline %\midrule
+        \multirow{4}{*}{Perception of the environment}
+        & 8 & Detect Lines \\
+        & 6, 8 & Detect Detours  \\
+        & 6 & Detect faded/missing roadway markings, signs and other 
+        temporary changes in traffic patterns \\
+        & 9 & Perception under weather or lighting conditions 
+        outside 
+        vehicle’s capability (e.g. rainstorm) \\
+        \hline %\midrule
+        \multirow{6}{4cm}{Vehicles, pedestrians and other obstacles 
+            detection}
+        & 10, 12, 13 & Detect Non-Collision Safety Situations (e.g. vehicle 
+        doors ajar) \\
+        & 10, 11, 12, 13 & Detect Stopped Vehicles, Emergency Vehicles, Lead 
+        Vehicle, Motorcyclists, School Buses \\
+        & 6(, 1)  & Detect Static Obstacles in the Path of the Vehicle \\
+        & 6, 8, 9, 10, 11, 12 & Detect Pedestrians and Bicyclists at 
+        Intersections, Crosswalks and in the Road. \\
+        & 10, 11, 12 & Detect Animals \\
+        & 10, 12, 13 & Detect instructions from Work Zones and People 
+        Directing Traffic in Unplanned or Planned Events, Police/First 
+        Responder Controlling Traffic, Construction Zone Workers Controlling, 
+        Citizens Directing Traffic After a Crash (Overriding or Acting as 
+        Traffic Control Device) \\
+        
         \hline %\bottomrule
     \end{tabular*}
 \end{table*}
+
 This set of competences represents the link between perception and decision
 (planning), as a counterpart to the information taxonomy presented in the
 previous section (Table \ref{tab:info-taxonomy}), which linked sensors and 
@@ -162,14 +158,13 @@ circular).
 A system that combines LiDAR and Cameras can improve the sign detection and 
 recognition as it has the advantages and the information of both sources. 
 \cite{zhou2014lidar} trains a SVM with 10 variables: 9 of different color 
-spaces provided by the camera (RGB, HSV, CIEL*a*b*) and the intensity provided 
-by the LiDAR. After 3D geometric feature verification of the detected signs, 
-the classification is made using HOG features and a linear SVM. 
-\cite{guan2018robust} method, first detects traffic signs from mobile LiDAR 
-point clouds with regard to a prior knowledge of road width, pole height, 
-reflectance, geometrical structure and traffic-sign size. Then traffic signs 
-are normalized to perform classification based on a supervised 
-Gaussian–Bernoulli deep Boltzmann machine model.
+spaces provided by the camera (RGB, HSV, CIEL*a*b*) plus reflection intensity 
+observed by LiDAR. After verifying the 3D geometry of detected signs, a linear
+SVM classifier is applied to HOG features.
+\cite{guan2018robust} method detects traffic signs in LiDAR point clouds
+using prior knowledge of road width, pole height, and traffic sign reflectance, 
+geometry and size. Traffic sign images are normalized to perform classification 
+based on a supervised Gaussian–Bernoulli deep Boltzmann machine model.
 
 
 %Como el resto no tiene un summary lo quito
@@ -203,7 +198,7 @@ and complements traffic signs as stops, turns or stopping lines).
 %can be either on map generated by the first map, or in unknown roads. 
 
 %Reliability is a critical factor for this competence, since missing a mark and
-%false detections can cause an automated vehicle to change lanes inadvertently 
+%false detections can cause an Automated Vehicle to change lanes inadvertently 
 %or even go out of the road. Guaranteeing the quality of mark detection is a 
 %challenging task not only due to varying lane marks (heterogenous widths, 
 %faded marks), but also due to weather and environmental conditions: 
@@ -227,24 +222,24 @@ organized by the type of sensor they use.
 can be grouped in three categories depending on the specific sensor 
 configuration.
 
-\underline{Single Monocular}:
-It is the simplest configuration. Using only one 
+\textbf{Single Monocular.}
+Using only one 
 camera looking at the road in front of the vehicle it is possible to estimate 
-the road shape and its lanes, the position of the vehicle in the road and to 
-detect road marks  that provide driving information. A survey of the most 
+its shape and lanes, the position of the vehicle in the road and  
+detect road marks. A survey of the most 
 relevant algorithms used for this purpose, mainly for camera sensors is 
 presented in \cite{hillel2014recent}.
 
-\underline{Multiple Monocular cameras}: 
+\textbf{Multiple Monocular cameras.} 
 Some works \cite{lee2017avm, kum2013lane} arrange multiple cameras 
 around the vehicle (typically four, one on each side) to get 360-degree 
-visual information of the surroundings of the vehicle. 
+visual coverage of the surroundings. 
 A different configuration is used in \cite{Ieng2003}, where two lateral cameras
 are used to localize the vehicle. 
 
-\underline{Binocular or Stereo}: 
-The main advantage of using binocular cameras is that, as they provide 3D 
-information, it is possible to detect the ground plane and road boundaries 
+\textbf{Binocular or Stereo.} 
+The main advantage of binocular cameras is their 3D perception capabilities.
+It makes possible to detect the ground plane and road boundaries 
 \cite{schreiber2013laneloc, ozgunalp2017multiple}, improving road mark 
 detection. 
 
@@ -253,10 +248,11 @@ Main application of LiDARs in road perception is related with detecting the
 ground plane and road limits, as well as detecting obstacles that could occlude 
 parts of the road.
 In recent works, LiDAR based solutions also take advantage of the higher 
-reflectivity of road marks with respect to the pavement (gray and black material) to 
-detect lane markings \cite{yang2012automated, li2013new} and pavement markings \cite{Zhang2016}
-Poor road maintenance can affect mark reflectivity to the point of making them
-undetectable by LiDAR. This can be solved by fusing LiDAR 
+reflectivity of road marks with respect to the pavement (gray and black 
+material) to detect lane \cite{yang2012automated, li2013new} and
+pavement markers \cite{Zhang2016}.
+Poor road maintenance can affect markers reflectivity to the point of making 
+them undetectable by LiDAR. This can be solved by fusing LiDAR 
 data with cameras able to perceive non reflective lane marks \cite{lee2017avm}.
 Some works use a 2D LiDAR sensor to extract road geometry and road marks 
 \cite{nie2012camera, kim2015lane}.
@@ -273,52 +269,52 @@ Some works use a 2D LiDAR sensor to extract road geometry and road marks
 Radars have been used to determine road geometry based on the principle that the
 road acts as a mirror for the sensor, returning a very small amount of the 
 emitted power, while the sides of the roads return a slightly higher 
-amount of power. Road limits have been estimated using radar images, getting a 
+amount of power. Road limits have been estimated with a
 maximum error of half a lane at zero distance from the host vehicle and less 
 than one lane width at 50 meters distance. This information can be fused with
 camera images to improve both detections 
 \cite{kaliyaperumal2001algorithm, ma2000simultaneous, Janda2013}.
 
 \subsection{Vehicles, pedestrians and other obstacles detection}
-This section reviews the use of different sensors for detecting other elements 
-in the road, including vehicles, pedestrians and any other kind of obstacle 
-that may appear such as motorcycles, bicycles, animals, etc. 
-The advantages and disadvantages of sensors for this application are discussed.
+%This section reviews the use of different sensors for detecting other elements 
+%in the road, including vehicles, pedestrians and any other kind of obstacle 
+%that may appear such as motorcycles, bicycles, animals, etc. 
+%The advantages and disadvantages of sensors for this application are discussed.
 This competence involves moving elements that can be in the path of the 
 vehicle, so it requires extracting more information. Apart from detection and 
 classification, it is also important to determine the position of obstacles 
-with 
-respect to the automated vehicle, their motion direction and speed, and future 
-intentions when possible. 
+with respect to the vehicle, their motion direction, speed, and 
+future intentions when possible. 
 This information will be the input to other systems like path planners 
 or collision avoidance systems (reviewed in \cite{mukhtar2015vehicle}).
 
 \subsubsection{Camera based solutions}
-The use of cameras for obstacle detection can be performed with different 
-configurations as in the previous competences. Single monocular 
-camera, multiple cameras, stereo cameras and infrared cameras are used in 
-different works.
+Different configurations have been used for camera based obstacle detection, 
+includinng single monocular camera, multiple cameras, stereo cameras and 
+infrared cameras.
 
-A camera can be placed on different locations. The front of the vehicle is 
+Cameras can be placed in different locations. The front of the vehicle is 
 the most common placement since the most critical obstacles will be in front of 
 the vehicle, but many works explored other positions in order to increase the
-FoV. On the side-view mirror, in the 
-passengers window \cite{chang2008real} or looking backwards \cite{liu2007rear}, 
-it is possible to detect and track vehicles trying to overtake the ego-vehicle, 
-helping to take the decision of lane-change \cite{alonso2008lane, 
-song2007lateral, blanc2007larasidecam}. An omnidirectional camera mounted
+FoV. 
+A camera placed on the side-view mirror, in the 
+passengers window \cite{chang2008real} or looking backwards \cite{liu2007rear}
+can detect and track vehicles trying to overtake the ego-vehicle, 
+improving the decision of lane change maneuvers \cite{alonso2008lane, 
+song2007lateral, blanc2007larasidecam}. 
+An omnidirectional camera mounted
 on the top of the vehicle has been used in \cite{gandhi2006vehicle}
 to detect obstacles and estimate ego-motion.
-In addition to monocular cameras, stereo cameras are widely used for obstacle 
-detection as they provide 3D information of the position of the obstacles. A 
-large review of the different algorithms used for this kind of cameras can be 
-found in \cite{bernini2014real}.
-Infrared cameras are independent of scene illumination and can obstacles at
+
+Stereo cameras are widely used for obstacle detection as they provide 3D 
+information of the position of the obstacles. A large review of the different 
+algorithms used for this kind of cameras can be found in \cite{bernini2014real}.
+FIR cameras are independent of scene illumination and can spot obstacles at
 night \cite{olmeda2013pedestrian}. Relevant moving elements (vehicles, 
-pedestrians, animals) are easy to detect with this type of cameras because they
-are usually hot, but it have to be complemented with a different obstacle
-detection source (like in \cite{krotosky2007color}), since cold obstacles like
-parked vehicles or trees can be not perceived.
+pedestrians, animals) are usually hot and, thus, easy to detect with FIR 
+cameras. However, this sensor has to be complemented with other technologies
+as in \cite{krotosky2007color}, since cold obstacles like parked vehicles or
+trees can be not perceived.
 \cite{sivaraman2013looking} presents and explains in detail several camera
 solutions and the algorithms used for detection.
 
@@ -331,12 +327,10 @@ obstacle detection are shown in \cite{li2016vehicle}.
 
 \subsubsection{Radar based solutions}
 The primary use of automotive radars is detection and tracking of other 
-vehicles on the road. They provide information of target position and relative 
-speed, which is very useful for collision avoidance systems and path planning
-algorithms. 
-Radars have the advantage of a good performance in adverse weather conditions 
-(night, rain, fog, etc), and a large range of detection over 150 m
-\cite{blanc2004obstacle}. Because of its low resolution radar detections are
+vehicles on the road, thanks to their high accuracy measuring target 
+distances and relative speed, long range detection and performance in adverse 
+weather conditions \cite{blanc2004obstacle}. 
+Because of its low resolution radar detections are
 usually fused with other sensors as cameras \cite{garcia2012data} or, in some
 works, with LiDAR \cite{gohring2011radar}.
 
@@ -351,13 +345,9 @@ This competence requires estimating a large number of variables simultaneously,
 creating difficulties for any single sensor solution. This is a good scenario
 for sensor fusion systems, that can combine the strengths of each sensor to
 improve the solution. 
-%For example, cameras provide good information 
-%for classification tasks thanks to its dense array of colored pixels, LiDAR 
-%provides a very precise position of the obstacle in a large range of view and 
-%radar generates raw observations of obstacles speed, making easier tracking them.
-Almost every possible combination have been tested, including radar and vision, 
-LiDAR and vision, radar and LiDAR, and other multiple 
-modalities. The most common ones are described in the following lines.
+%Almost every possible combination have been tested. 
+
+%The most common combinations are described in the following lines.
 Radar and LiDAR fusion \cite{gohring2011radar} increases the precision of 
 the speed obtained only with LiDAR and keeps a good position and speed 
 estimation quality when radar is unavailable (especially in curvy roads).
