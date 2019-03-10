@@ -47,7 +47,7 @@ perception algorithms in a purpose oriented approach.
         doors ajar) \\
         & 10, 11, 12, 13 & Detect Stopped Vehicles, Emergency Vehicles, Lead 
         Vehicle, Motorcyclists, School Buses \\
-        & 6(, 1)  & Detect Static Obstacles in the Path of the Vehicle \\
+        & 6  & Detect Static Obstacles in the Path of the Ego-Vehicle \\
         & 6, 8, 9, 10, 11, 12 & Detect Pedestrians and Bicyclists at 
         Intersections, Crosswalks and in the Road. \\
         & 10, 11, 12 & Detect Animals \\
@@ -275,7 +275,7 @@ than one lane width at 50 meters distance. This information can be fused with
 camera images to improve both detections 
 \cite{kaliyaperumal2001algorithm, ma2000simultaneous, Janda2013}.
 
-\subsection{Vehicles, pedestrians and other obstacles detection}
+\subsection{Detection of vehicles, pedestrians and other obstacles}
 %This section reviews the use of different sensors for detecting other elements 
 %in the road, including vehicles, pedestrians and any other kind of obstacle 
 %that may appear such as motorcycles, bicycles, animals, etc. 
@@ -330,9 +330,10 @@ The primary use of automotive radars is detection and tracking of other
 vehicles on the road, thanks to their high accuracy measuring target 
 distances and relative speed, long range detection and performance in adverse 
 weather conditions \cite{blanc2004obstacle}. 
-Because of its low resolution radar detections are
-usually fused with other sensors as cameras \cite{garcia2012data} or, in some
-works, with LiDAR \cite{gohring2011radar}.
+Radars have low angular resolution, causing misplacement of detected elements 
+and reporting targets that are close to each other as a single larger object.
+A common solution consists on fusing radar detections with other sensors as 
+cameras \cite{garcia2012data} or LiDARs \cite{gohring2011radar}.
 
 %\textbf{Microphone based solutions:}
 %Microphones sensors can be used to detect aproaching vehicles from the rear 
