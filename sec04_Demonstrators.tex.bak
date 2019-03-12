@@ -136,9 +136,9 @@ In 2013 the PROUD test put a vehicle with no driver behind the wheel in Parma
 roads for doing urban driving in real traffic \cite{Broggi2013}. 
 %Selected sensor configuration was very similar to that used in VIAC three years
 %before.
-
+ 
 \subsection{Race to commercial products (2010-present)}
-
+ 
 In the last decade the landscape of Automated Driving has been dominated by 
 private initiatives that foresee the coming of Level 4 and 5 systems in a few 
 years. This vision gave birth to several companies devoted to this end, most of 
@@ -155,16 +155,38 @@ Autonomous Driving team) %with an expertise in LiDAR automated calibration
 Uber, MIT and Waymo \cite{Anderson2013}).
 
 Car manufacturers reacted a bit slower. 
+%Stanford and Audi teamed to complete an
+%automated ascent to Pikes Peak in 2010 (focused on control and not in
+%perception) \cite{Funke2012}, they have not really entered into scene
+%until the last five years. 
 Some of them started independent research lines, for example
 BMW has been testing automation prototypes in roads since 2011 
 \cite{Aeberhard2015a} and Mercedes-Benz Bertha project \cite{Ziegler2014}
+%\cite{Bender2014} 
 drove in 2013 a 103 km route in automated
 mode using close-to-market sensors (8 radars and 3 video cameras)
+%This work presented new concepts as the \emph{Lanelets} for road 
+%representation 
+% and other innovative solutions .
+% processed in a heterogeneous computing platform (FPGAs, embedded 
+%processors).
 , but in the end most manufacturers have created coalitions with technological
 startups as enumerated in section \ref{sec:oem-ad}.
 
 
-Mobileye started working in a vision-only approach to Automated Driving a few years ago. 
+%This approach to perception --avoiding LiDARs. 
+%as expensive and far from mass 
+%production devices-- has been supported by other companies. As an example,
+%Mobileye started working in embedded computer vision devices in 1999, and by
+%2015 their technology was present in more than 25 car brands. Some years ago
+Mobileye
+%\footnote{https://www.mobileye.com/our-technology/} 
+started working in a vision-only approach to Automated Driving
+%\cite{Mobileye2018} 
+a few years ago. 
+%Their AI is claimed to hand the car with an ``\emph{assertive driving style}'' 
+%that deals with traffic in a much less conservative way than its competitors,
+%while being safe \cite{Shalev-shwartz2016, Shalev-Shwartz2017}. 
 After testing in real conditions \cite{Edelstein2018}, they presented a demo 
 with an automated Ford equipped just with 12 small monocular cameras for fully 
 Automated Driving in 2018 \cite{Scheer2018}.
@@ -189,6 +211,10 @@ Its latest demo \cite{AUVSI2018} fused data from 10 stereo pairs into a
 ultra-high resolution 3D scene delivering 900 million points per second.
 Long range vision mix a forward facing 4k stereo pair with a radar for better
 performance under low light or adverse weather conditions. 
+%This is a different approach to visual-based perception, 
+%since stereo vision aims to get the best of both LiDARs and image processing 
+%in 
+%a single tool, with additional advantages.
 
 Delphi Automotive completed in 2015 an automated trip between San Francisco and
 New York city using a custom Audi Q5 with 10 radars, 6 LiDARs and 3 cameras 
