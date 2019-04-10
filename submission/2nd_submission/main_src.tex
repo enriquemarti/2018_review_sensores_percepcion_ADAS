@@ -388,12 +388,11 @@
 		Fernando~Garc\'ia,~\IEEEmembership{Member,~IEEE,}
         and~Joshu\'e~P\'erez,%~\IEEEmembership{Life~Fellow,~IEEE}% <-this % 
         %%%stops a space
-\thanks{E. Marti\'i and J. P\'erez work in the Automated Driving group,
- Fundaci\'on Tecnalia, Derio, 48160 Spain. Corresponding e-mail: 
- enrique.marti@tecnalia.com.}% <-this % stops a space
-\thanks{M. de Miguel and F. Garc\'ia are in Universidad Carloss III de Madrid, 
+\thanks{E. Mart\'i and J. P\'erez work in Fundaci\'on Tecnalia, 
+	Derio, 48160 Spain. Corresponding e-mail: enrique.marti@tecnalia.com.}% <-this % stops a space
+\thanks{M. de Miguel and F. Garc\'ia are in Universidad Carlos III de Madrid, 
 Legan\'es, 28911, Spain}% <-this % stops a space
-\thanks{Manuscript received November 9, 2018; revised Xxxxx 0 , 201x.}}
+\thanks{Manuscript received November 30, 2018; accepted for publication March 18, 2019.}}
 
 % note the % following the last \IEEEmembership and also \thanks - 
 % these prevent an unwanted space from occurring between the last author name
@@ -434,7 +433,8 @@ Legan\'es, 28911, Spain}% <-this % stops a space
 %\IEEEpubid{0000--0000/00\$00.00~\copyright~2015 IEEE}
 % Remember, if you use this you must call \IEEEpubidadjcol in the second
 % column for its text to clear the IEEEpubid mark.
-
+\IEEEoverridecommandlockouts
+\IEEEpubid{\makebox[\columnwidth]{978-1-5386-5541-2/18/\$31.00~\copyright2018 IEEE \hfill} \hspace{\columnsep}\makebox[\columnwidth]{ }}
 
 
 % use for special paper notices
@@ -445,6 +445,8 @@ Legan\'es, 28911, Spain}% <-this % stops a space
 
 % make the title area
 \maketitle
+
+\IEEEpubidadjcol
 
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
@@ -465,8 +467,7 @@ Legan\'es, 28911, Spain}% <-this % stops a space
     Finally, the article presents a snapshot of the future challenges for
     sensing technologies and perception, finishing with an overview of 
     the commercial initiatives and manufacturers alliances that will show 
-    the intention of the market in sensors technologies for Automated
-    Vehicles.
+    future market trends in sensors technologies for Automated Vehicles.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -508,19 +509,6 @@ accidents.
 Based on recent developments and demonstrations around the world, there is a 
 tendency to think that Automated Driving with a high level of automation will 
 be available in a few years. This raises questions about its safety. 
-%Advanced Driving Assistance Systems (ADAS), like Adaptive Cruise Control 
-%(ACC), Automatic Emergency Braking (AEB) or Lane Keep Assistant (LKA) are
-%currently available in the market \cite{Bengler2014} and highly accepted among
-%users. 
-%Also, some recent demos like Waymo or Aptiv (discussed in detail in Section
-%\ref{sec:04-relevantdemos}) shows how future Automated vehicles will be.
-%However, there are still many research challenges, such as navigation in urban 
-%dynamic environments, advanced understanding and interpretation of the driving 
-%environment, or dealing with perception uncertainties.
-%
-%\emph{Further research is needed to allow cooperative maneuvers between 
-%automated and semiautomated vehicles, which still need further efforts in
-%    real implementation, specifically in urban environment.}
 
 The architecture of Automated Vehicles is usually divided into three 
 categories: perception of the environment, behavior planning and motion 
@@ -546,10 +534,9 @@ following system failed to detect faded lines and the concrete divider was not
 recognized, killing the driver \cite{NTSB2018a}.
 Also in 2018, an experimental Uber vehicle killed a woman that was
 crossing the road \cite{NTSB2018} in the night, dressed in dark clothes. 
-Only the LiDAR provided a positive detection, that was discarded as a false
+Only the LiDAR provided a solid detection, that was discarded as a false
 positive by perception algorithms.
 
-%This article reviews sensor technologies and perception algorithms.
 Sensor technologies have been surveyed previously in the literature, 
 but usually centered on ADAS implementation \cite{Yenkanchi2016,Ziebinski2016a} 
 or at a general level within Automated Driving \cite{Pendleton2017}. 
@@ -561,8 +548,6 @@ The content of the article is organized as follows. Section
 \ref{sec:02-sensors} reviews the sensor technologies commonly used for 
 perception, its drawbacks and advantages, and related emerging 
 technologies that can be used in the future. 
-%It also presents a taxonomy of information that allows to link 
-%sensor technologies with the next section.
 Section \ref{sec:03-problemsapplications} starts describing the most important 
 competences in perception, to proceed with a state of the art of perception 
 algorithms and techniques grouped by competences. Sensors used on each work
@@ -642,55 +627,9 @@ An automotive grade sensor combining HDR capabilities and NIR
 light detection is analyzed in \cite{Maddalena2005} and the work 
 \cite{Strobel2013} presents a sensor with 130/170 dB range (global/rolling 
 shutter configurations).
-% is presented for industrial safety application.
-
-%    \item High speed objects: an object moving at high speed can appear blurred
-%    if the exposure time of the camera is too long. This effect can be
-%    corrected by using sensors 
-%    requires short exposure times cameras need higher exposures time as
-%    illumination is weaker. Fast moving elements appear blurred, which can 
-%    affect later processes as border or feature detection. Also, if the sensor
-%    does not capture light in its full surface simultaneously (rolling shutter)
-%    distortion effects can appear in those objects. 
-%    High sensitivity sensors and global shutter cameras can mitigate these 
-%    problems. In \cite{Chia-KaiLiang2008}\cite{Chun2008} rolling shutter 
-%    effects are corrected by a motion compensation software.
-%\end{itemize}
 
 A more extensive review of camera and sensor problems can be found in  
 \cite{Pueo2016}, from the perspective of recording scenes in sports.
-%In order to deal with these difficulties, different technologies and solutions 
-%have been proposed. 
-%
-%\begin{itemize}    
-%    \item High Dynamic Range imaging (HDR): common sensors in photographic and 
-%    industrial cameras offer a dynamic range of 60-75 dB, while
-%    mixed illumination environments require at least 120 dB.
-%    An automotive grade sensor combining HDR capabilities and Near Infra-Red
-%    light detection is analyzed in \cite{Maddalena2005}. In 2017 Sony launched
-%    a 120 dB automotive sensor and 2k resolution.
-%    In \cite{Strobel2013} a sensor with 130 dB range (global shutter) and up
-%    to 170 dB (rolling shutter) is presented for industrial safety application.
-%    
-%    \item Global shutter sensors and Rolling shutter compensation. In rolling
-%    shutter cameras the elements of the sensor capture light at different time 
-%    intervals, causing moving objects to appear distorted and creating
-%    half-dark-half-light frames in scenes illuminated by flickering lights
-%    (LEDs, fluorescents). 
-%    This effects can be corrected by a motion compensation software 
-%    \cite{Chia-KaiLiang2008}\cite{Chun2008}. Global shutter cameras, on the
-%    other hand, have the ability to capture light in all the elements of the 
-%    sensor simultaneously. 
-%        
-%    \item Captured spectrum: Far infrared cameras (wavelength 900-1400 nm, also
-%    called thermal cameras) are effective for pedestrian and animal detection
-%    \cite{OMalley2008}\cite{Besbes2015} in the dark and through dust and smoke.
-%    Near Infrared (750-900 nm) complements visible spectrum with a better
-%    contrast in high dynamic range scenes, and better night visibility. 
-%    In \cite{Pinchon2018} authors compare visible light, near infrared and far
-%    infrared cameras in different light and atmospheric conditions.
-%    
-%\end{itemize} 
 
 \subsubsection{3D technology}
 Traditional camera technology is essentially 2D, but there are some
@@ -708,9 +647,6 @@ to provide dense depth maps, as opposed to sparse sensors (e.g. LiDARs).
 Stereo vision drawbacks include issues with low-textured patterns 
 (e.g. solid colors) that difficult establishing correspondences between
 frames.
-%Also, it has a high computational complexity, and the pair of 
-%cameras requires a careful calibration to ensure proper translation of 
-%disparities to depths.
 
 Monocular SLAM (Simultaneous Location And Mapping) algorithms share some of the
 working principles of stereo system: the motion of a single monocular camera 
@@ -731,11 +667,6 @@ and its operative range (usually below 20 meters) is limited by the power of
 the emitter and the intensity of ambient light. Reflections can affect its
 performance.
 
-%    This technology can be combined with stereo vision to improve robustness
-%    and operative conditions, as in the commercial device Intel RealSense 
-%D4500.
-
-%    \item \emph{Time-of-flight:} 
 \textbf{Time-of-flight.} Is an active sensing technology 
 \cite{Hansard2013} based in the same round-trip-time principle 
 of LiDAR sensors (see \ref{sec:02-c-lidar}): an emitter composed of infrared 
@@ -761,8 +692,6 @@ working range to 50-250 meters.
 In event-based vision the elements of the sensor (pixels) are triggered 
 asynchronously and independently when they detect a change on light intensity 
 (an \emph{event}).
-%An event can be seen as something similar to the output of a feature detection 
-%algorithm for artificial vision applications.
 The sensor produce a stream of events that can be grouped in time windows for
 getting a frame-like image. 
 Independence of sensor elements raises the dynamic range of the sensor to 
@@ -772,12 +701,7 @@ conditions, although the sensor works in sub-microsecond time scales.
 Events can be the input to visual odometry \cite{Censi2014} and SLAM
 \cite{Vidal2017} applications, relieving the CPU of time consuming operations
 on raw images. 
-%A steering wheel control for Automated Driving systems 
-%based on deep learning has been shown in \cite{Maqueda2018}.
 
-%Light polarization represents an additional source of information which
-%is know to be used by animals able to perceive it (some ants, 
-%mantis-shrimp). 
 There is an active line of research \cite{Garcia2018} around sensors 
 capturing light polarization, which perform consistently under adverse
 meteorological conditions and provide exotic types of information (e.g.
@@ -791,11 +715,8 @@ distance to objects based on the \emph{round-trip time} principle, which is the
 time it takes the wave to reach the object, bounce on it and travel back to the
 sensor. 
 
-%There are two principal technologies: pulsed radar and Frequency-Modulated
-%Continuous Wave (FMCW). Pulsed radar emits a short burst and measures distance
-%using the raw round-trip time.
 Most modern automotive radars are based on the Frequency-Modulated Continuous
-Wave (FMCW) technology, and use digital beamforming \cite{Hasch2015} to control
+Wave (FMCW) technology, and use digital beam-forming \cite{Hasch2015} to control
 the direction of the emitted wave. 
 FMCW consists on emitting a signal with a well known and stable frequency that
 is modulated with another continuous signal that varies its frequency up and
@@ -838,10 +759,9 @@ negatives (not detecting an actual obstacle).
 distance
 and speed along the line that connects the sensor with a target. However, 
 horizontal resolution depends on the characteristics of the emitted beam.
-Raw angular resolution in digital beamforming systems falls between 2 to 5
+Raw angular resolution in digital beam-forming systems falls between 2 to 5
 degrees \cite{Schneider2005}, that can be improved to 0.1-1 degrees using 
-advanced 
-processing techniques \cite{Kissinger2012}. 
+advanced processing techniques \cite{Kissinger2012}. 
 With this angular resolution, it can be difficult to separate (detect as
 independent targets) a pedestrian from a nearby car at 30 m distance. 
 At 100 m distance it can be impossible to separate vehicles in neighbor
@@ -858,7 +778,7 @@ further applications as target classification and environment mapping.
 An example can be found in \cite{Reina2015}, where a 90GHz rotating radar in
 the roof of a car is used to map the environment, including vehicles, static
 objects and ground.
-The paper \cite{Kohler2013} demonstrates the feasibility of radars operating
+The paper \cite{Kohler2013} demonstrates feasibility for radars operating
 between 100 and 300 GHz, analyzing atmospheric absorption and reflectivity of
 materials usually found in driving scenarios.
 %For example, Arbe Robotics \cite{ArbeRobotics2018} is working in a 
@@ -930,13 +850,6 @@ wires and bars are virtually invisible.
 can appear as invisible to the LiDAR, since they combine a color that
 absorbs most radiation with a non-Lambertian material that does not scatter
 radiation back to receiver.
-
-%    \item High cost. High-end models have a cost between 25 and 75 k\$.
-%    Just a year ago, Velodyne models started at 9000 US\$ for the basic 16
-%    layer device, although they have cut prices down to a 50\% to face the
-%    recently appeared competitors. Now, some companies are selling
-%    equivalent models for less than 4000 US\$. Solid state lidars promise
-%    prices an order of magnitude smaller.
 
 \textbf{Affected by weather conditions.} NIR laser
 beams are affected by rain and fog because water droplets scatter the light 
@@ -1261,49 +1174,15 @@ spaces provided by the camera (RGB, HSV, CIEL*a*b*) plus reflection intensity
 observed by LiDAR. After verifying the 3D geometry of detected signs, a linear
 SVM classifier is applied to HOG features.
 \cite{guan2018robust} method detects traffic signs in LiDAR point clouds
-using prior knowledge of road width, pole height, and traffic sign reflectance, 
+using prior knowledge of road width, pole height, and traffic sign reflectivity, 
 geometry and size. Traffic sign images are normalized to perform classification 
 based on a supervised Gaussian–Bernoulli deep Boltzmann machine model.
-
-
-%Como el resto no tiene un summary lo quito
-
-%\subsubsection{Summary of sensors and their use for TSDR}
-%\begin{itemize}%[leftmargin=20mm,labelsep=5.8mm]
-%\item \textbf{LiDAR:} Filtering for intensity (traffic signal has high Reflectance), 3D position and shape. Clustering for sign candidates
-%\item \textbf{Camera}
-%\subitem \textbf{Monocular B/W:} Feature extraction.
-%\subitem \textbf{Monocular Color:} Color information. Classification with 
-%different methods: SVM, CNN, ..., or both, detection and classification.
-%\subitem \textbf{Multiple cameras:} Mapping signals in roads, 3d position.
-%\subitem \textbf{Multiple focal:} Short focal for detection and long focal for 
-%higher quality sign image.
-%\item \textbf{Fusion LiDAR and Camera:} Using LiDAR intensity and 3d position 
-%and shape information for detecting, and camera color and shape information for 
-%recognizing
-%\end{itemize}
 
 \subsection{Perception of the environment}
 The purpose of this competence is to characterize and describe the road, which
 represents the most direct piece of environment of a vehicle. This 
 involves two different aspects: characterize road surface geometry and detect road marks (lanes
 and complements traffic signs as stops, turns or stopping lines).
-
-%) and the lane marks that delimit 
-%those lanes. This information can be used in real-time, or can be combined with
-%a GNSS-based high accuracy localization device to generate a detailed road map
-%that can be used by other vehicles.
-%The second task is related to the localization of the vehicle in the road. It 
-%can be either on map generated by the first map, or in unknown roads. 
-
-%Reliability is a critical factor for this competence, since missing a mark and
-%false detections can cause an Automated Vehicle to change lanes inadvertently 
-%or even go out of the road. Guaranteeing the quality of mark detection is a 
-%challenging task not only due to varying lane marks (heterogenous widths, 
-%faded marks), but also due to weather and environmental conditions: 
-%Different light intensity (sunny day, night, shadows), different 
-%visibility conditions (fog, snow, rain) and different reflectivity of the road
-%(wet or dry asphalt). 
 
 Road marks, as traffic signs, are designed to be detected and 
 correctly interpreted by human drivers under a wide variety of external 
@@ -1313,9 +1192,6 @@ Road geometry description has been approached using cameras, LiDARs and radars.
 
 In the following lines, the most relevant works about this topic are presented, 
 organized by the type of sensor they use.
-
-%Semantic representation of the lanes
-%Using the reflectivity information recorded by lidars enable the our system to detect lane markers in the presence of shadows, against direct sunlight and even at night
 
 \subsubsection{Camera based solutions}
 can be grouped in three categories depending on the specific sensor 
@@ -1350,21 +1226,14 @@ In recent works, LiDAR based solutions also take advantage of the higher
 reflectivity of road marks with respect to the pavement (gray and black 
 material) to detect lane \cite{yang2012automated, li2013new} and
 pavement markers \cite{Zhang2016}.
-Poor road maintenance can affect markers reflectivity to the point of making 
+Poor road maintenance can affect marker reflectivity to the point of making 
 them undetectable by LiDAR. This can be solved by fusing LiDAR 
 data with cameras able to perceive non reflective lane marks \cite{lee2017avm}.
 Some works use a 2D LiDAR sensor to extract road geometry and road marks 
 \cite{nie2012camera, kim2015lane}.
 
-%In some works LiDARs are used to detect road boundaries and map them into images in order to get training data for segmentation algorithms Used to classify images. \cite{}
 
 \subsubsection{Radar based solutions}
-%The main advantage of Radar sensors is their ability to work in all weather 
-%conditions (darkness, rain, fog, snow, etc). But due to the poor image 
-%contrast 
-%of these types of sensors, the only usefull information for that competence 
-%that can be extracted is the position of the obstacles (in order to know 
-%oclusions of the road) and the road itself. 
 Radars have been used to determine road geometry based on the principle that the
 road acts as a mirror for the sensor, returning a very small amount of the 
 emitted power, while the sides of the roads return a slightly higher 
@@ -1389,7 +1258,7 @@ or collision avoidance systems (reviewed in \cite{mukhtar2015vehicle}).
 
 \subsubsection{Camera based solutions}
 Different configurations have been used for camera based obstacle detection, 
-includinng single monocular camera, multiple cameras, stereo cameras and 
+including single monocular camera, multiple cameras, stereo cameras and 
 infrared cameras.
 
 Cameras can be placed in different locations. The front of the vehicle is 
@@ -1434,22 +1303,14 @@ and reporting targets that are close to each other as a single larger object.
 A common solution consists on fusing radar detections with other sensors as 
 cameras \cite{garcia2012data} or LiDARs \cite{gohring2011radar}.
 
-%\textbf{Microphone based solutions:}
-%Microphones sensors can be used to detect aproaching vehicles from the rear 
-%side, an array of multiple microphones placed in the surroundings of the 
-%vehicle can estimate even the direction of these aproaching vehicles 
-%\cite{mizumachi2014robust}.
-
 \subsubsection{Multiple sensors fusion solutions}
 This competence requires estimating a large number of variables simultaneously,
 creating difficulties for any single sensor solution. This is a good scenario
 for sensor fusion systems, that can combine the strengths of each sensor to
 improve the solution. 
-%Almost every possible combination have been tested. 
 
-%The most common combinations are described in the following lines.
 Radar and LiDAR fusion \cite{gohring2011radar} increases the precision of 
-the speed obtained only with LiDAR and keeps a good position and speed 
+the speed obtained only with LiDAR, and keeps a good position and speed 
 estimation quality when radar is unavailable (especially in curvy roads).
 Radar and vision fusion techniques use radar information to locate areas of 
 interest on the images, which are then processed to detect vehicles and improve 
@@ -1541,39 +1402,6 @@ team ended in first position with its vehicle Boss
 \cite{TartanRacing2005, Urmson2007}, 
 featuring a perception system composed by two video cameras, 5 radars and 13
 LiDAR (including a roof mounted unit of the novel Velodyne 64HDL).
-%A cluster of 10 server blades processed a complex behavioral model
-%\cite{Urmson2007} for covering all the expected situations.
-
-
-%In 2004, DARPA started its series of Grand Challenges to foster the development
-%of robotics technology. 
-%The first edition ended without a declared winner, since no contestant manage 
-%to
-%cover even a 10\% of the 240km route including dirt roads and off-road 
-%sections.
-%In 2005 edition, five of the 23 contestants finished the 212 km race. 
-%The winner was Stanford University racing team. Its vehicle Stanley carried 5 
-%LiDAR units 
-%%used to create a 3D map of the environment with special attention to road 
-%%geometry 
-%, a frontal camera, GPS sensors, an IMU, wheel odometry and two 
-%automotive radars \cite{Thrun2006}. These sensors were the input of a 
-%complex processing pipeline distributed over 6 computers, that involved
-%perception and estimation techniques, artificial intelligence, 3D mapping, 
-%risk assessment and path planning.
-%%, requiring 6 computers to do the processing. 
-%
-%For the next DARPA Challenge (Urban Challenge, 2007), participants had to
-%complete a 96 km course in urban area, sharing the road 
-%with other participants and cars driven by professional drivers. Robots were 
-%required to obey traffic regulations, avoid obstacles and negotiate 
-%intersections properly. Carnegie Mellon University team won the contest with 
-%its vehicle Boss \cite{TartanRacing2005}, featuring a complex perception
-%system composed by two video cameras, 5 
-%radars and 13 LiDAR (including a roof mounted unit of the novel Velodyne 
-%64HDL).
-%A cluster of 10 server blades processed a complex behavioral model
-%\cite{Urmson2007} for covering all the expected situations.
 
 These events triggered the attention of Google. 
 The company hired around 15 scientists from the DARPA challenge, 
@@ -1620,11 +1448,9 @@ Car manufacturers reacted a bit slower.
 Some of them started independent research lines, for example
 BMW has been testing automation prototypes in roads since 2011 
 \cite{Aeberhard2015a} and Mercedes-Benz Bertha project \cite{Ziegler2014}
-drove in 2013 a 103 km route in automated
-mode using close-to-market sensors (8 radars and 3 video cameras)
-, but in the end most manufacturers have created coalitions with technological
-startups as enumerated in section \ref{sec:oem-ad}.
-
+drove in 2013 a 103 km route in automated mode using close-to-market sensors
+(8 radars and 3 video cameras), but in the end most manufacturers have created 
+coalitions with technological startups as enumerated in section \ref{sec:oem-ad}.
 
 Mobileye started working in a vision-only approach to Automated Driving a few years ago. 
 After testing in real conditions \cite{Edelstein2018}, they presented a demo 
@@ -1672,7 +1498,6 @@ This reminds the features of OPA solid state LiDARs (see section
 \ref{sec:03-lidar-emerging}): random sampling across the 
 scanning area and adaptive resolution.
 
-%\newpage
 
 \section{Discussion}
 \label{sec:06-discussion}
@@ -1699,7 +1524,6 @@ for the usual driving tasks (covered in section
 But for a commercial system expected to work in the real world there are still
 some specific challenges that do not have a proper solution yet.
 
-%\begin{itemize}
 \textbf{Very short distance}, including close to or below the car.
 A person, animal or object right below the vehicle or intersecting 
 the path of the wheels represents a safety issue. While most situations
